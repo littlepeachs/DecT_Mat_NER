@@ -1,0 +1,9 @@
+Downloading vocab.json: 0.00B [00:00, ?B/s]Downloading vocab.json: 441kB [00:00, 4.38MB/s]Downloading vocab.json: 878kB [00:00, 6.71MB/s]
+Downloading merges.txt: 0.00B [00:00, ?B/s]Downloading merges.txt: 268kB [00:00, 2.75MB/s]Downloading merges.txt: 446kB [00:00, 3.85MB/s]
+tokenizing: 0it [00:00, ?it/s]tokenizing: 32it [00:00, 833.73it/s]
+tokenizing: 0it [00:00, ?it/s]tokenizing: 32it [00:00, 1242.58it/s]
+tokenizing: 0it [00:00, ?it/s]tokenizing: 94it [00:00, 938.45it/s]tokenizing: 192it [00:00, 962.41it/s]tokenizing: 295it [00:00, 989.58it/s]tokenizing: 398it [00:00, 1003.86it/s]tokenizing: 499it [00:00, 936.67it/s] tokenizing: 596it [00:00, 946.37it/s]tokenizing: 698it [00:00, 965.91it/s]tokenizing: 798it [00:00, 976.33it/s]tokenizing: 872it [00:00, 959.06it/s]
+tokenizing: 0it [00:00, ?it/s]tokenizing: 1it [00:00, 909.63it/s]
+Total epoch: 30. DecT loss: 2.270510673522949
+Training time: 5.148927211761475
+Dataset: sst2 | Shot: 16 | Acc: 90.14

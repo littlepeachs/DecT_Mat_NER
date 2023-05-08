@@ -1,0 +1,274 @@
+an O
+effective O
+hubbard B-PRO
+U I-PRO
+of O
+<nUm> O
+eV O
+was O
+adopted O
+to O
+correctly O
+determine O
+the O
+band B-PRO
+gap I-PRO
+of O
+pure O
+anatase B-SPL
+O2Ti B-MAT
+. O
+
+
+moreover O
+, O
+despite O
+of O
+rolling B-SMT
+the O
+sample O
+at O
+a O
+relative O
+small O
+strain O
+level O
+, O
+obvious O
+grain O
+growth O
+takes O
+place O
+overall O
+deformation O
+process O
+. O
+
+
+electronic B-PRO
+and O
+magnetic B-PRO
+properties I-PRO
+of O
+Ba2Fe3O8Y B-MAT
+from O
+a O
+first B-CMT
+- I-CMT
+principles I-CMT
+study I-CMT
+
+
+both O
+the O
+gate B-APL
+and O
+the O
+silicon B-MAT
+inject O
+carriers O
+into O
+the O
+nitride B-MAT
+giving O
+hysteresis B-CMT
+curves I-CMT
+which O
+change O
+in O
+sense O
+as O
+the O
+bias O
+sweep O
+- O
+frequency O
+is O
+reduced O
+. O
+
+
+phases O
+were O
+crystallized O
+using O
+heat B-SMT
+- I-SMT
+treatment I-SMT
+at O
+<nUm> O
+° O
+C O
+/ O
+2.5h O
+and O
+were O
+identified O
+using O
+XRD B-CMT
+. O
+
+
+when O
+the O
+chemisorbed O
+state O
+is O
+saturated O
+, O
+an O
+NO2 O
+multilayer B-DSC
+can O
+be O
+formed O
+at O
+<nUm> O
+K O
+with O
+greater O
+NO2 O
+exposures O
+. O
+
+
+regarding O
+corrosion O
+by O
+salt B-CMT
+spray I-CMT
+test I-CMT
+, O
+both O
+coatings B-APL
+were O
+completely O
+corroded O
+after O
+<nUm> O
+h O
+exposure O
+. O
+
+
+an O
+anneal B-SMT
+time O
+of O
+<nUm> O
+s O
+and O
+temperatures O
+ranging O
+from O
+<nUm> O
+to O
+<nUm> O
+° O
+C O
+were O
+used O
+. O
+
+
+the O
+hollow B-DSC
+microspheres I-DSC
+consisted O
+of O
+rutile B-SPL
+mesocrystal B-DSC
+nanorods I-DSC
+with O
+an O
+average O
+diameter O
+of O
+<nUm> O
+nm O
+and O
+length O
+of O
+<nUm> O
+nm O
+. O
+
+
+while O
+years O
+of O
+progress O
+in O
+ORR B-APL
+catalyst I-APL
+research O
+has O
+yielded O
+some O
+very O
+attractive O
+material O
+designs O
+, O
+further O
+advances O
+are O
+still O
+required O
+. O
+
+
+In O
+the O
+pseudo O
+graded O
+TBCs B-APL
+, O
+no O
+interface B-DSC
+between O
+bond O
+- O
+coat O
+, O
+graded O
+region O
+and O
+top O
+- O
+coat O
+was O
+observed O
+. O
+
+
+the O
+increase O
+in O
+the O
+level O
+of O
+impurities O
+associated O
+with O
+the O
+milling B-SMT
+procedure O
+was O
+measured O
+. O
+
+
+the O
+calculation O
+is O
+carried O
+out O
+in O
+rutile B-SPL
+and O
+cotunnite B-SPL
+phases O
+. O
+
+

@@ -1,0 +1,7 @@
+tokenizing: 0it [00:00, ?it/s]tokenizing: 32it [00:00, 904.04it/s]
+tokenizing: 0it [00:00, ?it/s]tokenizing: 32it [00:00, 1336.55it/s]
+tokenizing: 0it [00:00, ?it/s]tokenizing: 101it [00:00, 1006.31it/s]tokenizing: 206it [00:00, 1028.26it/s]tokenizing: 315it [00:00, 1055.81it/s]tokenizing: 422it [00:00, 1057.33it/s]tokenizing: 529it [00:00, 1061.60it/s]tokenizing: 636it [00:00, 1057.81it/s]tokenizing: 746it [00:00, 1070.26it/s]tokenizing: 854it [00:00, 1058.70it/s]tokenizing: 872it [00:00, 1055.34it/s]
+tokenizing: 0it [00:00, ?it/s]tokenizing: 1it [00:00, 1526.31it/s]
+Total epoch: 30. DecT loss: 2.2941856384277344
+Training time: 2.9251294136047363
+Dataset: sst2 | Shot: 16 | Acc: 88.88

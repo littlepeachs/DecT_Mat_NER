@@ -1,0 +1,130 @@
+the O
+SSM B-CMT
+used O
+here O
+has O
+a O
+pick-up O
+coil O
+of O
+<nUm> O
+mm O
+diameter O
+and O
+the O
+magnetic B-PRO
+flux I-PRO
+sensitivity I-PRO
+is O
+less O
+than O
+<nUm> O
+mPh0 O
+hz-1 O
+/ O
+<nUm> O
+. O
+
+
+this O
+energy O
+plays O
+a O
+crucial O
+role O
+on O
+the O
+minimization O
+of O
+the O
+required O
+energy O
+to O
+induce O
+heterogeneous O
+nucleation O
+and O
+crystal B-DSC
+growth O
+. O
+
+
+real O
+time O
+images O
+were O
+obtained O
+during O
+the O
+immersion O
+of O
+<nUm> B-MAT
+carbon I-MAT
+steel I-MAT
+probes O
+in O
+<nUm> O
+m O
+BH3O3 O
+and O
+<nUm> O
+m O
+HNaO O
+, O
+pH O
+<nUm> O
+. O
+
+
+O O
+; O
+orthorhombic B-SPL
+, O
+x O
+; O
+unknown O
+) O
+with O
+increasing O
+x O
+. O
+
+
+A O
+set O
+of O
+four O
+samples O
+sintered B-SMT
+under O
+different O
+conditions O
+was O
+investigated O
+. O
+
+
+the O
+size O
+of O
+the O
+bridge B-APL
+made O
+by O
+this O
+process O
+is O
+<nUm> O
+× O
+<nUm> O
+mm2 O
+and O
+the O
+thickness O
+is O
+about O
+<nUm> O
+mm O
+. O
+
+

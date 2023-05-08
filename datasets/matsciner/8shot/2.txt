@@ -1,0 +1,469 @@
+moreover O
+, O
+the O
+resistivity B-PRO
+of O
+thin B-DSC
+film I-DSC
+decreases O
+with O
+an O
+increase O
+in O
+the O
+( O
+<nUm> O
+) O
+diffraction O
+intensity O
+. O
+
+
+phase B-CMT
+field I-CMT
+simulations I-CMT
+of O
+ferroelectrics B-PRO
+domain I-PRO
+structures I-PRO
+in O
+PbZr B-MAT
+x I-MAT
+ti1- I-MAT
+x I-MAT
+O3 I-MAT
+bilayers B-DSC
+
+
+surface B-SMT
+oxidation I-SMT
+was O
+shown O
+to O
+preferentially O
+occur O
+on O
+the O
+b-phase O
+. O
+
+
+the O
+linear O
+optical B-PRO
+birefringence I-PRO
+of O
+Cl3CsMn B-MAT
+· I-MAT
+2H2O I-MAT
+shows O
+a O
+magnetic B-PRO
+contribution I-PRO
+due O
+to O
+one B-PRO
+- I-PRO
+dimensional I-PRO
+short I-PRO
+- I-PRO
+range I-PRO
+order I-PRO
+. O
+
+
+evolution O
+of O
+the O
+cold B-SMT
+- I-SMT
+rolling I-SMT
+and O
+recrystallization B-PRO
+textures I-PRO
+in O
+AlBCoFeNbNi B-MAT
+shape B-APL
+memory I-APL
+alloy I-APL
+
+
+the O
+tribological B-PRO
+behavior I-PRO
+of O
+nanocomposites B-DSC
+was O
+investigated O
+by O
+a O
+nanoscratch B-CMT
+test I-CMT
+in O
+conjunction O
+with O
+atomic B-CMT
+force I-CMT
+microscopy I-CMT
+( O
+AFM B-CMT
+) O
+; O
+less O
+pile O
+ups O
+and O
+high O
+wear B-PRO
+resistance I-PRO
+were O
+observed O
+in O
+the O
+nanocomposites B-DSC
+. O
+
+
+nitrogen O
+- O
+doped B-DSC
+OZn B-MAT
+prepared O
+by O
+capillaritron B-SMT
+reactive I-SMT
+ion I-SMT
+beam I-SMT
+sputtering I-SMT
+deposition I-SMT
+
+
+No O
+new O
+ESR B-CMT
+was O
+observed O
+in O
+O O
+codoped B-DSC
+InP B-MAT
+: I-MAT
+Er I-MAT
+in O
+contrast O
+to O
+the O
+results O
+of O
+O O
+codoped B-DSC
+AsGa B-MAT
+: I-MAT
+Er I-MAT
+. O
+
+
+synthesis O
+of O
+OZn B-MAT
+nanoparticles B-DSC
+using O
+surfactant B-CMT
+free I-CMT
+in-air I-CMT
+and I-CMT
+microwave I-CMT
+method I-CMT
+
+
+In O
+addition O
+, O
+precise O
+zeolitic O
+phases O
+were O
+identified O
+using O
+the O
+TOPAS B-CMT
+program I-CMT
+based O
+on O
+rietveld B-CMT
+refinement I-CMT
+. O
+
+
+effects O
+of O
+solvent O
+and O
+chelating O
+agent O
+on O
+synthesis O
+of O
+solid B-APL
+oxide I-APL
+fuel I-APL
+cell I-APL
+perovskite B-SPL
+, O
+La0.8Sr0.2CrO3-d B-MAT
+
+
+bending O
+displacement O
+of O
+the O
+bridge B-APL
+under O
+various O
+loads O
+between O
+<nUm> O
+mgf O
+and O
+<nUm> O
+mgf O
+is O
+studied O
+. O
+
+
+direct O
+combination O
+of O
+plasma B-SMT
+nitriding I-SMT
+and O
+PVD B-SMT
+hardcoating I-SMT
+by O
+a O
+continuous O
+process O
+
+
+low O
+cost O
+and O
+ease O
+of O
+fabrication O
+are O
+important O
+factors O
+for O
+solar B-APL
+- I-APL
+thermal I-APL
+applications I-APL
+in O
+energy B-APL
+- I-APL
+efficient I-APL
+buildings I-APL
+. O
+
+
+these O
+may O
+be O
+important O
+for O
+CO B-APL
+oxidation I-APL
+but O
+the O
+fact O
+that O
+water O
+has O
+to O
+be O
+activated O
+in O
+the O
+water B-APL
+gas I-APL
+shift I-APL
+reaction I-APL
+may O
+point O
+towards O
+a O
+more O
+dominant O
+role O
+for O
+the O
+interfacial O
+sites O
+. O
+
+
+one O
+ring O
+of O
+the O
+fine O
+striations O
+corresponds O
+to O
+each O
+thermal B-SMT
+cycle I-SMT
+. O
+
+
+the O
+calculation O
+is O
+carried O
+out O
+in O
+rutile B-SPL
+and O
+cotunnite B-SPL
+phases O
+. O
+
+
+A O
+set O
+of O
+four O
+samples O
+sintered B-SMT
+under O
+different O
+conditions O
+was O
+investigated O
+. O
+
+
+therefore O
+, O
+the O
+aspect O
+of O
+surface B-SMT
+treatment I-SMT
+is O
+addressed O
+in O
+brief O
+. O
+
+
+the O
+results O
+indicate O
+an O
+exceptional O
+resistance O
+of O
+the O
+coating B-APL
+to O
+both O
+general O
+and O
+localized O
+corrosion O
+attack O
+. O
+
+
+size O
+effect O
+may O
+, O
+however O
+, O
+play O
+a O
+role O
+in O
+stabilizing O
+the O
+tetragonal B-SPL
+phase O
+. O
+
+
+transformation O
+from O
+the O
+initial O
+hexagonal B-SPL
+structure O
+to O
+an O
+orthorhombic B-SPL
+one O
+was O
+observed O
+. O
+
+
+A O
+study O
+of O
+oxygen O
+vacancies O
+in O
+the O
+hexagonal B-SPL
+phase O
+has O
+been O
+performed O
+and O
+the O
+results O
+suggest O
+an O
+O(1) O
+type O
+( O
+face O
+sharing O
+) O
+vacancy O
+is O
+more O
+stable O
+than O
+an O
+O(2) O
+type O
+( O
+corner O
+sharing O
+) O
+vacancy O
+in O
+the O
+octahedral O
+structure O
+. O
+
+
+O O
+; O
+orthorhombic B-SPL
+, O
+x O
+; O
+unknown O
+) O
+with O
+increasing O
+x O
+. O
+
+

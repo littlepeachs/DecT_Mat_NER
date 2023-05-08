@@ -1,0 +1,263 @@
+moreover O
+, O
+the O
+resistivity B-PRO
+of O
+thin B-DSC
+film I-DSC
+decreases O
+with O
+an O
+increase O
+in O
+the O
+( O
+<nUm> O
+) O
+diffraction O
+intensity O
+. O
+
+
+phase B-CMT
+field I-CMT
+simulations I-CMT
+of O
+ferroelectrics B-PRO
+domain I-PRO
+structures I-PRO
+in O
+PbZr B-MAT
+x I-MAT
+ti1- I-MAT
+x I-MAT
+O3 I-MAT
+bilayers B-DSC
+
+
+surface B-SMT
+oxidation I-SMT
+was O
+shown O
+to O
+preferentially O
+occur O
+on O
+the O
+b-phase O
+. O
+
+
+evolution O
+of O
+the O
+cold B-SMT
+- I-SMT
+rolling I-SMT
+and O
+recrystallization B-PRO
+textures I-PRO
+in O
+AlBCoFeNbNi B-MAT
+shape B-APL
+memory I-APL
+alloy I-APL
+
+
+nitrogen O
+- O
+doped B-DSC
+OZn B-MAT
+prepared O
+by O
+capillaritron B-SMT
+reactive I-SMT
+ion I-SMT
+beam I-SMT
+sputtering I-SMT
+deposition I-SMT
+
+
+from O
+absorption B-CMT
+spectra O
+obtained O
+at O
+normal O
+incidence O
+and O
+at O
+oblique O
+incidence O
+it O
+is O
+shown O
+that O
+ZrO2-Y2O3 B-MAT
+crystals B-DSC
+have O
+well O
+- O
+defined O
+TO O
+and O
+LO B-PRO
+infrared I-PRO
+active I-PRO
+phonons I-PRO
+, O
+though O
+they O
+have O
+many O
+defects O
+. O
+
+
+In O
+addition O
+, O
+precise O
+zeolitic O
+phases O
+were O
+identified O
+using O
+the O
+TOPAS B-CMT
+program I-CMT
+based O
+on O
+rietveld B-CMT
+refinement I-CMT
+. O
+
+
+bending O
+displacement O
+of O
+the O
+bridge B-APL
+under O
+various O
+loads O
+between O
+<nUm> O
+mgf O
+and O
+<nUm> O
+mgf O
+is O
+studied O
+. O
+
+
+low O
+cost O
+and O
+ease O
+of O
+fabrication O
+are O
+important O
+factors O
+for O
+solar B-APL
+- I-APL
+thermal I-APL
+applications I-APL
+in O
+energy B-APL
+- I-APL
+efficient I-APL
+buildings I-APL
+. O
+
+
+one O
+ring O
+of O
+the O
+fine O
+striations O
+corresponds O
+to O
+each O
+thermal B-SMT
+cycle I-SMT
+. O
+
+
+the O
+calculation O
+is O
+carried O
+out O
+in O
+rutile B-SPL
+and O
+cotunnite B-SPL
+phases O
+. O
+
+
+size O
+effect O
+may O
+, O
+however O
+, O
+play O
+a O
+role O
+in O
+stabilizing O
+the O
+tetragonal B-SPL
+phase O
+. O
+
+
+A O
+study O
+of O
+oxygen O
+vacancies O
+in O
+the O
+hexagonal B-SPL
+phase O
+has O
+been O
+performed O
+and O
+the O
+results O
+suggest O
+an O
+O(1) O
+type O
+( O
+face O
+sharing O
+) O
+vacancy O
+is O
+more O
+stable O
+than O
+an O
+O(2) O
+type O
+( O
+corner O
+sharing O
+) O
+vacancy O
+in O
+the O
+octahedral O
+structure O
+. O
+
+
