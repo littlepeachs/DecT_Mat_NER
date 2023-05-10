@@ -1,0 +1,77 @@
+Some weights of the model checkpoint at m3rg-iitd/matscibert were not used when initializing BertForTokenClassification: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.predictions.decoder.bias', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertForTokenClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForTokenClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForTokenClassification were not initialized from the model checkpoint at m3rg-iitd/matscibert and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+using device: cuda
+12 511 546
+['I-APL', 'I-CMT', 'I-DSC', 'I-MAT', 'I-PRO', 'I-SMT', 'I-SPL', 'O']
+training_time:0.15090632438659668
+loss:2.24200701713562
+training_time:0.0712120532989502
+loss:0.9096333980560303
+training_time:0.06007790565490723
+loss:0.6424378752708435
+{'APL': 0.0, 'CMT': 0.0, 'DSC': 0.0, 'MAT': 0.0, 'PRO': 0.5457025920873123, 'SMT': 0.0, 'SPL': 0.0, 'macro_f1': 0.0007795751315533032, 'micro_f1': 0.0017293558149589277}
+training_time:0.07922673225402832
+loss:0.42416369915008545
+{'APL': 1.2048192771084336, 'CMT': 4.0, 'DSC': 0.0, 'MAT': 1.2799999999999998, 'PRO': 5.853658536585366, 'SMT': 0.0, 'SPL': 24.096385542168672, 'macro_f1': 0.05204980479408925, 'micro_f1': 0.03515944399018806}
+training_time:0.07952094078063965
+loss:0.2441897988319397
+{'APL': 7.407407407407408, 'CMT': 21.05263157894737, 'DSC': 1.4354066985645932, 'MAT': 7.361963190184049, 'PRO': 9.943502824858756, 'SMT': 0.0, 'SPL': 35.29411764705882, 'macro_f1': 0.1178500419243157, 'micro_f1': 0.09125475285171102}
+training_time:0.08300995826721191
+loss:0.13338783383369446
+{'APL': 5.617977528089888, 'CMT': 22.51082251082251, 'DSC': 2.843601895734597, 'MAT': 11.077844311377245, 'PRO': 5.786163522012579, 'SMT': 0.0, 'SPL': 36.95652173913044, 'macro_f1': 0.12113275929595321, 'micro_f1': 0.08979913351713274}
+training_time:0.07513117790222168
+loss:0.05573153868317604
+{'APL': 7.734806629834254, 'CMT': 28.57142857142857, 'DSC': 6.132075471698113, 'MAT': 16.45021645021645, 'PRO': 5.5908513341804325, 'SMT': 0.0, 'SPL': 32.967032967032964, 'macro_f1': 0.1392091591777011, 'micro_f1': 0.11623401782254938}
+training_time:0.06099677085876465
+loss:0.03145281970500946
+{'APL': 16.80672268907563, 'CMT': 41.833810888252145, 'DSC': 18.93491124260355, 'MAT': 40.543601359003404, 'PRO': 12.072892938496583, 'SMT': 11.244979919678714, 'SPL': 46.95652173913043, 'macro_f1': 0.26913348682320065, 'micro_f1': 0.2572227399813607}
+training_time:0.06372332572937012
+loss:0.05119567736983299
+{'APL': 22.822822822822822, 'CMT': 47.48201438848921, 'DSC': 30.693069306930692, 'MAT': 52.44019138755981, 'PRO': 19.401444788441694, 'SMT': 19.023136246786635, 'SPL': 57.74647887323944, 'macro_f1': 0.3565845111632433, 'micro_f1': 0.346577800563958}
+training_time:0.07729411125183105
+loss:0.019785935059189796
+{'APL': 22.22222222222222, 'CMT': 47.29064039408867, 'DSC': 31.54670750382848, 'MAT': 54.73098330241187, 'PRO': 16.40042598509052, 'SMT': 19.951338199513383, 'SPL': 58.904109589041084, 'macro_f1': 0.3586377531374232, 'micro_f1': 0.3495440729483283}
+training_time:0.07564091682434082
+loss:0.007946539670228958
+training_time:0.05279374122619629
+loss:0.005043215584009886
+training_time:0.06900310516357422
+loss:0.0031062623020261526
+training_time:0.05825090408325195
+loss:0.0022638558875769377
+training_time:0.06429481506347656
+loss:0.002313795033842325
+training_time:0.06015944480895996
+loss:0.0016486237291246653
+training_time:0.06089448928833008
+loss:0.0015208023833110929
+training_time:0.05899786949157715
+loss:0.0010776035487651825
+training_time:0.05888962745666504
+loss:0.006352418102324009
+training_time:0.05883455276489258
+loss:0.0010833529522642493
+training_time:0.07395482063293457
+loss:0.0009983148192986846
+training_time:0.05977964401245117
+loss:0.0009163484210148454
+training_time:0.054869890213012695
+loss:0.0014327141689136624
+training_time:0.05361318588256836
+loss:0.0008937066304497421
+training_time:0.05988812446594238
+loss:0.0007803730550222099
+training_time:0.05864524841308594
+loss:0.0007229481125250459
+training_time:0.058023691177368164
+loss:0.00078714539995417
+training_time:0.0582273006439209
+loss:0.0010140999220311642
+training_time:0.06016826629638672
+loss:0.0018698431085795164
+training_time:0.057474613189697266
+loss:0.0007339025032706559
+{'APL': 23.460410557184748, 'CMT': 47.40406320541761, 'DSC': 32.67045454545455, 'MAT': 54.498714652956295, 'PRO': 17.13709677419355, 'SMT': 20.38216560509554, 'SPL': 59.354838709677416, 'macro_f1': 0.3641539200713995, 'micro_f1': 0.35431780950152114}

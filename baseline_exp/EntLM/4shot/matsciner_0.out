@@ -1,0 +1,172 @@
+05/10/2023 09:05:22 - INFO - __main__ - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+05/10/2023 09:05:23 - WARNING - datasets.builder - Found cached dataset json (/home/liwentao/.cache/huggingface/datasets/json/default-fb581e99de8caec0/0.0.0/0f7e3662623656454fcd2b650f34e886a7db4b9104504885bd462096cc7a9f51)
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 421.26it/s]
+loading configuration file config.json from cache at /home/liwentao/.cache/huggingface/hub/models--m3rg-iitd--matscibert/snapshots/24a4e4318dda9bc18bff5e6a45debdcb3e1780e3/config.json
+Model config BertConfig {
+  "_name_or_path": "m3rg-iitd/matscibert",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.27.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 31090
+}
+
+loading configuration file config.json from cache at /home/liwentao/.cache/huggingface/hub/models--m3rg-iitd--matscibert/snapshots/24a4e4318dda9bc18bff5e6a45debdcb3e1780e3/config.json
+Model config BertConfig {
+  "_name_or_path": "m3rg-iitd/matscibert",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.27.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 31090
+}
+
+loading file vocab.txt from cache at /home/liwentao/.cache/huggingface/hub/models--m3rg-iitd--matscibert/snapshots/24a4e4318dda9bc18bff5e6a45debdcb3e1780e3/vocab.txt
+loading file tokenizer.json from cache at /home/liwentao/.cache/huggingface/hub/models--m3rg-iitd--matscibert/snapshots/24a4e4318dda9bc18bff5e6a45debdcb3e1780e3/tokenizer.json
+loading file added_tokens.json from cache at None
+loading file special_tokens_map.json from cache at /home/liwentao/.cache/huggingface/hub/models--m3rg-iitd--matscibert/snapshots/24a4e4318dda9bc18bff5e6a45debdcb3e1780e3/special_tokens_map.json
+loading file tokenizer_config.json from cache at /home/liwentao/.cache/huggingface/hub/models--m3rg-iitd--matscibert/snapshots/24a4e4318dda9bc18bff5e6a45debdcb3e1780e3/tokenizer_config.json
+loading configuration file config.json from cache at /home/liwentao/.cache/huggingface/hub/models--m3rg-iitd--matscibert/snapshots/24a4e4318dda9bc18bff5e6a45debdcb3e1780e3/config.json
+Model config BertConfig {
+  "_name_or_path": "m3rg-iitd/matscibert",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.27.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 31090
+}
+
+loading weights file pytorch_model.bin from cache at /home/liwentao/.cache/huggingface/hub/models--m3rg-iitd--matscibert/snapshots/24a4e4318dda9bc18bff5e6a45debdcb3e1780e3/pytorch_model.bin
+Generate config GenerationConfig {
+  "_from_model_config": true,
+  "pad_token_id": 0,
+  "transformers_version": "4.27.1"
+}
+
+All model checkpoint weights were used when initializing BertForMaskedLM.
+
+All the weights of BertForMaskedLM were initialized from the model checkpoint at m3rg-iitd/matscibert.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use BertForMaskedLM for predictions without further training.
+Generation config file not found, using a generation config created from the model config.
+05/10/2023 09:05:27 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /home/liwentao/.cache/huggingface/datasets/json/default-fb581e99de8caec0/0.0.0/0f7e3662623656454fcd2b650f34e886a7db4b9104504885bd462096cc7a9f51/cache-6339bf902a687512.arrow
+Loading label map from scripts/matsciner/final_verbalizer.json...
+{'I-CMT': ['electron', 'diffraction', 'microscopy', 'spectroscopy', 'scanning', 'raman', 'transmission', 'test', 'neutron'], 'I-MAT': ['oxide', 'silicon', 'carbon', 'graphene', 'aluminum', 'titanium', 'steel', 'oxides'], 'I-DSC': ['films', 'doped', 'thin', 'film', 'alloy', 'substrate', 'layer', 'single', 'alloys'], 'I-PRO': ['properties', 'structure', 'magnetic', 'band', 'conductivity', 'resistance', 'density', 'behavior', 'electrical'], 'I-SMT': ['annealing', 'gel', 'plasma', 'hydrothermal', 'annealed', 'sol', 'treatment', 'irradiation', 'vapor'], 'I-APL': ['coatings', 'coating', 'solar', 'cells', 'electrode', 'applications', 'electrodes', 'catalysts', 'cathode'], 'I-SPL': ['cubic', 'hexagonal', 'rock', 'ch']}
+{'O': 0, 'I-CMT': 1, 'I-MAT': 2, 'I-DSC': 3, 'I-PRO': 4, 'I-SMT': 5, 'I-APL': 6, 'I-SPL': 7, 'B-CMT': 8, 'B-MAT': 9, 'B-DSC': 10, 'B-PRO': 11, 'B-SMT': 12, 'B-APL': 13, 'B-SPL': 14}
+I-CMT
+[3081, 10314, 5820, 7779, 7070, 12009, 2856, 856, 14049]
+I-MAT
+[6678, 8605, 3473, 11106, 15028, 19090, 10735, 20464]
+I-DSC
+[7423, 21155, 5197, 5796, 15937, 4061, 2474, 1232, 20683]
+I-PRO
+[1784, 1187, 3510, 2102, 9370, 2661, 2027, 1689, 4874]
+I-SMT
+[12040, 4051, 2780, 29973, 27202, 638, 922, 8896, 12766]
+I-APL
+[20189, 9754, 6911, 576, 6665, 2040, 8438, 15834, 19112]
+I-SPL
+[13879, 22235, 8863, 249]
+{'I-CMT': ['electron', 'diffraction', 'microscopy', 'spectroscopy', 'scanning', 'raman', 'transmission', 'test', 'neutron'], 'I-MAT': ['oxide', 'silicon', 'carbon', 'graphene', 'aluminum', 'titanium', 'steel', 'oxides'], 'I-DSC': ['films', 'doped', 'thin', 'film', 'alloy', 'substrate', 'layer', 'single', 'alloys'], 'I-PRO': ['properties', 'structure', 'magnetic', 'band', 'conductivity', 'resistance', 'density', 'behavior', 'electrical'], 'I-SMT': ['annealing', 'gel', 'plasma', 'hydrothermal', 'annealed', 'sol', 'treatment', 'irradiation', 'vapor'], 'I-APL': ['coatings', 'coating', 'solar', 'cells', 'electrode', 'applications', 'electrodes', 'catalysts', 'cathode'], 'I-SPL': ['cubic', 'hexagonal', 'rock', 'ch']}
+Running tokenizer on dataset:   0%|          | 0/546 [00:00<?, ? examples/s]Running tokenizer on dataset: 100%|██████████| 546/546 [00:00<00:00, 3168.89 examples/s]                                                                                        /home/liwentao/Dec-Tuning-in-Mat/train_transformer.py:547: FutureWarning: load_metric is deprecated and will be removed in the next major version of datasets. Use 'evaluate.load' instead, from the new library 🤗 Evaluate: https://huggingface.co/docs/evaluate
+  metric = load_metric("./seqeval_metric.py")
+05/10/2023 09:05:38 - INFO - __main__ - ***** Running training *****
+05/10/2023 09:05:38 - INFO - __main__ -   Num examples = 14
+05/10/2023 09:05:38 - INFO - __main__ -   Num Epochs = 60
+05/10/2023 09:05:38 - INFO - __main__ -   Instantaneous batch size per device = 4
+05/10/2023 09:05:38 - INFO - __main__ -   Total train batch size (w. parallel, distributed & accumulation) = 4
+05/10/2023 09:05:38 - INFO - __main__ -   Gradient Accumulation steps = 1
+05/10/2023 09:05:38 - INFO - __main__ -   Total optimization steps = 240
+tensor([31090, 31091, 31092, 31093, 31094, 31095, 31096], device='cuda:0')
+  0%|          | 0/240 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/home/liwentao/Dec-Tuning-in-Mat/train_transformer.py", line 988, in <module>
+    main()
+  File "/home/liwentao/Dec-Tuning-in-Mat/train_transformer.py", line 777, in main
+    outputs = model(**batch)
+  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 1358, in forward
+    outputs = self.bert(
+  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 1020, in forward
+    encoder_outputs = self.encoder(
+  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 610, in forward
+    layer_outputs = layer_module(
+  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 537, in forward
+    layer_output = apply_chunking_to_forward(
+  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/transformers/pytorch_utils.py", line 248, in apply_chunking_to_forward
+    return forward_fn(*input_tensors)
+  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 549, in feed_forward_chunk
+    intermediate_output = self.intermediate(attention_output)
+  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 450, in forward
+    hidden_states = self.intermediate_act_fn(hidden_states)
+  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/transformers/activations.py", line 78, in forward
+    return self.act(input)
+RuntimeError: CUDA out of memory. Tried to allocate 20.00 MiB (GPU 0; 23.70 GiB total capacity; 485.39 MiB already allocated; 7.56 MiB free; 496.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+  0%|          | 0/240 [00:00<?, ?it/s]
