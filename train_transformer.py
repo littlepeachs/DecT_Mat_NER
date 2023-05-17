@@ -12,7 +12,7 @@ from tqdm.auto import tqdm
 import random
 from tasks import NER
 from viterbi import ViterbiDecoder
-
+import os
 import transformers
 from accelerate import Accelerator
 from transformers import (
@@ -158,6 +158,7 @@ def parse_args():
     )
     parser.add_argument("--output_dir", type=str, default="models/matsciner-fewshot-test", help="Where to store the final model.")
     parser.add_argument("--seed", type=int, default=123, help="A seed for reproducible training.")
+    parser.add_argument("--device", type=int, default=2, help="device")
     parser.add_argument("--data_file_seed", type=int, default=0, help="A seed for reproducible training.")
     parser.add_argument(
         "--model_type",
@@ -234,7 +235,7 @@ def parse_args():
 
 def main():
     args = parse_args()
-
+    os.environ["CUDA_VISIBLE_DEVICES"] = "{}".format(args.device)
     # Initialize the accelerator. We will let the accelerator handle device placement for us in this example.
     accelerator = Accelerator()
     # Make one log on every process with the configuration for debugging.

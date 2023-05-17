@@ -1,4 +1,4 @@
-05/10/2023 09:06:02 - INFO - __main__ - Distributed environment: NO
+05/11/2023 00:32:15 - INFO - __main__ - Distributed environment: NO
 Num processes: 1
 Process index: 0
 Local process index: 0
@@ -6,8 +6,8 @@ Device: cuda
 
 Mixed precision type: no
 
-05/10/2023 09:06:03 - WARNING - datasets.builder - Found cached dataset json (/home/liwentao/.cache/huggingface/datasets/json/default-a4856243bf4ac2f7/0.0.0/0f7e3662623656454fcd2b650f34e886a7db4b9104504885bd462096cc7a9f51)
-  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 427.82it/s]
+05/11/2023 00:32:16 - WARNING - datasets.builder - Found cached dataset json (/home/liwentao/.cache/huggingface/datasets/json/default-a4856243bf4ac2f7/0.0.0/0f7e3662623656454fcd2b650f34e886a7db4b9104504885bd462096cc7a9f51)
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 655.26it/s]
 loading configuration file config.json from cache at /home/liwentao/.cache/huggingface/hub/models--m3rg-iitd--matscibert/snapshots/24a4e4318dda9bc18bff5e6a45debdcb3e1780e3/config.json
 Model config BertConfig {
   "_name_or_path": "m3rg-iitd/matscibert",
@@ -124,48 +124,30 @@ I-APL
 I-SPL
 [13879, 22235, 8863, 249]
 {'I-CMT': ['electron', 'diffraction', 'microscopy', 'spectroscopy', 'scanning', 'raman', 'transmission', 'test', 'neutron'], 'I-MAT': ['oxide', 'silicon', 'carbon', 'graphene', 'aluminum', 'titanium', 'steel', 'oxides'], 'I-DSC': ['films', 'doped', 'thin', 'film', 'alloy', 'substrate', 'layer', 'single', 'alloys'], 'I-PRO': ['properties', 'structure', 'magnetic', 'band', 'conductivity', 'resistance', 'density', 'behavior', 'electrical'], 'I-SMT': ['annealing', 'gel', 'plasma', 'hydrothermal', 'annealed', 'sol', 'treatment', 'irradiation', 'vapor'], 'I-APL': ['coatings', 'coating', 'solar', 'cells', 'electrode', 'applications', 'electrodes', 'catalysts', 'cathode'], 'I-SPL': ['cubic', 'hexagonal', 'rock', 'ch']}
-Running tokenizer on dataset:   0%|          | 0/14 [00:00<?, ? examples/s]                                                                           Running tokenizer on dataset:   0%|          | 0/546 [00:00<?, ? examples/s]Running tokenizer on dataset: 100%|██████████| 546/546 [00:00<00:00, 5365.34 examples/s]                                                                                        /home/liwentao/Dec-Tuning-in-Mat/train_transformer.py:547: FutureWarning: load_metric is deprecated and will be removed in the next major version of datasets. Use 'evaluate.load' instead, from the new library 🤗 Evaluate: https://huggingface.co/docs/evaluate
+Running tokenizer on dataset:   0%|          | 0/14 [00:00<?, ? examples/s]                                                                           Running tokenizer on dataset:   0%|          | 0/546 [00:00<?, ? examples/s]Running tokenizer on dataset: 100%|██████████| 546/546 [00:00<00:00, 4779.08 examples/s]                                                                                        /home/liwentao/Dec-Tuning-in-Mat/train_transformer.py:548: FutureWarning: load_metric is deprecated and will be removed in the next major version of datasets. Use 'evaluate.load' instead, from the new library 🤗 Evaluate: https://huggingface.co/docs/evaluate
   metric = load_metric("./seqeval_metric.py")
-05/10/2023 09:06:20 - INFO - __main__ - ***** Running training *****
-05/10/2023 09:06:20 - INFO - __main__ -   Num examples = 14
-05/10/2023 09:06:20 - INFO - __main__ -   Num Epochs = 60
-05/10/2023 09:06:20 - INFO - __main__ -   Instantaneous batch size per device = 4
-05/10/2023 09:06:20 - INFO - __main__ -   Total train batch size (w. parallel, distributed & accumulation) = 4
-05/10/2023 09:06:20 - INFO - __main__ -   Gradient Accumulation steps = 1
-05/10/2023 09:06:20 - INFO - __main__ -   Total optimization steps = 240
+05/11/2023 00:32:33 - INFO - __main__ - ***** Running training *****
+05/11/2023 00:32:33 - INFO - __main__ -   Num examples = 14
+05/11/2023 00:32:33 - INFO - __main__ -   Num Epochs = 60
+05/11/2023 00:32:33 - INFO - __main__ -   Instantaneous batch size per device = 4
+05/11/2023 00:32:33 - INFO - __main__ -   Total train batch size (w. parallel, distributed & accumulation) = 4
+05/11/2023 00:32:33 - INFO - __main__ -   Gradient Accumulation steps = 1
+05/11/2023 00:32:33 - INFO - __main__ -   Total optimization steps = 240
 tensor([31090, 31091, 31092, 31093, 31094, 31095, 31096], device='cuda:0')
-  0%|          | 0/240 [00:00<?, ?it/s]Traceback (most recent call last):
-  File "/home/liwentao/Dec-Tuning-in-Mat/train_transformer.py", line 988, in <module>
-    main()
-  File "/home/liwentao/Dec-Tuning-in-Mat/train_transformer.py", line 777, in main
-    outputs = model(**batch)
-  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
-    return forward_call(*input, **kwargs)
-  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 1358, in forward
-    outputs = self.bert(
-  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
-    return forward_call(*input, **kwargs)
-  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 1020, in forward
-    encoder_outputs = self.encoder(
-  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
-    return forward_call(*input, **kwargs)
-  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 610, in forward
-    layer_outputs = layer_module(
-  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
-    return forward_call(*input, **kwargs)
-  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 537, in forward
-    layer_output = apply_chunking_to_forward(
-  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/transformers/pytorch_utils.py", line 248, in apply_chunking_to_forward
-    return forward_fn(*input_tensors)
-  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 549, in feed_forward_chunk
-    intermediate_output = self.intermediate(attention_output)
-  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
-    return forward_call(*input, **kwargs)
-  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 450, in forward
-    hidden_states = self.intermediate_act_fn(hidden_states)
-  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
-    return forward_call(*input, **kwargs)
-  File "/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/transformers/activations.py", line 78, in forward
-    return self.act(input)
-RuntimeError: CUDA out of memory. Tried to allocate 20.00 MiB (GPU 0; 23.70 GiB total capacity; 485.39 MiB already allocated; 7.56 MiB free; 496.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
-  0%|          | 0/240 [00:00<?, ?it/s]
+  0%|          | 0/240 [00:00<?, ?it/s]  1%|          | 2/240 [00:00<00:17, 13.77it/s]  2%|▏         | 4/240 [00:00<00:14, 16.11it/s]  3%|▎         | 7/240 [00:00<00:12, 18.70it/s]  4%|▍         | 10/240 [00:00<00:11, 19.91it/s]  5%|▌         | 13/240 [00:00<00:11, 20.28it/s]  7%|▋         | 16/240 [00:00<00:10, 20.96it/s]  8%|▊         | 19/240 [00:00<00:10, 20.99it/s]  9%|▉         | 22/240 [00:01<00:10, 20.26it/s] 10%|█         | 25/240 [00:01<00:11, 18.98it/s] 11%|█▏        | 27/240 [00:01<00:11, 18.15it/s] 12%|█▏        | 29/240 [00:01<00:12, 17.25it/s] 13%|█▎        | 31/240 [00:01<00:12, 16.87it/s] 14%|█▍        | 33/240 [00:01<00:12, 16.50it/s] 15%|█▍        | 35/240 [00:01<00:12, 17.06it/s] 15%|█▌        | 37/240 [00:02<00:11, 17.09it/s] 16%|█▋        | 39/240 [00:02<00:11, 17.06it/s] 17%|█▋        | 41/240 [00:02<00:11, 17.11it/s] 18%|█▊        | 43/240 [00:02<00:11, 16.96it/s] 19%|█▉        | 45/240 [00:02<00:11, 16.56it/s] 20%|█▉        | 47/240 [00:02<00:11, 17.11it/s] 20%|██        | 49/240 [00:02<00:11, 16.43it/s] 21%|██▏       | 51/240 [00:02<00:11, 16.13it/s] 22%|██▏       | 53/240 [00:02<00:11, 16.44it/s] 23%|██▎       | 55/240 [00:03<00:11, 16.77it/s] 24%|██▍       | 57/240 [00:03<00:11, 16.47it/s] 25%|██▍       | 59/240 [00:03<00:11, 15.95it/s] 25%|██▌       | 61/240 [00:03<00:10, 16.33it/s] 26%|██▋       | 63/240 [00:03<00:10, 16.63it/s] 27%|██▋       | 65/240 [00:03<00:10, 16.53it/s] 28%|██▊       | 67/240 [00:03<00:10, 17.20it/s] 29%|██▉       | 69/240 [00:03<00:09, 17.29it/s] 30%|██▉       | 71/240 [00:04<00:09, 17.29it/s] 30%|███       | 73/240 [00:04<00:10, 16.69it/s] 31%|███▏      | 75/240 [00:04<00:10, 16.39it/s] 32%|███▏      | 77/240 [00:04<00:10, 16.16it/s] 33%|███▎      | 79/240 [00:04<00:10, 15.70it/s] 34%|███▍      | 81/240 [00:04<00:10, 15.47it/s] 35%|███▍      | 83/240 [00:04<00:10, 15.57it/s] 35%|███▌      | 85/240 [00:04<00:09, 15.58it/s] 36%|███▋      | 87/240 [00:05<00:09, 15.75it/s] 37%|███▋      | 89/240 [00:05<00:09, 15.78it/s] 38%|███▊      | 91/240 [00:05<00:09, 15.90it/s] 39%|███▉      | 93/240 [00:05<00:09, 15.53it/s] 40%|███▉      | 95/240 [00:05<00:09, 15.66it/s] 40%|████      | 97/240 [00:05<00:08, 16.11it/s] 41%|████▏     | 99/240 [00:05<00:08, 16.44it/s] 42%|████▏     | 101/240 [00:05<00:08, 16.75it/s] 43%|████▎     | 103/240 [00:06<00:08, 16.34it/s] 44%|████▍     | 105/240 [00:06<00:08, 15.90it/s] 45%|████▍     | 107/240 [00:06<00:08, 15.72it/s] 45%|████▌     | 109/240 [00:06<00:08, 15.41it/s] 46%|████▋     | 111/240 [00:06<00:08, 15.03it/s] 47%|████▋     | 113/240 [00:06<00:08, 14.79it/s] 48%|████▊     | 115/240 [00:06<00:08, 15.01it/s] 49%|████▉     | 117/240 [00:07<00:08, 15.08it/s] 50%|████▉     | 119/240 [00:07<00:07, 15.20it/s] 50%|█████     | 121/240 [00:07<00:07, 15.17it/s] 51%|█████▏    | 123/240 [00:07<00:07, 15.04it/s] 52%|█████▏    | 125/240 [00:07<00:07, 15.12it/s] 53%|█████▎    | 127/240 [00:07<00:07, 15.26it/s] 54%|█████▍    | 129/240 [00:07<00:07, 15.26it/s] 55%|█████▍    | 131/240 [00:07<00:07, 15.27it/s] 55%|█████▌    | 133/240 [00:08<00:07, 15.19it/s] 56%|█████▋    | 135/240 [00:08<00:06, 15.24it/s] 57%|█████▋    | 137/240 [00:08<00:06, 15.19it/s] 58%|█████▊    | 139/240 [00:08<00:06, 15.27it/s] 59%|█████▉    | 141/240 [00:08<00:06, 15.03it/s] 60%|█████▉    | 143/240 [00:08<00:06, 15.15it/s] 60%|██████    | 145/240 [00:08<00:06, 15.14it/s] 61%|██████▏   | 147/240 [00:08<00:06, 15.19it/s] 62%|██████▏   | 149/240 [00:09<00:06, 15.14it/s] 63%|██████▎   | 151/240 [00:09<00:05, 15.05it/s] 64%|██████▍   | 153/240 [00:09<00:05, 15.09it/s] 65%|██████▍   | 155/240 [00:09<00:05, 15.20it/s] 65%|██████▌   | 157/240 [00:09<00:05, 15.24it/s] 66%|██████▋   | 159/240 [00:09<00:05, 15.24it/s] 67%|██████▋   | 161/240 [00:09<00:05, 15.21it/s] 68%|██████▊   | 163/240 [00:10<00:05, 15.29it/s] 69%|██████▉   | 165/240 [00:10<00:04, 15.27it/s] 70%|██████▉   | 167/240 [00:10<00:04, 15.25it/s] 70%|███████   | 169/240 [00:10<00:04, 15.74it/s] 71%|███████▏  | 171/240 [00:10<00:04, 15.89it/s] 72%|███████▏  | 173/240 [00:10<00:04, 15.71it/s] 73%|███████▎  | 175/240 [00:10<00:04, 16.02it/s] 74%|███████▍  | 177/240 [00:10<00:03, 16.16it/s] 75%|███████▍  | 179/240 [00:11<00:03, 16.42it/s] 75%|███████▌  | 181/240 [00:11<00:03, 16.54it/s] 76%|███████▋  | 183/240 [00:11<00:03, 16.77it/s] 78%|███████▊  | 186/240 [00:11<00:02, 18.13it/s] 79%|███████▉  | 189/240 [00:11<00:02, 19.17it/s] 80%|████████  | 192/240 [00:11<00:02, 19.71it/s] 81%|████████▏ | 195/240 [00:11<00:02, 19.89it/s] 82%|████████▎ | 198/240 [00:11<00:02, 20.27it/s] 84%|████████▍ | 201/240 [00:12<00:01, 20.69it/s] 85%|████████▌ | 204/240 [00:12<00:01, 21.14it/s] 86%|████████▋ | 207/240 [00:12<00:01, 21.17it/s] 88%|████████▊ | 210/240 [00:12<00:01, 21.33it/s] 89%|████████▉ | 213/240 [00:12<00:01, 21.44it/s] 90%|█████████ | 216/240 [00:12<00:01, 21.43it/s] 91%|█████████▏| 219/240 [00:12<00:01, 19.92it/s] 92%|█████████▎| 222/240 [00:13<00:00, 18.18it/s] 93%|█████████▎| 224/240 [00:13<00:00, 17.58it/s] 94%|█████████▍| 226/240 [00:13<00:00, 16.71it/s] 95%|█████████▌| 228/240 [00:13<00:00, 16.50it/s] 96%|█████████▌| 230/240 [00:13<00:00, 16.02it/s] 97%|█████████▋| 232/240 [00:13<00:00, 15.92it/s] 98%|█████████▊| 234/240 [00:13<00:00, 15.14it/s] 98%|█████████▊| 236/240 [00:14<00:00, 15.13it/s] 99%|█████████▉| 238/240 [00:14<00:00, 14.91it/s]100%|██████████| 240/240 [00:14<00:00, 15.09it/s]Configuration saved in models/matsciner-fewshot-test/config.json
+Configuration saved in models/matsciner-fewshot-test/generation_config.json
+Model weights saved in models/matsciner-fewshot-test/pytorch_model.bin
+tokenizer config file saved in models/matsciner-fewshot-test/tokenizer_config.json
+Special tokens file saved in models/matsciner-fewshot-test/special_tokens_map.json
+100%|██████████| 240/240 [00:18<00:00, 13.13it/s]
+Decoding time: 1.7131781578063965s
+APL_precision: 0.5846153846153846, APL_recall: 0.2235294117647059, APL_f1: 0.32340425531914896, APL_number: 170
+CMT_precision: 0.44171779141104295, CMT_recall: 0.36923076923076925, CMT_f1: 0.4022346368715084, CMT_number: 195
+DSC_precision: 0.4431818181818182, DSC_recall: 0.08924485125858124, DSC_f1: 0.14857142857142858, DSC_number: 437
+MAT_precision: 0.6387959866220736, MAT_recall: 0.28005865102639294, MAT_f1: 0.3893985728848114, MAT_number: 682
+PRO_precision: 0.4825174825174825, PRO_recall: 0.08949416342412451, PRO_f1: 0.15098468271334792, PRO_number: 771
+SMT_precision: 0.3220338983050847, SMT_recall: 0.1111111111111111, SMT_f1: 0.1652173913043478, SMT_number: 171
+SPL_precision: 0.5769230769230769, SPL_recall: 0.2, SPL_f1: 0.29702970297029707, SPL_number: 75
+overall_precision: 0.5255041518386714, overall_recall: 0.17712914834066373, overall_f1: 0.26495215311004783, overall_accuracy: 0.7424058323207776
+Finish training, best metric: 
+{'APL_precision': 0.5846153846153846, 'APL_recall': 0.2235294117647059, 'APL_f1': 0.32340425531914896, 'APL_number': 170, 'CMT_precision': 0.44171779141104295, 'CMT_recall': 0.36923076923076925, 'CMT_f1': 0.4022346368715084, 'CMT_number': 195, 'DSC_precision': 0.4431818181818182, 'DSC_recall': 0.08924485125858124, 'DSC_f1': 0.14857142857142858, 'DSC_number': 437, 'MAT_precision': 0.6387959866220736, 'MAT_recall': 0.28005865102639294, 'MAT_f1': 0.3893985728848114, 'MAT_number': 682, 'PRO_precision': 0.4825174825174825, 'PRO_recall': 0.08949416342412451, 'PRO_f1': 0.15098468271334792, 'PRO_number': 771, 'SMT_precision': 0.3220338983050847, 'SMT_recall': 0.1111111111111111, 'SMT_f1': 0.1652173913043478, 'SMT_number': 171, 'SPL_precision': 0.5769230769230769, 'SPL_recall': 0.2, 'SPL_f1': 0.29702970297029707, 'SPL_number': 75, 'overall_precision': 0.5255041518386714, 'overall_recall': 0.17712914834066373, 'overall_f1': 0.26495215311004783, 'overall_accuracy': 0.7424058323207776}
