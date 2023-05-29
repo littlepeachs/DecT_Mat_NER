@@ -130,13 +130,13 @@ def parse_args():
     parser.add_argument(
         "--learning_rate",
         type=float,
-        default=1.5*1e-4,
+        default=5e-3,
         help="Initial learning rate (after the potential warmup period) to use.",
     )
     parser.add_argument("--weight_decay", type=float, default=1e-6, help="Weight decay to use.")
     parser.add_argument("--num_train_epochs", type=int, default=30, help="Total number of training epochs to perform.")
-    parser.add_argument("--model_logits_weight", type=float, default=1, help="weight factor (\lambda) for model logits")
-    parser.add_argument("--proto_dim", type=int, default=128, help="hidden dimension for DecT prototypes")
+    parser.add_argument("--model_logits_weight", type=float, default=20, help="weight factor (\lambda) for model logits")
+    parser.add_argument("--proto_dim", type=int, default=64, help="hidden dimension for DecT prototypes")
     parser.add_argument(
         "--max_train_steps",
         type=int,
@@ -327,8 +327,7 @@ def main():
     #         new_ori_label_token_map["B-"+key[2:]] = value
     #     ori_label_token_map = new_ori_label_token_map
 
-    label_list = list(ori_label_token_map.keys())
-    label_list += 'O'
+    label_list =['O']+ list(ori_label_token_map.keys())
 
     label_to_id = {"O":0}
     for l in label_list:
@@ -777,7 +776,7 @@ def main():
     progress_bar = tqdm(range(args.max_train_steps), disable=not accelerator.is_local_main_process)
     completed_steps = 0
 
-    verbalizer = {"O":["is"]}
+    verbalizer = {"O":["none"]}
     verbalizer.update(ori_label_token_map)
     runner = DecT_NER_Trainer(
         model = model,
@@ -788,6 +787,7 @@ def main():
         verbalizer = verbalizer,
         device= 0,
         lr = args.learning_rate,
+        weight_decay = args.weight_decay,
         mid_dim = args.proto_dim,
         hidden_size = 768,
         epochs = args.num_train_epochs,

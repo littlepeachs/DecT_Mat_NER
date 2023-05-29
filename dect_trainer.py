@@ -16,6 +16,8 @@ import copy
 from transformers.modeling_outputs import CausalLMOutputWithCrossAttentions, Seq2SeqLMOutput, MaskedLMOutput
 from sympy.matrices import Matrix, GramSchmidt
 import numpy as np
+from datasets import load_metric
+
 
 class DecT_NER_Trainer(Verbalizer):
     r"""
@@ -47,6 +49,7 @@ class DecT_NER_Trainer(Verbalizer):
                  multi_token_handler: Optional[str] = "first",
                  post_log_softmax: Optional[bool] = True,
                  lr: Optional[float] = 1e-3,
+                 weight_decay: Optional[float] = 1e-5,
                  hidden_size: Optional[int] = 4096,
                  mid_dim: Optional[int] = 64,
                  epochs: Optional[int] = 5,
@@ -55,12 +58,14 @@ class DecT_NER_Trainer(Verbalizer):
                  device: Optional[int]=0,
                 ):
         super().__init__(tokenizer=tokenizer, num_classes=num_classes, classes=classes)
+        self.id2label = {index : value for index, value in enumerate(self.classes)}
         self.prefix = prefix
         self.calibration=calibration
         self.tokenizer = tokenizer
         self.multi_token_handler = multi_token_handler
         self.post_log_softmax = post_log_softmax
         self.lr = lr
+        self.weight_decay = weight_decay
         self.mid_dim = mid_dim
         self.epochs = epochs
         self.model_logits_weight = model_logits_weight
@@ -86,7 +91,7 @@ class DecT_NER_Trainer(Verbalizer):
         self.proto = nn.Parameter(w, requires_grad=True)
         r = torch.ones(self.num_classes)
         self.proto_r = nn.Parameter(r, requires_grad=True)
-        self.optimizer = torch.optim.Adam([p for n, p in self.head.named_parameters()] + [self.proto_r], lr=self.lr)
+        self.optimizer = torch.optim.Adam([p for n, p in self.head.named_parameters()] + [self.proto_r], lr=self.lr,weight_decay=self.weight_decay)
     
     @property 
     def group_parameters_proto(self,):
@@ -295,11 +300,44 @@ class DecT_NER_Trainer(Verbalizer):
             batch_logits, batch_hiddens,batch_label = outputs.logits, outputs.hidden_states[-1], ner_label
             logits.extend(F.softmax(self.extract_logits(batch_logits),dim=-1))
             # hiddens.extend([b for b in F.normalize(batch_hiddens,dim=-1)])
-            hiddens.extend([b for b in batch_hiddens])
+            hiddens.extend([b for b in F.normalize(batch_hiddens,dim=-1)])
             labels.extend([b for b in batch_label])
         # print(logits)
         # self.model.cpu()
         return logits, hiddens,labels
+
+    def get_labels(self, preds,labels):
+        y_pred = preds.detach().clone().numpy()
+        y_true = labels.detach().clone().numpy()
+        true_predictions = [
+                [self.id2label[p] if p in self.id2label.keys() else 'O' for (p, l) in zip(pred, gold_label) if l != -100]
+                for pred, gold_label in zip(y_pred, y_true)
+            ]
+
+        true_labels = [
+            [self.id2label[l] for (p, l) in zip(pred, gold_label) if l != -100]
+            for pred, gold_label in zip(y_pred, y_true)
+        ]
+        return true_predictions, true_labels
+    
+    def compute_metrics(self,metric,return_entity_level_metrics):
+        results = metric.compute()
+        if return_entity_level_metrics:
+            # Unpack nested dictionaries
+            final_results = {}
+            for key, value in results.items():
+                if isinstance(value, dict):
+                    for n, v in value.items():
+                        final_results[f"{key}_{n}"] = v
+                else:
+                    final_results[key] = value
+            return final_results
+        return {
+            "precision": results["overall_precision"],
+            "recall": results["overall_recall"],
+            "f1": results["overall_f1"],
+            "accuracy": results["overall_accuracy"]
+        }
     
     # 用于测试，取-3是指去最后一个token的输出，不包括句子结束符(这是因为最后两位是结束符，倒数第三位是最后一个token，期待输出下一个token)，zs表示是否使用zero-shot
     #将input_ids和attention_mask传入模型，得到logits和hidden_states
@@ -308,32 +346,50 @@ class DecT_NER_Trainer(Verbalizer):
     #如果是zero-shot,直接取argmax
     #否则先得到proto_logits,再取argmax
     # 并没有把batch_logits, batch_hiddens全部放在一个列表，而是对于每个批次得到结果，然后存在列表里面
-    def test(self, dataloader,zs = False):
+    def test(self, dataloader):
         total_size = 0
         res = 0
-        for data in dataloader:
-            # for d in data: print(self.model.inference(d["input"]))
-            label = data[2]
-            input = {"input_ids":data[0].to("cuda:{}".format(self.device)),"attention_mask":data[1].to("cuda:{}".format(self.device))}
-            output = self.model(**input,output_hidden_states=True)
-            batch_logits, batch_hiddens = output.logits[:,-3,:], output.hidden_states[-1].permute(1,0,2)[:,-3,:]
+        y_true = []
+        y_pred = []
+        metric = load_metric("./seqeval_metric.py")
+        for step, batch in enumerate(dataloader):
+            ner_label = batch.pop('ori_labels', 'not found ner_labels').cpu()
+            outputs = self.model(**batch,output_hidden_states=True)
+            batch_logits, batch_hiddens = outputs.logits, outputs.hidden_states[-1]
             logits = F.softmax(self.extract_logits(batch_logits))
-            # batch_logits = torch.stack(self.extract_logits(batch_logits))
-            # batch_hiddens = torch.stack([torch.tensor(b[-1][0]) for b in batch_hiddens])
-            if  hasattr(self, "_calibrate_logits") and self._calibrate_logits is not None:
-                logits = self.calibrate(label_words_probs=logits)
+            for i in range(len(logits)):
+                if  hasattr(self, "_calibrate_logits") and self._calibrate_logits is not None:
+                    logits[i] = self.calibrate(label_words_probs=logits[i])
+            proto_logits = self.sim(self.head(F.normalize(batch_hiddens,dim=-1)), self.proto, self.proto_r, logits, self.model_logits_weight).cpu()
+            # print(proto_logits)
+            pred = torch.argmax(proto_logits, dim=-1).cpu()
+            final_pred, final_label = self.get_labels(pred, ner_label)
 
-            if not zs:
-                proto_logits = self.sim(self.head(F.normalize(batch_hiddens,dim=-1).float()), self.proto, self.proto_r, logits, self.model_logits_weight).cpu()
-                # print(proto_logits)
-                pred = torch.argmax(proto_logits, dim=-1).cpu().tolist()
-            else:
-                pred = torch.argmax(logits, dim=-1).cpu().tolist()
-            res += sum([int(i==j) for i,j in zip(pred, label)])
-            total_size+=len(label)
+            y_true.extend(final_label)
+            y_pred.extend(final_pred)
+
+            metric.add_batch(
+                predictions=final_pred,
+                references=final_label,
+            )
+        eval_metric = self.compute_metrics(metric,return_entity_level_metrics=True)
+        
+        # accelerator.print(f"epoch {epoch}:", eval_metric)
+        for key in eval_metric.keys():
+            if "f1" in key and "overall" not in key:
+                label = key[:-3]
+                print("{}: {}, {}: {}, {}: {}, {}: {}".format(label + "_precision", eval_metric[label + "_precision"],
+                                                              label + "_recall", eval_metric[label + "_recall"],
+                                                              label + "_f1", eval_metric[label + "_f1"],
+                                                              label + "_number", eval_metric[label + "_number"]))
+        label = "overall"
+        print("{}: {}, {}: {}, {}: {}, {}: {}".format(label + "_precision", eval_metric[label + "_precision"],
+                                                      label + "_recall", eval_metric[label + "_recall"],
+                                                      label + "_f1", eval_metric[label + "_f1"],
+                                                      label + "_accuracy", eval_metric[label + "_accuracy"]))
             # del input, output,batch_logits, batch_hiddens
             # torch.cuda.empty_cache()
-        return res/total_size
+        print("finish test")
     
     # 用于训练，取-3是指去最后一个token的输出，不包括句子结束符
     #首先进行文本校准
@@ -405,7 +461,7 @@ class DecT_NER_Trainer(Verbalizer):
 
         end_time = time.time()
         print("Training time: {}".format(end_time - start_time))
-        score = self.test(test_dataloader)
+        self.test(test_dataloader)
         # res = sum([int(i==j) for i,j in zip(preds, labels)])/len(preds)
         return score
     # 先进行文本校准，然后进行zero-shot test
@@ -420,6 +476,6 @@ class DecT_NER_Trainer(Verbalizer):
                 batch_logits = output.logits[:,-3,:]
                 logits =F.softmax(self.extract_logits(batch_logits),dim=-1)
                 self._calibrate_logits = logits / torch.mean(logits)
-        score = self.test(test_dataloader,zs=True)
+        score = self.test(test_dataloader)
         # res = sum([int(i==j) for i,j in zip(preds, labels)])/len(preds)
         return score
