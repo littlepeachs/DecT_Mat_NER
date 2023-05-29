@@ -13,6 +13,7 @@ import random
 from tasks import NER
 from viterbi import ViterbiDecoder
 import os
+from dect_trainer import DecT_NER_Trainer
 import transformers
 from accelerate import Accelerator
 from transformers import (
@@ -133,7 +134,9 @@ def parse_args():
         help="Initial learning rate (after the potential warmup period) to use.",
     )
     parser.add_argument("--weight_decay", type=float, default=1e-6, help="Weight decay to use.")
-    parser.add_argument("--num_train_epochs", type=int, default=60, help="Total number of training epochs to perform.")
+    parser.add_argument("--num_train_epochs", type=int, default=30, help="Total number of training epochs to perform.")
+    parser.add_argument("--model_logits_weight", type=float, default=1, help="weight factor (\lambda) for model logits")
+    parser.add_argument("--proto_dim", type=int, default=128, help="hidden dimension for DecT prototypes")
     parser.add_argument(
         "--max_train_steps",
         type=int,
@@ -158,7 +161,7 @@ def parse_args():
     )
     parser.add_argument("--output_dir", type=str, default="models/matsciner-fewshot-test", help="Where to store the final model.")
     parser.add_argument("--seed", type=int, default=123, help="A seed for reproducible training.")
-    parser.add_argument("--device", type=int, default=2, help="device")
+    parser.add_argument("--device", type=int, default=0, help="device")
     parser.add_argument("--data_file_seed", type=int, default=0, help="A seed for reproducible training.")
     parser.add_argument(
         "--model_type",
@@ -201,7 +204,7 @@ def parse_args():
     )
     parser.add_argument(
         "--label_map_path",
-        default="scripts/matsciner/final_verbalizer.json",
+        default="scripts/matsciner/proto_verbalizer.json",
         type=str,
         help="label map path",
     )
@@ -400,8 +403,6 @@ def main():
     # First we tokenize all the texts.
     padding = "max_length" if args.pad_to_max_length else False
 
-    # Tokenize all texts and align the labels with them.
-    
     def tokenize_and_align_labels(examples):
         tokenized_inputs = tokenizer(
             examples[text_column_name],
@@ -429,7 +430,8 @@ def main():
                     label_ids.append(-100)
                 # Set target token for the first token of each word.
                 elif word_idx != previous_word_idx:
-                    label_ids.append(label_to_id[label[word_idx]])
+                    id = label_to_id[label[word_idx]]
+                    label_ids.append(id-7 if id > 7 else id)
 
                     # this part implement the IO schema
                     if args.label_schema == "IO" and label[word_idx] != "O":
@@ -443,7 +445,11 @@ def main():
 
                 # Set target token for other tokens of each word.
                 else:
-                    label_ids.append(label_to_id[label[word_idx]] if args.label_all_tokens else -100)
+                    if args.label_all_tokens:
+                        id = label_to_id[label[word_idx]]
+                        label_ids.append(id-7 if id > 7 else id)
+                    else:
+                        label_ids.append(-100)
                     if args.label_schema == "IO" and label[word_idx] != "O":
                         label[word_idx] = "I-"+label[word_idx][2:]
 
@@ -462,6 +468,7 @@ def main():
         tokenized_inputs["labels"] = target_tokens
         tokenized_inputs['ori_labels'] = labels
         return tokenized_inputs
+    
 
     processed_raw_datasets = raw_datasets.map(
         tokenize_and_align_labels,
@@ -770,26 +777,35 @@ def main():
     progress_bar = tqdm(range(args.max_train_steps), disable=not accelerator.is_local_main_process)
     completed_steps = 0
 
+    verbalizer = {"O":["is"]}
+    verbalizer.update(ori_label_token_map)
+    runner = DecT_NER_Trainer(
+        model = model,
+        classes=label_list,
+        num_classes = len(label_list),
+        calibration = True,
+        tokenizer = tokenizer,
+        verbalizer = verbalizer,
+        device= 0,
+        lr = args.learning_rate,
+        mid_dim = args.proto_dim,
+        hidden_size = 768,
+        epochs = args.num_train_epochs,
+        model_logits_weight = args.model_logits_weight,
+    )
+    
+
     best_metric = -1
+    runner.run(train_dataloader,None ,eval_dataloader)
+    
     for epoch in range(args.num_train_epochs):
         model.train()
         for step, batch in enumerate(train_dataloader):
             ner_label = batch.pop('ori_labels', 'not found ner_labels')
-            outputs = model(**batch)
+            outputs = model(**batch,output_hidden_states=True)
             loss = outputs.loss
             logits = outputs.logits
 
-            loss = loss / args.gradient_accumulation_steps
-            accelerator.backward(loss)
-            if step % args.gradient_accumulation_steps == 0 or step == len(train_dataloader) - 1:
-                optimizer.step()
-                lr_scheduler.step()
-                optimizer.zero_grad()
-                progress_bar.update(1)
-                completed_steps += 1
-
-            if completed_steps >= args.max_train_steps:
-                break
 
         # Test each epoch and save the model of the best epoch.
         # if epoch>=0:
@@ -805,12 +821,6 @@ def main():
             if args.do_crf:
                 print("Decoding with CRF: ")
                 evaluate(best_metric=-1,load=False,use_crf=True)
-
-    # if args.output_dir is not None:
-    #     accelerator.wait_for_everyone()
-    #     unwrapped_model = accelerator.unwrap_model(model)
-    #     unwrapped_model.save_pretrained(args.output_dir, save_function=accelerator.save)
-
 
 
 def nn_decode(reps, support_reps, support_tags):
