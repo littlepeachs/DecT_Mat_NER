@@ -1,9 +1,9 @@
 {
-    "MAT": "inorganic material",
-    "SPL": "symmetry/phase label",
-    "DSC": "sample descriptor",
-    "PRO": "material property",
-    "APL": "material application",
-    "SMT": "synthesis method",
-    "CMT": "characterization method"
+    "I-MAT": "inorganic material",
+    "I-SPL": "symmetry/phase label",
+    "I-DSC": "sample descriptor",
+    "I-PRO": "material property",
+    "I-APL": "material application",
+    "I-SMT": "synthesis method",
+    "I-CMT": "characterization method"
 }

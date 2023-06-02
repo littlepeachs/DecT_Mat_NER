@@ -60,9 +60,6 @@ def parse_args():
         help="The configuration name of the dataset to use (via the datasets library).",
     )
     parser.add_argument(
-        "--shot", type=int, default=4, help="A csv or a json file containing the training data."
-    )
-    parser.add_argument(
         "--train_file", type=str, default=None, help="A csv or a json file containing the training data."
     )
     parser.add_argument(
@@ -101,7 +98,7 @@ def parse_args():
         "--model_name_or_path",
         type=str,
         help="Path to pretrained model or model identifier from huggingface.co/models.",
-        default='m3rg-iitd/matscibert'
+        default='pranav-s/MaterialsBERT'
     )
     parser.add_argument(
         "--config_name",
@@ -118,7 +115,7 @@ def parse_args():
     parser.add_argument(
         "--per_device_train_batch_size",
         type=int,
-        default=4,
+        default=32,
         help="Batch size (per device) for the training dataloader.",
     )
     parser.add_argument(
@@ -133,10 +130,23 @@ def parse_args():
         default=5e-3,
         help="Initial learning rate (after the potential warmup period) to use.",
     )
-    parser.add_argument("--weight_decay", type=float, default=1e-6, help="Weight decay to use.")
-    parser.add_argument("--num_train_epochs", type=int, default=30, help="Total number of training epochs to perform.")
-    parser.add_argument("--model_logits_weight", type=float, default=20, help="weight factor (\lambda) for model logits")
-    parser.add_argument("--proto_dim", type=int, default=64, help="hidden dimension for DecT prototypes")
+    parser.add_argument(
+        "--lm_lr",
+        type=float,
+        default=1e-4,
+        help="Initial learning rate (after the potential warmup period) to use.",
+    )
+    parser.add_argument("--weight_decay", type=float, default=1e-7, help="Weight decay to use.")
+    parser.add_argument("--num_train_epochs", type=int, default=50, help="Total number of training epochs to perform.")
+    parser.add_argument("--model_logits_weight", type=float, default=30, help="weight factor (\lambda) for model logits")
+    parser.add_argument("--proto_dim", type=int, default=128, help="hidden dimension for DecT prototypes")
+    parser.add_argument("--output_dir", type=str, default="models/matsciner-fewshot-test", help="Where to store the final model.")
+    parser.add_argument("--seed", type=int, default=123, help="A seed for reproducible training.")
+    parser.add_argument("--device", type=int, default=0, help="device")
+    parser.add_argument("--data_file_seed", type=int, default=0, help="A seed for reproducible training.")
+    parser.add_argument(
+        "--shot", type=int, default=32, help="A csv or a json file containing the training data."
+    )
     parser.add_argument(
         "--max_train_steps",
         type=int,
@@ -159,10 +169,6 @@ def parse_args():
     parser.add_argument(
         "--num_warmup_steps", type=int, default=0, help="Number of steps for the warmup in the lr scheduler."
     )
-    parser.add_argument("--output_dir", type=str, default="models/matsciner-fewshot-test", help="Where to store the final model.")
-    parser.add_argument("--seed", type=int, default=123, help="A seed for reproducible training.")
-    parser.add_argument("--device", type=int, default=0, help="device")
-    parser.add_argument("--data_file_seed", type=int, default=0, help="A seed for reproducible training.")
     parser.add_argument(
         "--model_type",
         type=str,
@@ -238,6 +244,21 @@ def parse_args():
 
 def main():
     args = parse_args()
+    print("################## Hyper-parameters: ##################")
+    print("epochs:{},lr:{}, batch_size:{}, shot:{}, proto_dim:{}, logits_weight:{}, weight_decay:{} ".format(args.num_train_epochs,args.learning_rate, args.per_device_train_batch_size, args.shot, args.proto_dim, args.model_logits_weight, args.weight_decay))
+    print("################## Hyper-parameters: ##################")
+    
+    shot_with_dim = {1:32,2:32,4:32,8:128,16:128,32:128}
+    shot_with_model_weight = {1:20,2:20,4:20,8:10,16:10,32:50}
+    shot_with_epochs = {1:35,2:35,4:35,8:100,16:100,32:100}
+    print("shot and proto_dim")
+    args.proto_dim = shot_with_dim[args.shot]
+    args.model_logits_weight = shot_with_model_weight[args.shot]
+    args.num_train_epochs = shot_with_epochs[args.shot]
+    print("proto_dim:",args.proto_dim)
+    print("model_logits_weight:",args.model_logits_weight)
+    print("num_train_epochs:",args.num_train_epochs)
+
     os.environ["CUDA_VISIBLE_DEVICES"] = "{}".format(args.device)
     # Initialize the accelerator. We will let the accelerator handle device placement for us in this example.
     accelerator = Accelerator()
@@ -386,12 +407,6 @@ def main():
         logger.info("Training new model from scratch")
         model = AutoModelForMaskedLM.from_config(config)
 
-    if "roberta" in args.model_name_or_path:
-        tokenizer = add_label_token_roberta(model, tokenizer, ori_label_token_map)
-    elif "bert" in args.model_name_or_path:
-        tokenizer = add_label_token_bert(model, tokenizer, ori_label_token_map)
-    else:
-        pass
     label_token_map = {item:item for item in ori_label_token_map}
     # label_token_map = ori_label_token_map
     print(ori_label_token_map)
@@ -787,9 +802,10 @@ def main():
         verbalizer = verbalizer,
         device= 0,
         lr = args.learning_rate,
+        lm_lr = args.lm_lr,
         weight_decay = args.weight_decay,
         mid_dim = args.proto_dim,
-        hidden_size = 768,
+        hidden_size = model.config.hidden_size,
         epochs = args.num_train_epochs,
         model_logits_weight = args.model_logits_weight,
     )
@@ -797,30 +813,7 @@ def main():
 
     best_metric = -1
     runner.run(train_dataloader,None ,eval_dataloader)
-    
-    for epoch in range(args.num_train_epochs):
-        model.train()
-        for step, batch in enumerate(train_dataloader):
-            ner_label = batch.pop('ori_labels', 'not found ner_labels')
-            outputs = model(**batch,output_hidden_states=True)
-            loss = outputs.loss
-            logits = outputs.logits
 
-
-        # Test each epoch and save the model of the best epoch.
-        # if epoch>=0:
-        #     best_metric = evaluate(best_metric)
-
-        # Use the result of the last epoch
-        if epoch == args.num_train_epochs - 1:
-            best_metric = evaluate(best_metric)
-
-            print("Finish training, best metric: ")
-            print(best_metric)
-
-            if args.do_crf:
-                print("Decoding with CRF: ")
-                evaluate(best_metric=-1,load=False,use_crf=True)
 
 
 def nn_decode(reps, support_reps, support_tags):

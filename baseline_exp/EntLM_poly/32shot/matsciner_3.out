@@ -1,0 +1,169 @@
+06/01/2023 02:42:40 - INFO - __main__ - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/01/2023 02:42:41 - WARNING - datasets.builder - Found cached dataset json (/home/liwentao/.cache/huggingface/datasets/json/default-21be78dd80d291c5/0.0.0/0f7e3662623656454fcd2b650f34e886a7db4b9104504885bd462096cc7a9f51)
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 1208.56it/s]
+loading configuration file config.json from cache at /home/liwentao/.cache/huggingface/hub/models--pranav-s--MaterialsBERT/snapshots/8a7378e9cdeae17fb808482ae367e4bd995fe223/config.json
+Model config BertConfig {
+  "_name_or_path": "pranav-s/MaterialsBERT",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "torch_dtype": "float32",
+  "transformers_version": "4.27.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+Could not locate the tokenizer configuration file, will try to use the model config instead.
+loading configuration file config.json from cache at /home/liwentao/.cache/huggingface/hub/models--pranav-s--MaterialsBERT/snapshots/8a7378e9cdeae17fb808482ae367e4bd995fe223/config.json
+Model config BertConfig {
+  "_name_or_path": "pranav-s/MaterialsBERT",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "torch_dtype": "float32",
+  "transformers_version": "4.27.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+loading file vocab.txt from cache at /home/liwentao/.cache/huggingface/hub/models--pranav-s--MaterialsBERT/snapshots/8a7378e9cdeae17fb808482ae367e4bd995fe223/vocab.txt
+loading file tokenizer.json from cache at None
+loading file added_tokens.json from cache at None
+loading file special_tokens_map.json from cache at None
+loading file tokenizer_config.json from cache at None
+loading configuration file config.json from cache at /home/liwentao/.cache/huggingface/hub/models--pranav-s--MaterialsBERT/snapshots/8a7378e9cdeae17fb808482ae367e4bd995fe223/config.json
+Model config BertConfig {
+  "_name_or_path": "pranav-s/MaterialsBERT",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "torch_dtype": "float32",
+  "transformers_version": "4.27.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+loading configuration file config.json from cache at /home/liwentao/.cache/huggingface/hub/models--pranav-s--MaterialsBERT/snapshots/8a7378e9cdeae17fb808482ae367e4bd995fe223/config.json
+Model config BertConfig {
+  "_name_or_path": "pranav-s/MaterialsBERT",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "torch_dtype": "float32",
+  "transformers_version": "4.27.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+loading weights file pytorch_model.bin from cache at /home/liwentao/.cache/huggingface/hub/models--pranav-s--MaterialsBERT/snapshots/8a7378e9cdeae17fb808482ae367e4bd995fe223/pytorch_model.bin
+Generate config GenerationConfig {
+  "_from_model_config": true,
+  "pad_token_id": 0,
+  "transformers_version": "4.27.1"
+}
+
+All model checkpoint weights were used when initializing BertForMaskedLM.
+
+All the weights of BertForMaskedLM were initialized from the model checkpoint at pranav-s/MaterialsBERT.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use BertForMaskedLM for predictions without further training.
+Generation config file not found, using a generation config created from the model config.
+Loading label map from scripts/matsciner/final_verbalizer.json...
+{'I-CMT': ['electron', 'diffraction', 'microscopy', 'spectroscopy', 'scanning', 'raman', 'transmission', 'test', 'neutron'], 'I-MAT': ['oxide', 'silicon', 'carbon', 'graphene', 'aluminum', 'titanium', 'steel', 'oxides'], 'I-DSC': ['films', 'doped', 'thin', 'film', 'alloy', 'substrate', 'layer', 'single', 'alloys'], 'I-PRO': ['properties', 'structure', 'magnetic', 'band', 'conductivity', 'resistance', 'density', 'behavior', 'electrical'], 'I-SMT': ['annealing', 'gel', 'plasma', 'hydrothermal', 'annealed', 'sol', 'treatment', 'irradiation', 'vapor'], 'I-APL': ['coatings', 'coating', 'solar', 'cells', 'electrode', 'applications', 'electrodes', 'catalysts', 'cathode'], 'I-SPL': ['cubic', 'hexagonal', 'rock', 'ch']}
+{'O': 0, 'I-CMT': 1, 'I-MAT': 2, 'I-DSC': 3, 'I-PRO': 4, 'I-SMT': 5, 'I-APL': 6, 'I-SPL': 7, 'B-CMT': 8, 'B-MAT': 9, 'B-DSC': 10, 'B-PRO': 11, 'B-SMT': 12, 'B-APL': 13, 'B-SPL': 14}
+{'I-CMT': ['electron', 'diffraction', 'microscopy', 'spectroscopy', 'scanning', 'raman', 'transmission', 'test', 'neutron'], 'I-MAT': ['oxide', 'silicon', 'carbon', 'graphene', 'aluminum', 'titanium', 'steel', 'oxides'], 'I-DSC': ['films', 'doped', 'thin', 'film', 'alloy', 'substrate', 'layer', 'single', 'alloys'], 'I-PRO': ['properties', 'structure', 'magnetic', 'band', 'conductivity', 'resistance', 'density', 'behavior', 'electrical'], 'I-SMT': ['annealing', 'gel', 'plasma', 'hydrothermal', 'annealed', 'sol', 'treatment', 'irradiation', 'vapor'], 'I-APL': ['coatings', 'coating', 'solar', 'cells', 'electrode', 'applications', 'electrodes', 'catalysts', 'cathode'], 'I-SPL': ['cubic', 'hexagonal', 'rock', 'ch']}
+Running tokenizer on dataset:   0%|          | 0/66 [00:00<?, ? examples/s]                                                                           Running tokenizer on dataset:   0%|          | 0/546 [00:00<?, ? examples/s]                                                                            /home/liwentao/Dec-Tuning-in-Mat/train_transformer.py:548: FutureWarning: load_metric is deprecated and will be removed in the next major version of datasets. Use 'evaluate.load' instead, from the new library 🤗 Evaluate: https://huggingface.co/docs/evaluate
+  metric = load_metric("./seqeval_metric.py")
+06/01/2023 02:42:49 - INFO - __main__ - ***** Running training *****
+06/01/2023 02:42:49 - INFO - __main__ -   Num examples = 66
+06/01/2023 02:42:49 - INFO - __main__ -   Num Epochs = 10
+06/01/2023 02:42:49 - INFO - __main__ -   Instantaneous batch size per device = 32
+06/01/2023 02:42:49 - INFO - __main__ -   Total train batch size (w. parallel, distributed & accumulation) = 32
+06/01/2023 02:42:49 - INFO - __main__ -   Gradient Accumulation steps = 1
+06/01/2023 02:42:49 - INFO - __main__ -   Total optimization steps = 30
+tensor([1, 1, 1, 1, 1, 1, 1], device='cuda:0')
+  0%|          | 0/30 [00:00<?, ?it/s]  3%|▎         | 1/30 [00:00<00:05,  4.86it/s]  7%|▋         | 2/30 [00:00<00:04,  5.77it/s] 13%|█▎        | 4/30 [00:00<00:03,  7.39it/s] 17%|█▋        | 5/30 [00:00<00:03,  7.08it/s] 23%|██▎       | 7/30 [00:00<00:02,  8.14it/s] 27%|██▋       | 8/30 [00:01<00:02,  7.77it/s] 33%|███▎      | 10/30 [00:01<00:02,  8.59it/s] 37%|███▋      | 11/30 [00:01<00:02,  8.10it/s] 43%|████▎     | 13/30 [00:01<00:01,  8.78it/s] 47%|████▋     | 14/30 [00:01<00:01,  8.15it/s] 53%|█████▎    | 16/30 [00:01<00:01,  8.70it/s] 57%|█████▋    | 17/30 [00:02<00:01,  8.21it/s] 63%|██████▎   | 19/30 [00:02<00:01,  8.80it/s] 67%|██████▋   | 20/30 [00:02<00:01,  8.26it/s] 73%|███████▎  | 22/30 [00:02<00:00,  8.85it/s] 77%|███████▋  | 23/30 [00:02<00:00,  8.30it/s] 83%|████████▎ | 25/30 [00:03<00:00,  8.79it/s] 87%|████████▋ | 26/30 [00:03<00:00,  8.27it/s] 93%|█████████▎| 28/30 [00:03<00:00,  8.88it/s] 97%|█████████▋| 29/30 [00:03<00:00,  8.31it/s]/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/seqeval/metrics/v1.py:57: UndefinedMetricWarning: Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, msg_start, len(result))
+Configuration saved in models/matsciner-fewshot-test/config.json
+Configuration saved in models/matsciner-fewshot-test/generation_config.json
+Model weights saved in models/matsciner-fewshot-test/pytorch_model.bin
+tokenizer config file saved in models/matsciner-fewshot-test/tokenizer_config.json
+Special tokens file saved in models/matsciner-fewshot-test/special_tokens_map.json
+100%|██████████| 30/30 [00:07<00:00,  4.06it/s]
+Decoding time: 2.1748926639556885s
+APL_precision: 0.0, APL_recall: 0.0, APL_f1: 0.0, APL_number: 170
+CMT_precision: 0.0, CMT_recall: 0.0, CMT_f1: 0.0, CMT_number: 195
+DSC_precision: 0.0, DSC_recall: 0.0, DSC_f1: 0.0, DSC_number: 437
+MAT_precision: 0.0, MAT_recall: 0.0, MAT_f1: 0.0, MAT_number: 682
+PRO_precision: 0.0, PRO_recall: 0.0, PRO_f1: 0.0, PRO_number: 771
+SMT_precision: 0.0, SMT_recall: 0.0, SMT_f1: 0.0, SMT_number: 171
+SPL_precision: 0.015741507870753936, SPL_recall: 0.5066666666666667, SPL_f1: 0.03053435114503817, SPL_number: 75
+overall_precision: 0.015741507870753936, overall_recall: 0.015193922431027589, overall_f1: 0.015462868769074264, overall_accuracy: 0.6537059538274606
+Finish training, best metric: 
+{'APL_precision': 0.0, 'APL_recall': 0.0, 'APL_f1': 0.0, 'APL_number': 170, 'CMT_precision': 0.0, 'CMT_recall': 0.0, 'CMT_f1': 0.0, 'CMT_number': 195, 'DSC_precision': 0.0, 'DSC_recall': 0.0, 'DSC_f1': 0.0, 'DSC_number': 437, 'MAT_precision': 0.0, 'MAT_recall': 0.0, 'MAT_f1': 0.0, 'MAT_number': 682, 'PRO_precision': 0.0, 'PRO_recall': 0.0, 'PRO_f1': 0.0, 'PRO_number': 771, 'SMT_precision': 0.0, 'SMT_recall': 0.0, 'SMT_f1': 0.0, 'SMT_number': 171, 'SPL_precision': 0.015741507870753936, 'SPL_recall': 0.5066666666666667, 'SPL_f1': 0.03053435114503817, 'SPL_number': 75, 'overall_precision': 0.015741507870753936, 'overall_recall': 0.015193922431027589, 'overall_f1': 0.015462868769074264, 'overall_accuracy': 0.6537059538274606}

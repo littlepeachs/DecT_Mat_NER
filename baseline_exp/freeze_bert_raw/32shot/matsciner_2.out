@@ -1,0 +1,395 @@
+Some weights of the model checkpoint at m3rg-iitd/matscibert were not used when initializing BertForTokenClassification: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.predictions.decoder.bias', 'cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight']
+- This IS expected if you are initializing BertForTokenClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForTokenClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForTokenClassification were not initialized from the model checkpoint at m3rg-iitd/matscibert and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+using device: cuda
+72 511 546
+['I-APL', 'I-CMT', 'I-DSC', 'I-MAT', 'I-PRO', 'I-SMT', 'I-SPL', 'O']
+BertForTokenClassification(
+  (bert): BertModel(
+    (embeddings): BertEmbeddings(
+      (word_embeddings): Embedding(31090, 768, padding_idx=0)
+      (position_embeddings): Embedding(512, 768)
+      (token_type_embeddings): Embedding(2, 768)
+      (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (encoder): BertEncoder(
+      (layer): ModuleList(
+        (0): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (1): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (2): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (3): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (4): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (5): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (6): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (7): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (8): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (9): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (10): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (11): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+      )
+    )
+  )
+  (dropout): Dropout(p=0.1, inplace=False)
+  (classifier): Linear(in_features=768, out_features=8, bias=True)
+)
+training_time:0.20908713340759277
+loss:1.478211522102356
+{'APL': 8.35164835164835, 'CMT': 0.0, 'DSC': 0.0, 'MAT': 0.2770083102493075, 'PRO': 0.2028397565922921, 'SMT': 1.8018018018018018, 'SPL': 0.0, 'macro_f1': 0.015190426028988215, 'micro_f1': 0.015042511445389144}
+training_time:0.16402220726013184
+loss:0.9680019617080688
+training_time:0.15975403785705566
+loss:1.105167269706726
+training_time:0.15825176239013672
+loss:0.777640700340271
+training_time:0.15099239349365234
+loss:0.6993242502212524
+training_time:0.15742826461791992
+loss:0.6671537756919861
+training_time:0.15027976036071777
+loss:0.8470903038978577
+training_time:0.1586613655090332
+loss:0.5179083943367004
+training_time:0.1516721248626709
+loss:0.664925754070282
+{'APL': 10.126582278481013, 'CMT': 8.866995073891625, 'DSC': 0.0, 'MAT': 0.0, 'PRO': 0.27285129604365616, 'SMT': 0.0, 'SPL': 0.0, 'macro_f1': 0.02752346949773756, 'micro_f1': 0.018211920529801327}
+training_time:0.15935039520263672
+loss:0.5233055949211121
+{'APL': 16.60649819494585, 'CMT': 18.34061135371179, 'DSC': 0.49019607843137253, 'MAT': 0.31999999999999995, 'PRO': 0.27285129604365616, 'SMT': 0.0, 'SPL': 0.0, 'macro_f1': 0.05147165274733238, 'micro_f1': 0.0377207062600321}
+training_time:0.1593306064605713
+loss:0.5095580816268921
+{'APL': 19.230769230769234, 'CMT': 27.90697674418604, 'DSC': 0.4889975550122249, 'MAT': 1.2678288431061806, 'PRO': 0.8152173913043478, 'SMT': 1.2820512820512822, 'SPL': 0.0, 'macro_f1': 0.07284548720918474, 'micro_f1': 0.0583203732503888}
+training_time:0.16950654983520508
+loss:0.5001987814903259
+{'APL': 20.77922077922078, 'CMT': 36.93379790940766, 'DSC': 0.4889975550122249, 'MAT': 2.8125, 'PRO': 1.3513513513513513, 'SMT': 2.4242424242424243, 'SPL': 0.0, 'macro_f1': 0.09255730002747779, 'micro_f1': 0.07789232531500573}
+training_time:0.16928553581237793
+loss:0.5145737528800964
+{'APL': 22.875816993464053, 'CMT': 40.802675585284284, 'DSC': 0.48661800486617995, 'MAT': 5.792682926829268, 'PRO': 1.8791946308724834, 'SMT': 5.882352941176471, 'SPL': 0.0, 'macro_f1': 0.11102763011784678, 'micro_f1': 0.09634926608957471}
+training_time:0.1726212501525879
+loss:0.3766480088233948
+{'APL': 23.56902356902357, 'CMT': 40.802675585284284, 'DSC': 0.48426150121065376, 'MAT': 7.784431137724551, 'PRO': 2.393617021276596, 'SMT': 6.666666666666667, 'SPL': 0.0, 'macro_f1': 0.11671525068740905, 'micro_f1': 0.103023516237402}
+training_time:0.15590929985046387
+loss:0.4554845690727234
+{'APL': 23.32155477031802, 'CMT': 43.47826086956522, 'DSC': 0.48426150121065376, 'MAT': 10.029498525073748, 'PRO': 3.16622691292876, 'SMT': 7.4866310160427805, 'SPL': 0.0, 'macro_f1': 0.12566633370734168, 'micro_f1': 0.11301115241635687}
+training_time:0.16959691047668457
+loss:0.4018614888191223
+{'APL': 23.487544483985765, 'CMT': 43.9344262295082, 'DSC': 0.48309178743961356, 'MAT': 11.866859623733719, 'PRO': 4.450261780104711, 'SMT': 8.37696335078534, 'SPL': 2.73972602739726, 'macro_f1': 0.13619839040422088, 'micro_f1': 0.12357484369253402}
+training_time:0.1661243438720703
+loss:0.5074647665023804
+{'APL': 23.91304347826087, 'CMT': 46.7948717948718, 'DSC': 0.4807692307692307, 'MAT': 13.636363636363638, 'PRO': 4.922279792746114, 'SMT': 9.326424870466322, 'SPL': 5.405405405405405, 'macro_f1': 0.14925594029840483, 'micro_f1': 0.13469239170003638}
+training_time:0.16421246528625488
+loss:0.4387611448764801
+{'APL': 24.000000000000004, 'CMT': 47.3186119873817, 'DSC': 0.4796163069544364, 'MAT': 15.406162464985995, 'PRO': 6.114649681528663, 'SMT': 9.326424870466322, 'SPL': 5.405405405405405, 'macro_f1': 0.15435838673817504, 'micro_f1': 0.1434234234234234}
+training_time:0.16600894927978516
+loss:0.3356570899486542
+{'APL': 26.618705035971225, 'CMT': 47.64890282131661, 'DSC': 1.900237529691211, 'MAT': 17.079889807162534, 'PRO': 7.4812967581047385, 'SMT': 11.22448979591837, 'SPL': 8.0, 'macro_f1': 0.17136217392594955, 'micro_f1': 0.15832445864394745}
+training_time:0.16358470916748047
+loss:0.5203213095664978
+{'APL': 28.975265017667844, 'CMT': 49.38271604938272, 'DSC': 2.3474178403755865, 'MAT': 18.775510204081634, 'PRO': 8.405438813349814, 'SMT': 13.861386138613863, 'SPL': 8.0, 'macro_f1': 0.18535390580495922, 'micro_f1': 0.1723896285914506}
+training_time:0.1801753044128418
+loss:0.300155907869339
+{'APL': 30.44982698961938, 'CMT': 50.0, 'DSC': 5.080831408775982, 'MAT': 20.29372496662216, 'PRO': 9.512195121951219, 'SMT': 15.458937198067632, 'SPL': 8.0, 'macro_f1': 0.19827930812148054, 'micro_f1': 0.18683212685280937}
+training_time:0.1686263084411621
+loss:0.4925740957260132
+{'APL': 30.201342281879196, 'CMT': 50.303030303030305, 'DSC': 5.895691609977324, 'MAT': 22.774869109947645, 'PRO': 9.673518742442564, 'SMT': 16.50485436893204, 'SPL': 8.0, 'macro_f1': 0.20479043773744154, 'micro_f1': 0.1958517511050663}
+training_time:0.16159677505493164
+loss:0.4696458876132965
+{'APL': 32.55813953488372, 'CMT': 50.450450450450454, 'DSC': 6.726457399103141, 'MAT': 24.611398963730572, 'PRO': 10.084033613445378, 'SMT': 16.19047619047619, 'SPL': 10.526315789473683, 'macro_f1': 0.21592467420223302, 'micro_f1': 0.20599124873779873}
+training_time:0.15505242347717285
+loss:0.31454727053642273
+{'APL': 32.36245954692557, 'CMT': 50.755287009063444, 'DSC': 8.35164835164835, 'MAT': 25.70694087403599, 'PRO': 10.311750599520384, 'SMT': 16.19047619047619, 'SPL': 10.526315789473683, 'macro_f1': 0.22029268337306232, 'micro_f1': 0.21182759772803209}
+training_time:0.16806387901306152
+loss:0.33038368821144104
+{'APL': 33.97435897435898, 'CMT': 50.755287009063444, 'DSC': 8.242950108459869, 'MAT': 25.86427656850192, 'PRO': 10.978520286396181, 'SMT': 17.142857142857146, 'SPL': 10.526315789473683, 'macro_f1': 0.22497795125587314, 'micro_f1': 0.21601861083416418}
+training_time:0.16545987129211426
+loss:0.31003615260124207
+{'APL': 34.61538461538461, 'CMT': 50.755287009063444, 'DSC': 8.639308855291576, 'MAT': 25.831202046035802, 'PRO': 10.939357907253271, 'SMT': 18.095238095238095, 'SPL': 10.526315789473683, 'macro_f1': 0.22771727759677213, 'micro_f1': 0.2175787728026534}
+training_time:0.18365693092346191
+loss:0.35587310791015625
+{'APL': 34.726688102893895, 'CMT': 50.90909090909091, 'DSC': 9.051724137931034, 'MAT': 25.831202046035802, 'PRO': 11.124260355029586, 'SMT': 17.92452830188679, 'SPL': 10.38961038961039, 'macro_f1': 0.22851014891782628, 'micro_f1': 0.21847070506454813}
+training_time:0.161529541015625
+loss:0.4519248902797699
+training_time:0.16201353073120117
+loss:0.4219871163368225
+{'APL': 34.726688102893895, 'CMT': 50.0, 'DSC': 9.44206008583691, 'MAT': 25.86427656850192, 'PRO': 11.124260355029586, 'SMT': 18.691588785046733, 'SPL': 12.82051282051282, 'macro_f1': 0.23238483816831693, 'micro_f1': 0.2193591014205484}
+training_time:0.1561274528503418
+loss:0.2906859219074249
+{'APL': 19.51219512195122, 'CMT': 47.76119402985074, 'DSC': 17.325800376647834, 'MAT': 33.258426966292134, 'PRO': 15.943491422805245, 'SMT': 4.926108374384237, 'SPL': 11.49425287356322, 'macro_f1': 0.21460209880784947, 'micro_f1': 0.23575997563204387}

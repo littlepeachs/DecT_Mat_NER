@@ -49,6 +49,7 @@ class DecT_NER_Trainer(Verbalizer):
                  multi_token_handler: Optional[str] = "first",
                  post_log_softmax: Optional[bool] = True,
                  lr: Optional[float] = 1e-3,
+                 lm_lr : Optional[float] = 1e-5,
                  weight_decay: Optional[float] = 1e-5,
                  hidden_size: Optional[int] = 4096,
                  mid_dim: Optional[int] = 64,
@@ -65,12 +66,14 @@ class DecT_NER_Trainer(Verbalizer):
         self.multi_token_handler = multi_token_handler
         self.post_log_softmax = post_log_softmax
         self.lr = lr
+        self.lm_lr = lm_lr
         self.weight_decay = weight_decay
         self.mid_dim = mid_dim
         self.epochs = epochs
         self.model_logits_weight = model_logits_weight
         self.device = torch.device("cuda:{}".format(device) if torch.cuda.is_available() else "cpu")
         self.model = model
+        # print(model)
         self.verbalizer =verbalizer
         self.label_words = list(verbalizer.values())
         self.label_words_id = [tokenizer.encode(self.label_words[i][0])[1] for i in range(len(self.label_words))]
@@ -88,10 +91,34 @@ class DecT_NER_Trainer(Verbalizer):
         self.head = nn.Linear(self.hidden_dims, self.mid_dim, bias=False)
         w = torch.empty((self.num_classes, self.mid_dim)).to(self.device)
         nn.init.xavier_uniform_(w)
+        # w = self.orthogo_tensor(w).to(self.device)
         self.proto = nn.Parameter(w, requires_grad=True)
         r = torch.ones(self.num_classes)
         self.proto_r = nn.Parameter(r, requires_grad=True)
-        self.optimizer = torch.optim.Adam([p for n, p in self.head.named_parameters()] + [self.proto_r], lr=self.lr,weight_decay=self.weight_decay)
+        no_decay = ["bias", "LayerNorm.weight"]
+        optimizer_grouped_parameters = [
+            {
+                "params": [p for n, p in self.model.cls.named_parameters() if not any(nd in n for nd in no_decay)],
+                "weight_decay": self.weight_decay,
+                "lr": self.lm_lr
+            },
+            {
+                "params": [p for n, p in self.model.cls.named_parameters() if any(nd in n for nd in no_decay)],
+                "weight_decay": 0.0,
+                "lr": self.lm_lr
+            },
+            {
+                "params": [p for n, p in self.head.named_parameters()],
+                "weight_decay": self.weight_decay,
+                "lr": self.lr
+            },
+            {
+                "params": [self.proto_r],
+                "weight_decay": self.weight_decay,
+                "lr": self.lr
+            },
+        ]
+        self.optimizer = torch.optim.Adam(optimizer_grouped_parameters)
     
     @property 
     def group_parameters_proto(self,):
@@ -261,15 +288,33 @@ class DecT_NER_Trainer(Verbalizer):
         calibrate_label_words_probs = self._calibrate_logits
         assert calibrate_label_words_probs.shape[1:] == label_words_probs.shape[1:] \
              and calibrate_label_words_probs.shape[0]==1, "shape not match"
-        label_words_probs /= (calibrate_label_words_probs+1e-15)
+        calibrate_label_words_probs+=1e-15
+        result = label_words_probs/calibrate_label_words_probs
         
-        return label_words_probs
+        return result
 
     @staticmethod
     def sim(x, y, r=0, model_logits=0, model_logits_weight=1):
         x = torch.unsqueeze(x, -2)
         dist = torch.norm((x - y), dim=-1) - model_logits * model_logits_weight - r
         return -dist
+    
+    def orthogo_tensor(self,tensor):
+        m, n = tensor.size()
+        x_np = tensor.t().numpy()
+        matrix = [Matrix(col) for col in x_np.T]
+        gram = GramSchmidt(matrix)
+        ort_list = []
+        for i in range(m):
+            vector = []
+            for j in range(n):
+                vector.append(float(gram[i][j]))
+            ort_list.append(vector)
+        ort_list = np.mat(ort_list,dtype=np.float32)
+        ort_list = torch.from_numpy(ort_list)
+        ort_list = F.normalize(ort_list,dim=1)
+        ort_list = ort_list*5
+        return ort_list
     
     def loss_func(self, x, model_logits, labels):
         sim_mat = torch.exp(self.sim(x, self.proto, self.proto_r, model_logits, self.model_logits_weight))
@@ -352,26 +397,28 @@ class DecT_NER_Trainer(Verbalizer):
         y_true = []
         y_pred = []
         metric = load_metric("./seqeval_metric.py")
-        for step, batch in enumerate(dataloader):
-            ner_label = batch.pop('ori_labels', 'not found ner_labels').cpu()
-            outputs = self.model(**batch,output_hidden_states=True)
-            batch_logits, batch_hiddens = outputs.logits, outputs.hidden_states[-1]
-            logits = F.softmax(self.extract_logits(batch_logits))
-            for i in range(len(logits)):
-                if  hasattr(self, "_calibrate_logits") and self._calibrate_logits is not None:
-                    logits[i] = self.calibrate(label_words_probs=logits[i])
-            proto_logits = self.sim(self.head(F.normalize(batch_hiddens,dim=-1)), self.proto, self.proto_r, logits, self.model_logits_weight).cpu()
-            # print(proto_logits)
-            pred = torch.argmax(proto_logits, dim=-1).cpu()
-            final_pred, final_label = self.get_labels(pred, ner_label)
+        with torch.no_grad():
+            for step, batch in enumerate(dataloader):
+                ner_label = batch.pop('ori_labels', 'not found ner_labels').cpu()
+                outputs = self.model(**batch,output_hidden_states=True)
+                batch_logits, batch_hiddens = outputs.logits, outputs.hidden_states[-1]
+                logits = F.softmax(self.extract_logits(batch_logits))
+                for i in range(len(logits)):
+                    if  hasattr(self, "_calibrate_logits") and self._calibrate_logits is not None:
+                        logits[i] = self.calibrate(label_words_probs=logits[i])
+                proto_logits = self.sim(self.head(F.normalize(batch_hiddens,dim=-1)), self.proto, self.proto_r, logits, self.model_logits_weight).cpu()
+                # print(proto_logits)
+                pred = torch.argmax(proto_logits, dim=-1).cpu()
+                final_pred, final_label = self.get_labels(pred, ner_label)
 
-            y_true.extend(final_label)
-            y_pred.extend(final_pred)
+                y_true.extend(final_label)
+                y_pred.extend(final_pred)
 
-            metric.add_batch(
-                predictions=final_pred,
-                references=final_label,
-            )
+                metric.add_batch(
+                    predictions=final_pred,
+                    references=final_label,
+                )
+                del logits,batch_logits,batch_hiddens,outputs
         eval_metric = self.compute_metrics(metric,return_entity_level_metrics=True)
         
         # accelerator.print(f"epoch {epoch}:", eval_metric)

@@ -1,0 +1,282 @@
+/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/transformers/generation_utils.py:24: FutureWarning: Importing `GenerationMixin` from `src/transformers/generation_utils.py` is deprecated and will be removed in Transformers v5. Import as `from transformers import GenerationMixin` instead.
+  warnings.warn(
+06/01/2023 14:48:10 - INFO - __main__ - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+06/01/2023 14:48:11 - WARNING - datasets.builder - Found cached dataset json (/home/liwentao/.cache/huggingface/datasets/json/default-90b165f8431f5e0a/0.0.0/0f7e3662623656454fcd2b650f34e886a7db4b9104504885bd462096cc7a9f51)
+################## Hyper-parameters: ##################
+epochs:100,lr:0.005, batch_size:32, shot:8, proto_dim:160, logits_weight:10.0, weight_decay:1e-07 
+################## Hyper-parameters: ##################
+shot and proto_dim
+proto_dim: 128
+model_logits_weight: 10
+num_train_epochs: 100
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 1135.44it/s]
+loading configuration file config.json from cache at /home/liwentao/.cache/huggingface/hub/models--pranav-s--MaterialsBERT/snapshots/8a7378e9cdeae17fb808482ae367e4bd995fe223/config.json
+Model config BertConfig {
+  "_name_or_path": "pranav-s/MaterialsBERT",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "torch_dtype": "float32",
+  "transformers_version": "4.27.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+Could not locate the tokenizer configuration file, will try to use the model config instead.
+loading configuration file config.json from cache at /home/liwentao/.cache/huggingface/hub/models--pranav-s--MaterialsBERT/snapshots/8a7378e9cdeae17fb808482ae367e4bd995fe223/config.json
+Model config BertConfig {
+  "_name_or_path": "pranav-s/MaterialsBERT",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "torch_dtype": "float32",
+  "transformers_version": "4.27.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+loading file vocab.txt from cache at /home/liwentao/.cache/huggingface/hub/models--pranav-s--MaterialsBERT/snapshots/8a7378e9cdeae17fb808482ae367e4bd995fe223/vocab.txt
+loading file tokenizer.json from cache at None
+loading file added_tokens.json from cache at None
+loading file special_tokens_map.json from cache at None
+loading file tokenizer_config.json from cache at None
+loading configuration file config.json from cache at /home/liwentao/.cache/huggingface/hub/models--pranav-s--MaterialsBERT/snapshots/8a7378e9cdeae17fb808482ae367e4bd995fe223/config.json
+Model config BertConfig {
+  "_name_or_path": "pranav-s/MaterialsBERT",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "torch_dtype": "float32",
+  "transformers_version": "4.27.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+loading configuration file config.json from cache at /home/liwentao/.cache/huggingface/hub/models--pranav-s--MaterialsBERT/snapshots/8a7378e9cdeae17fb808482ae367e4bd995fe223/config.json
+Model config BertConfig {
+  "_name_or_path": "pranav-s/MaterialsBERT",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "torch_dtype": "float32",
+  "transformers_version": "4.27.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+loading weights file pytorch_model.bin from cache at /home/liwentao/.cache/huggingface/hub/models--pranav-s--MaterialsBERT/snapshots/8a7378e9cdeae17fb808482ae367e4bd995fe223/pytorch_model.bin
+Generate config GenerationConfig {
+  "_from_model_config": true,
+  "pad_token_id": 0,
+  "transformers_version": "4.27.1"
+}
+
+All model checkpoint weights were used when initializing BertForMaskedLM.
+
+All the weights of BertForMaskedLM were initialized from the model checkpoint at pranav-s/MaterialsBERT.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use BertForMaskedLM for predictions without further training.
+Generation config file not found, using a generation config created from the model config.
+06/01/2023 14:48:14 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /home/liwentao/.cache/huggingface/datasets/json/default-90b165f8431f5e0a/0.0.0/0f7e3662623656454fcd2b650f34e886a7db4b9104504885bd462096cc7a9f51/cache-a217cbd95315f0e1.arrow
+Loading label map from scripts/matsciner/proto_verbalizer.json...
+{'I-CMT': ['electron'], 'I-MAT': ['silicon'], 'I-DSC': ['doped'], 'I-PRO': ['properties'], 'I-SMT': ['annealing'], 'I-APL': ['coating'], 'I-SPL': ['cubic']}
+{'O': 0, 'I-CMT': 1, 'I-MAT': 2, 'I-DSC': 3, 'I-PRO': 4, 'I-SMT': 5, 'I-APL': 6, 'I-SPL': 7, 'B-CMT': 8, 'B-MAT': 9, 'B-DSC': 10, 'B-PRO': 11, 'B-SMT': 12, 'B-APL': 13, 'B-SPL': 14}
+{'I-CMT': ['electron'], 'I-MAT': ['silicon'], 'I-DSC': ['doped'], 'I-PRO': ['properties'], 'I-SMT': ['annealing'], 'I-APL': ['coating'], 'I-SPL': ['cubic']}
+Running tokenizer on dataset:   0%|          | 0/546 [00:00<?, ? examples/s]                                                                            /home/liwentao/Dec-Tuning-in-Mat/run_ner_dect.py:569: FutureWarning: load_metric is deprecated and will be removed in the next major version of datasets. Use 'evaluate.load' instead, from the new library 🤗 Evaluate: https://huggingface.co/docs/evaluate
+  metric = load_metric("./seqeval_metric.py")
+06/01/2023 14:48:18 - INFO - __main__ - ***** Running training *****
+06/01/2023 14:48:18 - INFO - __main__ -   Num examples = 24
+06/01/2023 14:48:18 - INFO - __main__ -   Num Epochs = 100
+06/01/2023 14:48:18 - INFO - __main__ -   Instantaneous batch size per device = 32
+06/01/2023 14:48:18 - INFO - __main__ -   Total train batch size (w. parallel, distributed & accumulation) = 32
+06/01/2023 14:48:18 - INFO - __main__ -   Gradient Accumulation steps = 1
+06/01/2023 14:48:18 - INFO - __main__ -   Total optimization steps = 100
+tensor([1, 1, 1, 1, 1, 1, 1], device='cuda:0')
+  0%|          | 0/100 [00:00<?, ?it/s]/home/liwentao/Dec-Tuning-in-Mat/dect_trainer.py:405: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  logits = F.softmax(self.extract_logits(batch_logits))
+Total epoch: 0. epoch loss: 15.663091659545898
+Total epoch: 1. epoch loss: 14.871033668518066
+Total epoch: 2. epoch loss: 14.069073677062988
+Total epoch: 3. epoch loss: 13.264856338500977
+Total epoch: 4. epoch loss: 12.473416328430176
+Total epoch: 5. epoch loss: 11.717961311340332
+Total epoch: 6. epoch loss: 11.029510498046875
+Total epoch: 7. epoch loss: 10.432890892028809
+Total epoch: 8. epoch loss: 9.9309663772583
+Total epoch: 9. epoch loss: 9.507908821105957
+Total epoch: 10. epoch loss: 9.1421480178833
+Total epoch: 11. epoch loss: 8.819238662719727
+Total epoch: 12. epoch loss: 8.531821250915527
+Total epoch: 13. epoch loss: 8.275866508483887
+Total epoch: 14. epoch loss: 8.04797077178955
+Total epoch: 15. epoch loss: 7.844239234924316
+Total epoch: 16. epoch loss: 7.660451412200928
+Total epoch: 17. epoch loss: 7.492929935455322
+Total epoch: 18. epoch loss: 7.33937406539917
+Total epoch: 19. epoch loss: 7.198408603668213
+Total epoch: 20. epoch loss: 7.0688886642456055
+Total epoch: 21. epoch loss: 6.949570655822754
+Total epoch: 22. epoch loss: 6.8395209312438965
+Total epoch: 23. epoch loss: 6.738770484924316
+Total epoch: 24. epoch loss: 6.647171974182129
+Total epoch: 25. epoch loss: 6.564095497131348
+Total epoch: 26. epoch loss: 6.488470077514648
+Total epoch: 27. epoch loss: 6.419215202331543
+Total epoch: 28. epoch loss: 6.355896472930908
+Total epoch: 29. epoch loss: 6.2987799644470215
+Total epoch: 30. epoch loss: 6.247797966003418
+Total epoch: 31. epoch loss: 6.201606750488281
+Total epoch: 32. epoch loss: 6.158719062805176
+Total epoch: 33. epoch loss: 6.118790626525879
+Total epoch: 34. epoch loss: 6.0819172859191895
+Total epoch: 35. epoch loss: 6.047752857208252
+Total epoch: 36. epoch loss: 6.01558780670166
+Total epoch: 37. epoch loss: 5.985048294067383
+Total epoch: 38. epoch loss: 5.956254482269287
+Total epoch: 39. epoch loss: 5.929227352142334
+Total epoch: 40. epoch loss: 5.903610706329346
+Total epoch: 41. epoch loss: 5.8783159255981445
+Total epoch: 42. epoch loss: 5.853565216064453
+Total epoch: 43. epoch loss: 5.830122470855713
+Total epoch: 44. epoch loss: 5.807235240936279
+Total epoch: 45. epoch loss: 5.784918785095215
+Total epoch: 46. epoch loss: 5.764111518859863
+Total epoch: 47. epoch loss: 5.744630336761475
+Total epoch: 48. epoch loss: 5.7267560958862305
+Total epoch: 49. epoch loss: 5.7114386558532715
+Total epoch: 50. epoch loss: 5.69428014755249
+Total epoch: 51. epoch loss: 5.6784257888793945
+Total epoch: 52. epoch loss: 5.66352653503418
+Total epoch: 53. epoch loss: 5.649246692657471
+Total epoch: 54. epoch loss: 5.634878158569336
+Total epoch: 55. epoch loss: 5.62233829498291
+Total epoch: 56. epoch loss: 5.6104512214660645
+Total epoch: 57. epoch loss: 5.599545001983643
+Total epoch: 58. epoch loss: 5.588566303253174
+Total epoch: 59. epoch loss: 5.577457904815674
+Total epoch: 60. epoch loss: 5.568106651306152
+Total epoch: 61. epoch loss: 5.557317733764648
+Total epoch: 62. epoch loss: 5.549886703491211
+Total epoch: 63. epoch loss: 5.5391130447387695
+Total epoch: 64. epoch loss: 5.533107757568359
+Total epoch: 65. epoch loss: 5.525012969970703
+Total epoch: 66. epoch loss: 5.518336296081543
+Total epoch: 67. epoch loss: 5.512700080871582
+Total epoch: 68. epoch loss: 5.505165100097656
+Total epoch: 69. epoch loss: 5.499866008758545
+Total epoch: 70. epoch loss: 5.492900371551514
+Total epoch: 71. epoch loss: 5.486443519592285
+Total epoch: 72. epoch loss: 5.4818596839904785
+Total epoch: 73. epoch loss: 5.4748382568359375
+Total epoch: 74. epoch loss: 5.473263263702393
+Total epoch: 75. epoch loss: 5.465749740600586
+Total epoch: 76. epoch loss: 5.4639482498168945
+Total epoch: 77. epoch loss: 5.459484100341797
+Total epoch: 78. epoch loss: 5.454384803771973
+Total epoch: 79. epoch loss: 5.4499831199646
+Total epoch: 80. epoch loss: 5.446791648864746
+Total epoch: 81. epoch loss: 5.442327499389648
+Total epoch: 82. epoch loss: 5.439816951751709
+Total epoch: 83. epoch loss: 5.4360785484313965
+Total epoch: 84. epoch loss: 5.431910037994385
+Total epoch: 85. epoch loss: 5.431215286254883
+Total epoch: 86. epoch loss: 5.424144268035889
+Total epoch: 87. epoch loss: 5.429256439208984
+Total epoch: 88. epoch loss: 5.419098377227783
+Total epoch: 89. epoch loss: 5.426151752471924
+Total epoch: 90. epoch loss: 5.419130325317383
+Total epoch: 91. epoch loss: 5.418470859527588
+Total epoch: 92. epoch loss: 5.416042327880859
+Total epoch: 93. epoch loss: 5.409677505493164
+Total epoch: 94. epoch loss: 5.412471771240234
+Total epoch: 95. epoch loss: 5.403834819793701
+Total epoch: 96. epoch loss: 5.409592151641846
+Total epoch: 97. epoch loss: 5.402713775634766
+Total epoch: 98. epoch loss: 5.404074668884277
+Total epoch: 99. epoch loss: 5.401585578918457
+Total epoch: 99. DecT loss: 5.401585578918457
+Training time: 0.4235198497772217
+APL_precision: 0.20175438596491227, APL_recall: 0.40588235294117647, APL_f1: 0.26953125, APL_number: 170
+CMT_precision: 0.18292682926829268, CMT_recall: 0.3076923076923077, CMT_f1: 0.22944550669216063, CMT_number: 195
+DSC_precision: 0.33147632311977715, DSC_recall: 0.2723112128146453, DSC_f1: 0.2989949748743718, DSC_number: 437
+MAT_precision: 0.6812865497076024, MAT_recall: 0.3416422287390029, MAT_f1: 0.455078125, MAT_number: 682
+PRO_precision: 0.30319148936170215, PRO_recall: 0.14785992217898833, PRO_f1: 0.1987794245858762, PRO_number: 771
+SMT_precision: 0.3161290322580645, SMT_recall: 0.28654970760233917, SMT_f1: 0.3006134969325153, SMT_number: 171
+SPL_precision: 0.8148148148148148, SPL_recall: 0.29333333333333333, SPL_f1: 0.43137254901960786, SPL_number: 75
+overall_precision: 0.3452566096423017, overall_recall: 0.26629348260695723, overall_f1: 0.30067720090293454, overall_accuracy: 0.760774783789579
+finish test
+Traceback (most recent call last):
+  File "/home/liwentao/Dec-Tuning-in-Mat/run_ner_dect.py", line 992, in <module>
+    main()
+  File "/home/liwentao/Dec-Tuning-in-Mat/run_ner_dect.py", line 815, in main
+    runner.run(train_dataloader,None ,eval_dataloader)
+  File "/home/liwentao/Dec-Tuning-in-Mat/dect_trainer.py", line 513, in run
+    return score
+NameError: name 'score' is not defined
+  0%|          | 0/100 [00:02<?, ?it/s]

@@ -1,0 +1,188 @@
+/home/liwentao/miniconda3/envs/py38/lib/python3.8/site-packages/transformers/generation_utils.py:24: FutureWarning: Importing `GenerationMixin` from `src/transformers/generation_utils.py` is deprecated and will be removed in Transformers v5. Import as `from transformers import GenerationMixin` instead.
+  warnings.warn(
+05/31/2023 13:43:18 - INFO - __main__ - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+05/31/2023 13:43:19 - WARNING - datasets.builder - Found cached dataset json (/home/liwentao/.cache/huggingface/datasets/json/default-d4ae5fe9fd32b8ca/0.0.0/0f7e3662623656454fcd2b650f34e886a7db4b9104504885bd462096cc7a9f51)
+################## Hyper-parameters: ##################
+epochs:100,lr:0.005, batch_size:32, shot:2, proto_dim:160, logits_weight:10.0, weight_decay:1e-05 
+################## Hyper-parameters: ##################
+shot and proto_dim
+proto_dim: 32
+model_logits_weight: 20
+num_train_epochs: 35
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 985.74it/s]
+loading configuration file config.json from cache at /home/liwentao/.cache/huggingface/hub/models--m3rg-iitd--matscibert/snapshots/24a4e4318dda9bc18bff5e6a45debdcb3e1780e3/config.json
+Model config BertConfig {
+  "_name_or_path": "m3rg-iitd/matscibert",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.27.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 31090
+}
+
+loading configuration file config.json from cache at /home/liwentao/.cache/huggingface/hub/models--m3rg-iitd--matscibert/snapshots/24a4e4318dda9bc18bff5e6a45debdcb3e1780e3/config.json
+Model config BertConfig {
+  "_name_or_path": "m3rg-iitd/matscibert",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.27.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 31090
+}
+
+loading file vocab.txt from cache at /home/liwentao/.cache/huggingface/hub/models--m3rg-iitd--matscibert/snapshots/24a4e4318dda9bc18bff5e6a45debdcb3e1780e3/vocab.txt
+loading file tokenizer.json from cache at /home/liwentao/.cache/huggingface/hub/models--m3rg-iitd--matscibert/snapshots/24a4e4318dda9bc18bff5e6a45debdcb3e1780e3/tokenizer.json
+loading file added_tokens.json from cache at None
+loading file special_tokens_map.json from cache at /home/liwentao/.cache/huggingface/hub/models--m3rg-iitd--matscibert/snapshots/24a4e4318dda9bc18bff5e6a45debdcb3e1780e3/special_tokens_map.json
+loading file tokenizer_config.json from cache at /home/liwentao/.cache/huggingface/hub/models--m3rg-iitd--matscibert/snapshots/24a4e4318dda9bc18bff5e6a45debdcb3e1780e3/tokenizer_config.json
+loading configuration file config.json from cache at /home/liwentao/.cache/huggingface/hub/models--m3rg-iitd--matscibert/snapshots/24a4e4318dda9bc18bff5e6a45debdcb3e1780e3/config.json
+Model config BertConfig {
+  "_name_or_path": "m3rg-iitd/matscibert",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.27.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 31090
+}
+
+loading weights file pytorch_model.bin from cache at /home/liwentao/.cache/huggingface/hub/models--m3rg-iitd--matscibert/snapshots/24a4e4318dda9bc18bff5e6a45debdcb3e1780e3/pytorch_model.bin
+Generate config GenerationConfig {
+  "_from_model_config": true,
+  "pad_token_id": 0,
+  "transformers_version": "4.27.1"
+}
+
+All model checkpoint weights were used when initializing BertForMaskedLM.
+
+All the weights of BertForMaskedLM were initialized from the model checkpoint at m3rg-iitd/matscibert.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use BertForMaskedLM for predictions without further training.
+Generation config file not found, using a generation config created from the model config.
+Loading label map from scripts/matsciner/proto_verbalizer.json...
+{'I-CMT': ['electron'], 'I-MAT': ['silicon'], 'I-DSC': ['doped'], 'I-PRO': ['properties'], 'I-SMT': ['annealing'], 'I-APL': ['coating'], 'I-SPL': ['cubic']}
+{'O': 0, 'I-CMT': 1, 'I-MAT': 2, 'I-DSC': 3, 'I-PRO': 4, 'I-SMT': 5, 'I-APL': 6, 'I-SPL': 7, 'B-CMT': 8, 'B-MAT': 9, 'B-DSC': 10, 'B-PRO': 11, 'B-SMT': 12, 'B-APL': 13, 'B-SPL': 14}
+{'I-CMT': ['electron'], 'I-MAT': ['silicon'], 'I-DSC': ['doped'], 'I-PRO': ['properties'], 'I-SMT': ['annealing'], 'I-APL': ['coating'], 'I-SPL': ['cubic']}
+Running tokenizer on dataset:   0%|          | 0/6 [00:00<?, ? examples/s]                                                                          Running tokenizer on dataset:   0%|          | 0/546 [00:00<?, ? examples/s]Running tokenizer on dataset: 100%|██████████| 546/546 [00:00<00:00, 4806.43 examples/s]                                                                                        /home/liwentao/Dec-Tuning-in-Mat/run_ner_dect.py:563: FutureWarning: load_metric is deprecated and will be removed in the next major version of datasets. Use 'evaluate.load' instead, from the new library 🤗 Evaluate: https://huggingface.co/docs/evaluate
+  metric = load_metric("./seqeval_metric.py")
+05/31/2023 13:43:26 - INFO - __main__ - ***** Running training *****
+05/31/2023 13:43:26 - INFO - __main__ -   Num examples = 6
+05/31/2023 13:43:26 - INFO - __main__ -   Num Epochs = 35
+05/31/2023 13:43:26 - INFO - __main__ -   Instantaneous batch size per device = 32
+05/31/2023 13:43:26 - INFO - __main__ -   Total train batch size (w. parallel, distributed & accumulation) = 32
+05/31/2023 13:43:26 - INFO - __main__ -   Gradient Accumulation steps = 1
+05/31/2023 13:43:26 - INFO - __main__ -   Total optimization steps = 35
+tensor([101, 101, 101, 101, 101, 101, 101], device='cuda:0')
+  0%|          | 0/35 [00:00<?, ?it/s]/home/liwentao/Dec-Tuning-in-Mat/dect_trainer.py:377: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  logits = F.softmax(self.extract_logits(batch_logits))
+Total epoch: 0. epoch loss: 14.561042785644531
+Total epoch: 1. epoch loss: 13.72193431854248
+Total epoch: 2. epoch loss: 12.90652084350586
+Total epoch: 3. epoch loss: 12.117002487182617
+Total epoch: 4. epoch loss: 11.355618476867676
+Total epoch: 5. epoch loss: 10.624073028564453
+Total epoch: 6. epoch loss: 9.92348575592041
+Total epoch: 7. epoch loss: 9.25427532196045
+Total epoch: 8. epoch loss: 8.616193771362305
+Total epoch: 9. epoch loss: 8.008562088012695
+Total epoch: 10. epoch loss: 7.430598735809326
+Total epoch: 11. epoch loss: 6.881589889526367
+Total epoch: 12. epoch loss: 6.361327171325684
+Total epoch: 13. epoch loss: 5.869945526123047
+Total epoch: 14. epoch loss: 5.407970428466797
+Total epoch: 15. epoch loss: 4.975831031799316
+Total epoch: 16. epoch loss: 4.573796272277832
+Total epoch: 17. epoch loss: 4.201627254486084
+Total epoch: 18. epoch loss: 3.858492136001587
+Total epoch: 19. epoch loss: 3.5428688526153564
+Total epoch: 20. epoch loss: 3.2529146671295166
+Total epoch: 21. epoch loss: 2.9864234924316406
+Total epoch: 22. epoch loss: 2.74139142036438
+Total epoch: 23. epoch loss: 2.5159168243408203
+Total epoch: 24. epoch loss: 2.308426856994629
+Total epoch: 25. epoch loss: 2.1177000999450684
+Total epoch: 26. epoch loss: 1.9425958395004272
+Total epoch: 27. epoch loss: 1.7820589542388916
+Total epoch: 28. epoch loss: 1.634962797164917
+Total epoch: 29. epoch loss: 1.5000933408737183
+Total epoch: 30. epoch loss: 1.3768310546875
+Total epoch: 31. epoch loss: 1.2645984888076782
+Total epoch: 32. epoch loss: 1.1627726554870605
+Total epoch: 33. epoch loss: 1.0707893371582031
+Total epoch: 34. epoch loss: 0.9880836009979248
+Total epoch: 34. DecT loss: 0.9880836009979248
+Training time: 0.1648085117340088
+APL_precision: 0.04780876494023904, APL_recall: 0.07058823529411765, APL_f1: 0.057007125890736345, APL_number: 170
+CMT_precision: 0.014925373134328358, CMT_recall: 0.005128205128205128, CMT_f1: 0.0076335877862595426, CMT_number: 195
+DSC_precision: 0.8095238095238095, DSC_recall: 0.07780320366132723, DSC_f1: 0.14196242171189977, DSC_number: 437
+MAT_precision: 0.4968421052631579, MAT_recall: 0.3460410557184751, MAT_f1: 0.40795159896283495, MAT_number: 682
+PRO_precision: 0.36363636363636365, PRO_recall: 0.005188067444876783, PRO_f1: 0.010230179028132991, PRO_number: 771
+SMT_precision: 0.07547169811320754, SMT_recall: 0.023391812865497075, SMT_f1: 0.03571428571428571, SMT_number: 171
+SPL_precision: 0.16, SPL_recall: 0.05333333333333334, SPL_f1: 0.08, SPL_number: 75
+overall_precision: 0.31926406926406925, overall_recall: 0.11795281887245102, overall_f1: 0.17226277372262774, overall_accuracy: 0.7083839611178615
+finish test
+Traceback (most recent call last):
+  File "/home/liwentao/Dec-Tuning-in-Mat/run_ner_dect.py", line 985, in <module>
+    main()
+  File "/home/liwentao/Dec-Tuning-in-Mat/run_ner_dect.py", line 808, in main
+    runner.run(train_dataloader,None ,eval_dataloader)
+  File "/home/liwentao/Dec-Tuning-in-Mat/dect_trainer.py", line 484, in run
+    return score
+NameError: name 'score' is not defined
+  0%|          | 0/35 [00:02<?, ?it/s]
