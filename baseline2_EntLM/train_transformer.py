@@ -100,7 +100,7 @@ def parse_args():
         "--model_name_or_path",
         type=str,
         help="Path to pretrained model or model identifier from huggingface.co/models.",
-        default='m3rg-iitd/matscibert'
+        default='/home/liwentao/learn/DecT_Mat_NER/model'
     )
     parser.add_argument(
         "--config_name",
@@ -386,10 +386,8 @@ def main():
 
     if "roberta" in args.model_name_or_path:
         tokenizer = add_label_token_roberta(model, tokenizer, ori_label_token_map)
-    elif "bert" in args.model_name_or_path:
-        tokenizer = add_label_token_bert(model, tokenizer, ori_label_token_map)
     else:
-        pass
+        tokenizer = add_label_token_bert(model, tokenizer, ori_label_token_map)
     label_token_map = {item:item for item in ori_label_token_map}
     # label_token_map = ori_label_token_map
     print(ori_label_token_map)
@@ -500,13 +498,28 @@ def main():
     # Optimizer
     # Split weights in two groups, one with weight decay and the other not.
     no_decay = ["bias", "LayerNorm.weight"]
+    print(model)
+    last_layer = model.bert.encoder.layer[-2:]
+    # classifier = model.cls
+
+    # optimizer_grouped_parameters = [
+    #     {
+    #         "params": [p for n, p in model.named_parameters() if not any(nd in n for nd in no_decay)],
+    #         "weight_decay": args.weight_decay,
+    #     },
+    #     {
+    #         "params": [p for n, p in model.named_parameters() if any(nd in n for nd in no_decay)],
+    #         "weight_decay": 0.0,
+    #     },
+    # ]
+
     optimizer_grouped_parameters = [
         {
-            "params": [p for n, p in model.named_parameters() if not any(nd in n for nd in no_decay)],
+            "params": [p for n, p in last_layer.named_parameters() if not any(nd in n for nd in no_decay)],
             "weight_decay": args.weight_decay,
         },
         {
-            "params": [p for n, p in model.named_parameters() if any(nd in n for nd in no_decay)],
+            "params": [p for n, p in last_layer.named_parameters() if any(nd in n for nd in no_decay)],
             "weight_decay": 0.0,
         },
     ]
@@ -742,18 +755,18 @@ def main():
         if best_metric == -1 or best_metric["overall_f1"] < eval_metric["overall_f1"] and not load:
             best_metric = eval_metric
 
-            if args.output_dir is not None:
-                # print(f"Save model to {args.output_dir}.")
-                accelerator.wait_for_everyone()
-                unwrapped_model = accelerator.unwrap_model(model)
-                unwrapped_model.save_pretrained(args.output_dir, save_function=accelerator.save)
-                tokenizer.save_pretrained(args.output_dir)
+            # if args.output_dir is not None:
+            #     # print(f"Save model to {args.output_dir}.")
+            #     accelerator.wait_for_everyone()
+            #     unwrapped_model = accelerator.unwrap_model(model)
+            #     unwrapped_model.save_pretrained(args.output_dir, save_function=accelerator.save)
+            #     tokenizer.save_pretrained(args.output_dir)
 
-                with open(os.path.join(args.output_dir, "predictions.txt"), "w") as f:
-                    for i in range(len(y_true)):
-                        for j in range(len(y_true[i])):
-                            f.write(f"{token_list[i][j]} {y_true[i][j]} {y_pred[i][j]}\n")
-                        f.write("\n")
+            #     with open(os.path.join(args.output_dir, "predictions.txt"), "w") as f:
+            #         for i in range(len(y_true)):
+            #             for j in range(len(y_true[i])):
+            #                 f.write(f"{token_list[i][j]} {y_true[i][j]} {y_pred[i][j]}\n")
+            #             f.write("\n")
         return best_metric
 
     # Train!

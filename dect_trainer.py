@@ -510,7 +510,6 @@ class DecT_NER_Trainer(Verbalizer):
         print("Training time: {}".format(end_time - start_time))
         self.test(test_dataloader)
         # res = sum([int(i==j) for i,j in zip(preds, labels)])/len(preds)
-        return score
     # 先进行文本校准，然后进行zero-shot test
     
     

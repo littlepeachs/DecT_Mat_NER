@@ -1,0 +1,152 @@
+09/13/2023 11:32:51 - INFO - __main__ - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+Downloading data files:   0%|          | 0/2 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 2/2 [00:00<00:00, 17050.02it/s]
+Extracting data files:   0%|          | 0/2 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 2/2 [00:00<00:00, 285.71it/s]
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 9 examples [00:00, 2108.04 examples/s]
+Generating validation split: 0 examples [00:00, ? examples/s]Generating validation split: 546 examples [00:00, 69512.52 examples/s]
+loading configuration file /home/liwentao/learn/DecT_Mat_NER/model/config.json
+Model config BertConfig {
+  "_name_or_path": "/home/liwentao/learn/DecT_Mat_NER/model",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.27.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 31090
+}
+
+loading configuration file /home/liwentao/learn/DecT_Mat_NER/model/config.json
+Model config BertConfig {
+  "_name_or_path": "/home/liwentao/learn/DecT_Mat_NER/model",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.27.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 31090
+}
+
+loading file vocab.txt
+loading file tokenizer.json
+loading file added_tokens.json
+loading file special_tokens_map.json
+loading file tokenizer_config.json
+loading configuration file /home/liwentao/learn/DecT_Mat_NER/model/config.json
+Model config BertConfig {
+  "_name_or_path": "/home/liwentao/learn/DecT_Mat_NER/model",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.27.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 31090
+}
+
+loading weights file /home/liwentao/learn/DecT_Mat_NER/model/pytorch_model.bin
+Generate config GenerationConfig {
+  "_from_model_config": true,
+  "pad_token_id": 0,
+  "transformers_version": "4.27.1"
+}
+
+All model checkpoint weights were used when initializing BertForMaskedLM.
+
+All the weights of BertForMaskedLM were initialized from the model checkpoint at /home/liwentao/learn/DecT_Mat_NER/model.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use BertForMaskedLM for predictions without further training.
+Generation config file not found, using a generation config created from the model config.
+Loading label map from scripts/matsciner/final_verbalizer.json...
+{'I-CMT': ['electron', 'diffraction', 'microscopy', 'spectroscopy', 'transmission', 'test'], 'I-MAT': ['oxide', 'silicon', 'carbon', 'graphene', 'aluminum', 'oxides'], 'I-DSC': ['films', 'doped', 'thin', 'film', 'alloy'], 'I-PRO': ['properties', 'structure', 'magnetic', 'band', 'conductivity', 'electrical'], 'I-SMT': ['annealing', 'gel', 'plasma', 'hydrothermal', 'annealed', 'vapor'], 'I-APL': ['coatings', 'coating', 'solar', 'cells', 'electrode', 'applications', 'electrodes', 'catalysts', 'cathode'], 'I-SPL': ['cubic', 'hexagonal', 'rock', 'ch']}
+{'O': 0, 'I-CMT': 1, 'I-MAT': 2, 'I-DSC': 3, 'I-PRO': 4, 'I-SMT': 5, 'I-APL': 6, 'I-SPL': 7, 'B-CMT': 8, 'B-MAT': 9, 'B-DSC': 10, 'B-PRO': 11, 'B-SMT': 12, 'B-APL': 13, 'B-SPL': 14}
+I-CMT
+[3081, 10314, 5820, 7779, 2856, 856]
+I-MAT
+[6678, 8605, 3473, 11106, 15028, 20464]
+I-DSC
+[7423, 21155, 5197, 5796, 15937]
+I-PRO
+[1784, 1187, 3510, 2102, 9370, 4874]
+I-SMT
+[12040, 4051, 2780, 29973, 27202, 12766]
+I-APL
+[20189, 9754, 6911, 576, 6665, 2040, 8438, 15834, 19112]
+I-SPL
+[13879, 22235, 8863, 249]
+{'I-CMT': ['electron', 'diffraction', 'microscopy', 'spectroscopy', 'transmission', 'test'], 'I-MAT': ['oxide', 'silicon', 'carbon', 'graphene', 'aluminum', 'oxides'], 'I-DSC': ['films', 'doped', 'thin', 'film', 'alloy'], 'I-PRO': ['properties', 'structure', 'magnetic', 'band', 'conductivity', 'electrical'], 'I-SMT': ['annealing', 'gel', 'plasma', 'hydrothermal', 'annealed', 'vapor'], 'I-APL': ['coatings', 'coating', 'solar', 'cells', 'electrode', 'applications', 'electrodes', 'catalysts', 'cathode'], 'I-SPL': ['cubic', 'hexagonal', 'rock', 'ch']}
+Running tokenizer on dataset:   0%|          | 0/9 [00:00<?, ? examples/s]Running tokenizer on dataset: 100%|██████████| 9/9 [00:00<00:00, 695.87 examples/s]
+Running tokenizer on dataset:   0%|          | 0/546 [00:00<?, ? examples/s]Running tokenizer on dataset: 100%|██████████| 546/546 [00:00<00:00, 4983.24 examples/s]Running tokenizer on dataset: 100%|██████████| 546/546 [00:00<00:00, 4761.32 examples/s]
+/home/liwentao/learn/DecT_Mat_NER/baseline2_EntLM/train_transformer.py:546: FutureWarning: load_metric is deprecated and will be removed in the next major version of datasets. Use 'evaluate.load' instead, from the new library 🤗 Evaluate: https://huggingface.co/docs/evaluate
+  metric = load_metric("./seqeval_metric.py")
+09/13/2023 11:33:03 - INFO - __main__ - ***** Running training *****
+09/13/2023 11:33:03 - INFO - __main__ -   Num examples = 9
+09/13/2023 11:33:03 - INFO - __main__ -   Num Epochs = 60
+09/13/2023 11:33:03 - INFO - __main__ -   Instantaneous batch size per device = 4
+09/13/2023 11:33:03 - INFO - __main__ -   Total train batch size (w. parallel, distributed & accumulation) = 4
+09/13/2023 11:33:03 - INFO - __main__ -   Gradient Accumulation steps = 1
+09/13/2023 11:33:03 - INFO - __main__ -   Total optimization steps = 180
+tensor([31090, 31091, 31092, 31093, 31094, 31095, 31096], device='cuda:0')
+  0%|          | 0/180 [00:00<?, ?it/s]  1%|          | 1/180 [00:00<00:31,  5.65it/s]  1%|          | 2/180 [00:00<00:28,  6.29it/s]  2%|▏         | 3/180 [00:00<00:27,  6.53it/s]  2%|▏         | 4/180 [00:00<00:26,  6.66it/s]  3%|▎         | 5/180 [00:00<00:26,  6.56it/s]  3%|▎         | 6/180 [00:00<00:24,  7.10it/s]  4%|▍         | 7/180 [00:01<00:24,  6.94it/s]  4%|▍         | 8/180 [00:01<00:25,  6.88it/s]  5%|▌         | 9/180 [00:01<00:23,  7.16it/s]  6%|▌         | 10/180 [00:01<00:23,  7.10it/s]  6%|▌         | 11/180 [00:01<00:23,  7.13it/s]  7%|▋         | 12/180 [00:01<00:23,  7.27it/s]  7%|▋         | 13/180 [00:01<00:23,  7.24it/s]  8%|▊         | 14/180 [00:01<00:22,  7.46it/s]  8%|▊         | 15/180 [00:02<00:21,  7.74it/s]  9%|▉         | 16/180 [00:02<00:22,  7.26it/s]  9%|▉         | 17/180 [00:02<00:22,  7.19it/s] 10%|█         | 18/180 [00:02<00:21,  7.62it/s] 11%|█         | 19/180 [00:02<00:23,  6.96it/s] 11%|█         | 20/180 [00:02<00:22,  7.03it/s] 12%|█▏        | 21/180 [00:02<00:21,  7.57it/s] 12%|█▏        | 22/180 [00:03<00:22,  7.11it/s] 13%|█▎        | 23/180 [00:03<00:22,  7.09it/s] 13%|█▎        | 24/180 [00:03<00:20,  7.57it/s] 14%|█▍        | 25/180 [00:03<00:21,  7.14it/s] 14%|█▍        | 26/180 [00:03<00:21,  7.14it/s] 15%|█▌        | 27/180 [00:03<00:20,  7.48it/s] 16%|█▌        | 28/180 [00:03<00:21,  7.00it/s] 16%|█▌        | 29/180 [00:04<00:21,  7.00it/s] 17%|█▋        | 30/180 [00:04<00:20,  7.25it/s] 17%|█▋        | 31/180 [00:04<00:21,  7.07it/s] 18%|█▊        | 32/180 [00:04<00:21,  6.93it/s] 18%|█▊        | 33/180 [00:04<00:19,  7.52it/s] 19%|█▉        | 34/180 [00:04<00:21,  6.94it/s] 19%|█▉        | 35/180 [00:04<00:20,  7.01it/s] 20%|██        | 36/180 [00:05<00:19,  7.29it/s] 21%|██        | 37/180 [00:05<00:20,  7.14it/s] 21%|██        | 38/180 [00:05<00:20,  7.08it/s] 22%|██▏       | 39/180 [00:05<00:18,  7.56it/s] 22%|██▏       | 40/180 [00:05<00:20,  6.99it/s] 23%|██▎       | 41/180 [00:05<00:19,  7.00it/s] 23%|██▎       | 42/180 [00:05<00:18,  7.48it/s] 24%|██▍       | 43/180 [00:06<00:19,  6.99it/s] 24%|██▍       | 44/180 [00:06<00:19,  7.15it/s] 25%|██▌       | 45/180 [00:06<00:17,  7.51it/s] 26%|██▌       | 46/180 [00:06<00:18,  7.20it/s] 26%|██▌       | 47/180 [00:06<00:18,  7.11it/s] 27%|██▋       | 48/180 [00:06<00:17,  7.49it/s] 27%|██▋       | 49/180 [00:06<00:18,  6.98it/s] 28%|██▊       | 50/180 [00:06<00:18,  7.21it/s] 28%|██▊       | 51/180 [00:07<00:17,  7.47it/s] 29%|██▉       | 52/180 [00:07<00:18,  7.06it/s] 29%|██▉       | 53/180 [00:07<00:18,  7.01it/s] 30%|███       | 54/180 [00:07<00:17,  7.33it/s] 31%|███       | 55/180 [00:07<00:17,  7.11it/s] 31%|███       | 56/180 [00:07<00:17,  6.98it/s] 32%|███▏      | 57/180 [00:07<00:16,  7.25it/s] 32%|███▏      | 58/180 [00:08<00:17,  6.89it/s] 33%|███▎      | 59/180 [00:08<00:17,  7.00it/s] 33%|███▎      | 60/180 [00:08<00:16,  7.39it/s] 34%|███▍      | 61/180 [00:08<00:17,  6.91it/s] 34%|███▍      | 62/180 [00:08<00:16,  6.94it/s] 35%|███▌      | 63/180 [00:08<00:15,  7.44it/s] 36%|███▌      | 64/180 [00:08<00:16,  6.99it/s] 36%|███▌      | 65/180 [00:09<00:16,  6.93it/s] 37%|███▋      | 66/180 [00:09<00:15,  7.29it/s] 37%|███▋      | 67/180 [00:09<00:16,  6.94it/s] 38%|███▊      | 68/180 [00:09<00:15,  7.10it/s] 38%|███▊      | 69/180 [00:09<00:15,  7.39it/s] 39%|███▉      | 70/180 [00:09<00:15,  6.98it/s] 39%|███▉      | 71/180 [00:09<00:15,  6.96it/s] 40%|████      | 72/180 [00:10<00:14,  7.27it/s] 41%|████      | 73/180 [00:10<00:15,  6.93it/s] 41%|████      | 74/180 [00:10<00:15,  7.00it/s] 42%|████▏     | 75/180 [00:10<00:14,  7.32it/s] 42%|████▏     | 76/180 [00:10<00:14,  7.18it/s] 43%|████▎     | 77/180 [00:10<00:14,  7.07it/s] 43%|████▎     | 78/180 [00:10<00:13,  7.42it/s] 44%|████▍     | 79/180 [00:11<00:14,  7.09it/s] 44%|████▍     | 80/180 [00:11<00:13,  7.15it/s] 45%|████▌     | 81/180 [00:11<00:13,  7.50it/s] 46%|████▌     | 82/180 [00:11<00:13,  7.06it/s] 46%|████▌     | 83/180 [00:11<00:13,  7.12it/s] 47%|████▋     | 84/180 [00:11<00:12,  7.40it/s] 47%|████▋     | 85/180 [00:11<00:13,  7.23it/s] 48%|████▊     | 86/180 [00:12<00:13,  7.20it/s] 48%|████▊     | 87/180 [00:12<00:12,  7.45it/s] 49%|████▉     | 88/180 [00:12<00:12,  7.08it/s] 49%|████▉     | 89/180 [00:12<00:12,  7.13it/s] 50%|█████     | 90/180 [00:12<00:12,  7.43it/s] 51%|█████     | 91/180 [00:12<00:12,  6.99it/s] 51%|█████     | 92/180 [00:12<00:12,  7.11it/s] 52%|█████▏    | 93/180 [00:12<00:11,  7.51it/s] 52%|█████▏    | 94/180 [00:13<00:11,  7.26it/s] 53%|█████▎    | 95/180 [00:13<00:11,  7.29it/s] 53%|█████▎    | 96/180 [00:13<00:11,  7.50it/s] 54%|█████▍    | 97/180 [00:13<00:11,  7.32it/s] 54%|█████▍    | 98/180 [00:13<00:11,  7.15it/s] 55%|█████▌    | 99/180 [00:13<00:10,  7.45it/s] 56%|█████▌    | 100/180 [00:13<00:11,  7.23it/s] 56%|█████▌    | 101/180 [00:14<00:10,  7.32it/s] 57%|█████▋    | 102/180 [00:14<00:10,  7.51it/s] 57%|█████▋    | 103/180 [00:14<00:10,  7.39it/s] 58%|█████▊    | 104/180 [00:14<00:10,  7.29it/s] 59%|█████▉    | 106/180 [00:14<00:09,  8.13it/s] 59%|█████▉    | 107/180 [00:14<00:08,  8.39it/s] 60%|██████    | 108/180 [00:14<00:08,  8.70it/s] 61%|██████    | 109/180 [00:15<00:07,  8.99it/s] 61%|██████    | 110/180 [00:15<00:07,  9.07it/s] 62%|██████▏   | 112/180 [00:15<00:06,  9.80it/s] 63%|██████▎   | 114/180 [00:15<00:06, 10.31it/s] 64%|██████▍   | 116/180 [00:15<00:06,  9.71it/s] 66%|██████▌   | 118/180 [00:15<00:06,  9.73it/s] 67%|██████▋   | 120/180 [00:16<00:05, 10.39it/s] 68%|██████▊   | 122/180 [00:16<00:05, 11.16it/s] 69%|██████▉   | 124/180 [00:16<00:04, 12.42it/s] 70%|███████   | 126/180 [00:16<00:04, 13.40it/s] 71%|███████   | 128/180 [00:16<00:03, 13.89it/s] 72%|███████▏  | 130/180 [00:16<00:03, 15.00it/s] 74%|███████▍  | 133/180 [00:16<00:02, 16.87it/s] 75%|███████▌  | 135/180 [00:16<00:02, 17.50it/s] 76%|███████▌  | 137/180 [00:17<00:02, 15.75it/s] 77%|███████▋  | 139/180 [00:17<00:02, 14.30it/s] 78%|███████▊  | 141/180 [00:17<00:02, 13.25it/s] 79%|███████▉  | 143/180 [00:17<00:02, 12.65it/s] 81%|████████  | 145/180 [00:17<00:02, 12.42it/s] 82%|████████▏ | 147/180 [00:18<00:02, 12.10it/s] 83%|████████▎ | 149/180 [00:18<00:02, 11.83it/s] 84%|████████▍ | 151/180 [00:18<00:02, 11.93it/s] 86%|████████▌ | 154/180 [00:18<00:01, 14.40it/s] 87%|████████▋ | 157/180 [00:18<00:01, 16.39it/s] 89%|████████▉ | 160/180 [00:18<00:01, 18.06it/s] 90%|█████████ | 162/180 [00:18<00:00, 18.44it/s] 92%|█████████▏| 165/180 [00:19<00:00, 18.94it/s] 93%|█████████▎| 168/180 [00:19<00:00, 20.10it/s] 95%|█████████▌| 171/180 [00:19<00:00, 20.60it/s] 97%|█████████▋| 174/180 [00:19<00:00, 21.14it/s] 98%|█████████▊| 177/180 [00:19<00:00, 18.38it/s]100%|██████████| 180/180 [00:19<00:00, 19.35it/s]100%|██████████| 180/180 [00:20<00:00,  8.69it/s]
+Decoding time: 0.9563455581665039s
+APL_precision: 0.6086956521739131, APL_recall: 0.08235294117647059, APL_f1: 0.14507772020725387, APL_number: 170
+CMT_precision: 0.12149532710280374, CMT_recall: 0.2, CMT_f1: 0.1511627906976744, CMT_number: 195
+DSC_precision: 0.38613861386138615, DSC_recall: 0.08924485125858124, DSC_f1: 0.1449814126394052, DSC_number: 437
+MAT_precision: 0.5344827586206896, MAT_recall: 0.3181818181818182, MAT_f1: 0.3988970588235293, MAT_number: 682
+PRO_precision: 0.41975308641975306, PRO_recall: 0.04409857328145266, PRO_f1: 0.07981220657276995, PRO_number: 771
+SMT_precision: 0.11764705882352941, SMT_recall: 0.04678362573099415, SMT_f1: 0.06694560669456066, SMT_number: 171
+SPL_precision: 0.7142857142857143, SPL_recall: 0.06666666666666667, SPL_f1: 0.12195121951219512, SPL_number: 75
+overall_precision: 0.3535253227408143, overall_recall: 0.14234306277489003, overall_f1: 0.20296465222348914, overall_accuracy: 0.7263955399899936
+Finish training, best metric: 
+{'APL_precision': 0.6086956521739131, 'APL_recall': 0.08235294117647059, 'APL_f1': 0.14507772020725387, 'APL_number': 170, 'CMT_precision': 0.12149532710280374, 'CMT_recall': 0.2, 'CMT_f1': 0.1511627906976744, 'CMT_number': 195, 'DSC_precision': 0.38613861386138615, 'DSC_recall': 0.08924485125858124, 'DSC_f1': 0.1449814126394052, 'DSC_number': 437, 'MAT_precision': 0.5344827586206896, 'MAT_recall': 0.3181818181818182, 'MAT_f1': 0.3988970588235293, 'MAT_number': 682, 'PRO_precision': 0.41975308641975306, 'PRO_recall': 0.04409857328145266, 'PRO_f1': 0.07981220657276995, 'PRO_number': 771, 'SMT_precision': 0.11764705882352941, 'SMT_recall': 0.04678362573099415, 'SMT_f1': 0.06694560669456066, 'SMT_number': 171, 'SPL_precision': 0.7142857142857143, 'SPL_recall': 0.06666666666666667, 'SPL_f1': 0.12195121951219512, 'SPL_number': 75, 'overall_precision': 0.3535253227408143, 'overall_recall': 0.14234306277489003, 'overall_f1': 0.20296465222348914, 'overall_accuracy': 0.7263955399899936}

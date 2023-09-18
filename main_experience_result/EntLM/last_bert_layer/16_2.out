@@ -1,0 +1,459 @@
+09/14/2023 08:53:22 - INFO - __main__ - Distributed environment: NO
+Num processes: 1
+Process index: 0
+Local process index: 0
+Device: cuda
+
+Mixed precision type: no
+
+loading configuration file /home/liwentao/learn/DecT_Mat_NER/model/config.json
+Model config BertConfig {
+  "_name_or_path": "/home/liwentao/learn/DecT_Mat_NER/model",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.27.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 31090
+}
+
+loading configuration file /home/liwentao/learn/DecT_Mat_NER/model/config.json
+Model config BertConfig {
+  "_name_or_path": "/home/liwentao/learn/DecT_Mat_NER/model",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.27.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 31090
+}
+
+loading file vocab.txt
+loading file tokenizer.json
+loading file added_tokens.json
+loading file special_tokens_map.json
+loading file tokenizer_config.json
+loading configuration file /home/liwentao/learn/DecT_Mat_NER/model/config.json
+Model config BertConfig {
+  "_name_or_path": "/home/liwentao/learn/DecT_Mat_NER/model",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.27.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 31090
+}
+
+loading weights file /home/liwentao/learn/DecT_Mat_NER/model/pytorch_model.bin
+Generate config GenerationConfig {
+  "_from_model_config": true,
+  "pad_token_id": 0,
+  "transformers_version": "4.27.1"
+}
+
+All model checkpoint weights were used when initializing BertForMaskedLM.
+
+All the weights of BertForMaskedLM were initialized from the model checkpoint at /home/liwentao/learn/DecT_Mat_NER/model.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use BertForMaskedLM for predictions without further training.
+Generation config file not found, using a generation config created from the model config.
+/home/liwentao/learn/DecT_Mat_NER/baseline2_EntLM/train_transformer.py:569: FutureWarning: load_metric is deprecated and will be removed in the next major version of datasets. Use 'evaluate.load' instead, from the new library 🤗 Evaluate: https://huggingface.co/docs/evaluate
+  metric = load_metric("./seqeval_metric.py")
+09/14/2023 08:53:35 - INFO - __main__ - ***** Running training *****
+09/14/2023 08:53:35 - INFO - __main__ -   Num examples = 46
+09/14/2023 08:53:35 - INFO - __main__ -   Num Epochs = 60
+09/14/2023 08:53:35 - INFO - __main__ -   Instantaneous batch size per device = 4
+09/14/2023 08:53:35 - INFO - __main__ -   Total train batch size (w. parallel, distributed & accumulation) = 4
+09/14/2023 08:53:35 - INFO - __main__ -   Gradient Accumulation steps = 1
+09/14/2023 08:53:35 - INFO - __main__ -   Total optimization steps = 720
+Loading label map from scripts/matsciner/final_verbalizer.json...
+{'I-CMT': ['electron', 'diffraction', 'microscopy', 'spectroscopy', 'transmission', 'test'], 'I-MAT': ['oxide', 'silicon', 'carbon', 'graphene', 'aluminum', 'oxides'], 'I-DSC': ['films', 'doped', 'thin', 'film', 'alloy'], 'I-PRO': ['properties', 'structure', 'magnetic', 'band', 'conductivity', 'electrical'], 'I-SMT': ['annealing', 'gel', 'plasma', 'hydrothermal', 'annealed', 'vapor'], 'I-APL': ['coatings', 'coating', 'solar', 'cells', 'electrode', 'applications', 'electrodes', 'catalysts', 'cathode'], 'I-SPL': ['cubic', 'hexagonal', 'rock', 'ch']}
+{'O': 0, 'I-CMT': 1, 'I-MAT': 2, 'I-DSC': 3, 'I-PRO': 4, 'I-SMT': 5, 'I-APL': 6, 'I-SPL': 7, 'B-CMT': 8, 'B-MAT': 9, 'B-DSC': 10, 'B-PRO': 11, 'B-SMT': 12, 'B-APL': 13, 'B-SPL': 14}
+I-CMT
+[3081, 10314, 5820, 7779, 2856, 856]
+I-MAT
+[6678, 8605, 3473, 11106, 15028, 20464]
+I-DSC
+[7423, 21155, 5197, 5796, 15937]
+I-PRO
+[1784, 1187, 3510, 2102, 9370, 4874]
+I-SMT
+[12040, 4051, 2780, 29973, 27202, 12766]
+I-APL
+[20189, 9754, 6911, 576, 6665, 2040, 8438, 15834, 19112]
+I-SPL
+[13879, 22235, 8863, 249]
+{'I-CMT': ['electron', 'diffraction', 'microscopy', 'spectroscopy', 'transmission', 'test'], 'I-MAT': ['oxide', 'silicon', 'carbon', 'graphene', 'aluminum', 'oxides'], 'I-DSC': ['films', 'doped', 'thin', 'film', 'alloy'], 'I-PRO': ['properties', 'structure', 'magnetic', 'band', 'conductivity', 'electrical'], 'I-SMT': ['annealing', 'gel', 'plasma', 'hydrothermal', 'annealed', 'vapor'], 'I-APL': ['coatings', 'coating', 'solar', 'cells', 'electrode', 'applications', 'electrodes', 'catalysts', 'cathode'], 'I-SPL': ['cubic', 'hexagonal', 'rock', 'ch']}
+BertForMaskedLM(
+  (bert): BertModel(
+    (embeddings): BertEmbeddings(
+      (word_embeddings): Embedding(31097, 768)
+      (position_embeddings): Embedding(512, 768)
+      (token_type_embeddings): Embedding(2, 768)
+      (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (encoder): BertEncoder(
+      (layer): ModuleList(
+        (0): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (1): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (2): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (3): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (4): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (5): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (6): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (7): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (8): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (9): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (10): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+        (11): BertLayer(
+          (attention): BertAttention(
+            (self): BertSelfAttention(
+              (query): Linear(in_features=768, out_features=768, bias=True)
+              (key): Linear(in_features=768, out_features=768, bias=True)
+              (value): Linear(in_features=768, out_features=768, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+            (output): BertSelfOutput(
+              (dense): Linear(in_features=768, out_features=768, bias=True)
+              (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (intermediate): BertIntermediate(
+            (dense): Linear(in_features=768, out_features=3072, bias=True)
+            (intermediate_act_fn): GELUActivation()
+          )
+          (output): BertOutput(
+            (dense): Linear(in_features=3072, out_features=768, bias=True)
+            (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (dropout): Dropout(p=0.1, inplace=False)
+          )
+        )
+      )
+    )
+  )
+  (cls): BertOnlyMLMHead(
+    (predictions): BertLMPredictionHead(
+      (transform): BertPredictionHeadTransform(
+        (dense): Linear(in_features=768, out_features=768, bias=True)
+        (transform_act_fn): GELUActivation()
+        (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+      )
+      (decoder): Linear(in_features=768, out_features=31097, bias=True)
+    )
+  )
+)
+tensor([31090, 31091, 31092, 31093, 31094, 31095, 31096], device='cuda:0')
+  0%|          | 0/720 [00:00<?, ?it/s]  0%|          | 1/720 [00:00<01:18,  9.18it/s]  0%|          | 3/720 [00:00<01:06, 10.76it/s]  1%|          | 5/720 [00:00<01:09, 10.29it/s]  1%|          | 7/720 [00:00<01:11,  9.99it/s]  1%|          | 8/720 [00:00<01:11,  9.92it/s]  1%|▏         | 9/720 [00:00<01:12,  9.84it/s]  2%|▏         | 11/720 [00:01<01:10, 10.04it/s]  2%|▏         | 12/720 [00:01<01:18,  9.02it/s]  2%|▏         | 14/720 [00:01<01:08, 10.33it/s]  2%|▏         | 16/720 [00:01<01:09, 10.07it/s]  2%|▎         | 18/720 [00:01<01:10, 10.01it/s]  3%|▎         | 20/720 [00:02<01:10,  9.91it/s]  3%|▎         | 21/720 [00:02<01:11,  9.83it/s]  3%|▎         | 23/720 [00:02<01:11,  9.79it/s]  3%|▎         | 25/720 [00:02<01:08, 10.19it/s]  4%|▍         | 27/720 [00:02<01:09, 10.00it/s]  4%|▍         | 29/720 [00:02<01:09,  9.91it/s]  4%|▍         | 30/720 [00:03<01:09,  9.92it/s]  4%|▍         | 31/720 [00:03<01:09,  9.92it/s]  5%|▍         | 33/720 [00:03<01:09,  9.94it/s]  5%|▍         | 34/720 [00:03<01:09,  9.92it/s]  5%|▌         | 36/720 [00:03<01:08, 10.01it/s]  5%|▌         | 38/720 [00:03<01:07, 10.17it/s]  6%|▌         | 40/720 [00:04<01:07, 10.10it/s]  6%|▌         | 42/720 [00:04<01:08,  9.87it/s]  6%|▌         | 44/720 [00:04<01:07, 10.04it/s]  6%|▋         | 46/720 [00:04<01:08,  9.88it/s]  7%|▋         | 47/720 [00:04<01:08,  9.79it/s]  7%|▋         | 49/720 [00:04<01:07,  9.95it/s]  7%|▋         | 51/720 [00:05<01:07,  9.93it/s]  7%|▋         | 53/720 [00:05<01:08,  9.78it/s]  8%|▊         | 55/720 [00:05<01:06,  9.97it/s]  8%|▊         | 56/720 [00:05<01:07,  9.84it/s]  8%|▊         | 58/720 [00:05<01:06, 10.00it/s]  8%|▊         | 59/720 [00:05<01:06,  9.93it/s]  8%|▊         | 61/720 [00:06<01:05, 10.13it/s]  9%|▉         | 63/720 [00:06<01:05, 10.01it/s]  9%|▉         | 64/720 [00:06<01:06,  9.92it/s]  9%|▉         | 66/720 [00:06<01:06,  9.83it/s]  9%|▉         | 67/720 [00:06<01:06,  9.81it/s]  9%|▉         | 68/720 [00:06<01:06,  9.80it/s] 10%|▉         | 69/720 [00:06<01:07,  9.66it/s] 10%|▉         | 70/720 [00:07<01:06,  9.72it/s] 10%|█         | 72/720 [00:07<01:05,  9.84it/s] 10%|█         | 74/720 [00:07<01:04, 10.03it/s] 11%|█         | 76/720 [00:07<01:04,  9.99it/s] 11%|█         | 78/720 [00:07<01:04,  9.88it/s] 11%|█         | 79/720 [00:07<01:04,  9.89it/s] 11%|█         | 80/720 [00:08<01:05,  9.83it/s] 11%|█▏        | 81/720 [00:08<01:06,  9.64it/s] 11%|█▏        | 82/720 [00:08<01:06,  9.62it/s] 12%|█▏        | 84/720 [00:08<01:06,  9.63it/s] 12%|█▏        | 86/720 [00:08<01:02, 10.09it/s] 12%|█▏        | 88/720 [00:08<01:04,  9.73it/s] 12%|█▎        | 90/720 [00:09<01:03,  9.95it/s] 13%|█▎        | 92/720 [00:09<01:03,  9.97it/s] 13%|█▎        | 93/720 [00:09<01:03,  9.89it/s] 13%|█▎        | 94/720 [00:09<01:03,  9.82it/s] 13%|█▎        | 96/720 [00:09<01:02, 10.01it/s] 14%|█▎        | 98/720 [00:09<01:01, 10.09it/s] 14%|█▍        | 100/720 [00:10<01:02,  9.95it/s] 14%|█▍        | 102/720 [00:10<01:02,  9.90it/s] 14%|█▍        | 103/720 [00:10<01:02,  9.86it/s] 14%|█▍        | 104/720 [00:10<01:02,  9.79it/s] 15%|█▍        | 105/720 [00:10<01:02,  9.83it/s] 15%|█▍        | 106/720 [00:10<01:02,  9.75it/s] 15%|█▌        | 108/720 [00:10<01:01,  9.93it/s] 15%|█▌        | 110/720 [00:11<01:00, 10.06it/s] 15%|█▌        | 111/720 [00:11<01:00,  9.99it/s] 16%|█▌        | 112/720 [00:11<01:00,  9.99it/s] 16%|█▌        | 114/720 [00:11<01:01,  9.88it/s] 16%|█▌        | 115/720 [00:11<01:01,  9.82it/s] 16%|█▌        | 116/720 [00:11<01:02,  9.74it/s] 16%|█▋        | 118/720 [00:11<01:02,  9.69it/s] 17%|█▋        | 120/720 [00:12<00:59, 10.04it/s] 17%|█▋        | 122/720 [00:12<00:59, 10.03it/s] 17%|█▋        | 123/720 [00:12<01:00,  9.81it/s] 17%|█▋        | 124/720 [00:12<01:00,  9.84it/s] 17%|█▋        | 125/720 [00:12<01:00,  9.85it/s] 18%|█▊        | 126/720 [00:12<01:01,  9.60it/s] 18%|█▊        | 127/720 [00:12<01:01,  9.70it/s] 18%|█▊        | 128/720 [00:12<01:02,  9.51it/s] 18%|█▊        | 130/720 [00:13<01:01,  9.67it/s] 18%|█▊        | 131/720 [00:13<01:00,  9.74it/s] 18%|█▊        | 133/720 [00:13<00:58, 10.12it/s] 19%|█▉        | 135/720 [00:13<00:58,  9.93it/s] 19%|█▉        | 136/720 [00:13<00:59,  9.75it/s] 19%|█▉        | 137/720 [00:13<01:00,  9.63it/s] 19%|█▉        | 138/720 [00:13<01:00,  9.61it/s] 19%|█▉        | 139/720 [00:14<01:00,  9.61it/s] 20%|█▉        | 141/720 [00:14<00:58,  9.86it/s] 20%|█▉        | 142/720 [00:14<00:58,  9.87it/s] 20%|██        | 144/720 [00:14<00:56, 10.14it/s] 20%|██        | 146/720 [00:14<00:56, 10.16it/s] 21%|██        | 148/720 [00:14<00:57, 10.03it/s] 21%|██        | 149/720 [00:15<00:57,  9.95it/s] 21%|██        | 150/720 [00:15<00:57,  9.89it/s] 21%|██        | 152/720 [00:15<00:57,  9.90it/s] 21%|██▏       | 154/720 [00:15<00:57,  9.86it/s] 22%|██▏       | 156/720 [00:15<00:57,  9.85it/s] 22%|██▏       | 157/720 [00:15<00:57,  9.82it/s] 22%|██▏       | 159/720 [00:16<00:57,  9.82it/s] 22%|██▏       | 160/720 [00:16<00:56,  9.84it/s] 22%|██▏       | 161/720 [00:16<00:56,  9.82it/s] 22%|██▎       | 162/720 [00:16<00:57,  9.77it/s] 23%|██▎       | 164/720 [00:16<00:54, 10.11it/s] 23%|██▎       | 166/720 [00:16<00:56,  9.85it/s] 23%|██▎       | 167/720 [00:16<00:56,  9.80it/s] 23%|██▎       | 169/720 [00:17<00:54, 10.03it/s] 24%|██▎       | 170/720 [00:17<00:55,  9.96it/s] 24%|██▍       | 172/720 [00:17<00:55,  9.94it/s] 24%|██▍       | 173/720 [00:17<00:55,  9.87it/s] 24%|██▍       | 174/720 [00:17<00:55,  9.87it/s] 24%|██▍       | 175/720 [00:17<00:55,  9.85it/s] 24%|██▍       | 176/720 [00:17<00:55,  9.82it/s] 25%|██▍       | 177/720 [00:17<00:55,  9.82it/s] 25%|██▍       | 178/720 [00:17<00:55,  9.77it/s] 25%|██▌       | 180/720 [00:18<00:53, 10.02it/s] 25%|██▌       | 182/720 [00:18<00:53, 10.11it/s] 26%|██▌       | 184/720 [00:18<00:53,  9.99it/s] 26%|██▌       | 185/720 [00:18<00:53,  9.98it/s] 26%|██▌       | 186/720 [00:18<00:53,  9.98it/s] 26%|██▌       | 188/720 [00:18<00:53,  9.97it/s] 26%|██▋       | 190/720 [00:19<00:53,  9.86it/s] 27%|██▋       | 191/720 [00:19<00:53,  9.81it/s] 27%|██▋       | 193/720 [00:19<00:51, 10.19it/s] 27%|██▋       | 195/720 [00:19<00:53,  9.87it/s] 27%|██▋       | 197/720 [00:19<00:51, 10.14it/s] 28%|██▊       | 199/720 [00:20<00:51, 10.11it/s] 28%|██▊       | 201/720 [00:20<00:51, 10.10it/s] 28%|██▊       | 203/720 [00:20<00:52,  9.81it/s] 28%|██▊       | 204/720 [00:20<00:52,  9.82it/s] 29%|██▊       | 206/720 [00:20<00:50, 10.09it/s] 29%|██▉       | 208/720 [00:20<00:50, 10.11it/s] 29%|██▉       | 210/720 [00:21<00:50, 10.00it/s] 29%|██▉       | 212/720 [00:21<00:51,  9.96it/s] 30%|██▉       | 214/720 [00:21<00:51,  9.79it/s] 30%|██▉       | 215/720 [00:21<00:51,  9.77it/s] 30%|███       | 217/720 [00:21<00:50,  9.93it/s] 30%|███       | 219/720 [00:22<00:49, 10.08it/s] 31%|███       | 221/720 [00:22<00:50,  9.89it/s] 31%|███       | 222/720 [00:22<00:50,  9.86it/s] 31%|███       | 223/720 [00:22<00:51,  9.66it/s] 31%|███▏      | 225/720 [00:22<00:51,  9.67it/s] 32%|███▏      | 227/720 [00:22<00:50,  9.76it/s] 32%|███▏      | 228/720 [00:23<00:50,  9.79it/s] 32%|███▏      | 230/720 [00:23<00:48, 10.10it/s] 32%|███▏      | 232/720 [00:23<00:49,  9.94it/s] 32%|███▏      | 233/720 [00:23<00:49,  9.87it/s] 32%|███▎      | 234/720 [00:23<00:49,  9.85it/s] 33%|███▎      | 235/720 [00:23<00:49,  9.84it/s] 33%|███▎      | 236/720 [00:23<00:49,  9.79it/s] 33%|███▎      | 238/720 [00:24<00:48,  9.91it/s] 33%|███▎      | 239/720 [00:24<00:48,  9.86it/s] 33%|███▎      | 241/720 [00:24<00:47, 10.15it/s] 34%|███▍      | 243/720 [00:24<00:48,  9.90it/s] 34%|███▍      | 244/720 [00:24<00:48,  9.79it/s] 34%|███▍      | 246/720 [00:24<00:48,  9.84it/s] 34%|███▍      | 248/720 [00:25<00:47,  9.84it/s] 35%|███▍      | 249/720 [00:25<00:48,  9.79it/s] 35%|███▍      | 250/720 [00:25<00:48,  9.72it/s] 35%|███▍      | 251/720 [00:25<00:48,  9.73it/s] 35%|███▌      | 253/720 [00:25<00:45, 10.36it/s] 35%|███▌      | 255/720 [00:25<00:46, 10.07it/s] 36%|███▌      | 257/720 [00:25<00:46,  9.94it/s] 36%|███▌      | 259/720 [00:26<00:46,  9.89it/s] 36%|███▋      | 261/720 [00:26<00:45, 10.09it/s] 37%|███▋      | 263/720 [00:26<00:45, 10.08it/s] 37%|███▋      | 265/720 [00:26<00:44, 10.28it/s] 37%|███▋      | 267/720 [00:26<00:45, 10.06it/s] 37%|███▋      | 269/720 [00:27<00:45,  9.93it/s] 38%|███▊      | 270/720 [00:27<00:45,  9.83it/s] 38%|███▊      | 272/720 [00:27<00:45,  9.94it/s] 38%|███▊      | 273/720 [00:27<00:46,  9.69it/s] 38%|███▊      | 275/720 [00:27<00:45,  9.83it/s] 38%|███▊      | 277/720 [00:27<00:43, 10.22it/s] 39%|███▉      | 279/720 [00:28<00:43, 10.09it/s] 39%|███▉      | 281/720 [00:28<00:43, 10.00it/s] 39%|███▉      | 282/720 [00:28<00:44,  9.79it/s] 39%|███▉      | 284/720 [00:28<00:44,  9.80it/s] 40%|███▉      | 286/720 [00:28<00:43,  9.90it/s] 40%|████      | 288/720 [00:29<00:42, 10.06it/s] 40%|████      | 290/720 [00:29<00:42, 10.09it/s] 41%|████      | 292/720 [00:29<00:42,  9.96it/s] 41%|████      | 293/720 [00:29<00:42,  9.95it/s] 41%|████      | 294/720 [00:29<00:43,  9.82it/s] 41%|████      | 295/720 [00:29<00:43,  9.82it/s] 41%|████▏     | 297/720 [00:29<00:42,  9.96it/s] 41%|████▏     | 298/720 [00:30<00:43,  9.80it/s] 42%|████▏     | 299/720 [00:30<00:43,  9.79it/s] 42%|████▏     | 301/720 [00:30<00:41, 10.12it/s] 42%|████▏     | 303/720 [00:30<00:41, 10.01it/s] 42%|████▏     | 304/720 [00:30<00:42,  9.89it/s] 42%|████▏     | 305/720 [00:30<00:42,  9.83it/s] 42%|████▎     | 306/720 [00:30<00:42,  9.78it/s] 43%|████▎     | 308/720 [00:31<00:41,  9.97it/s] 43%|████▎     | 309/720 [00:31<00:41,  9.94it/s] 43%|████▎     | 310/720 [00:31<00:41,  9.77it/s] 43%|████▎     | 311/720 [00:31<00:41,  9.76it/s] 43%|████▎     | 313/720 [00:31<00:39, 10.18it/s] 44%|████▍     | 315/720 [00:31<00:40, 10.09it/s] 44%|████▍     | 317/720 [00:31<00:40,  9.93it/s] 44%|████▍     | 319/720 [00:32<00:40,  9.96it/s] 44%|████▍     | 320/720 [00:32<00:40,  9.97it/s] 45%|████▍     | 321/720 [00:32<00:40,  9.78it/s] 45%|████▍     | 322/720 [00:32<00:40,  9.82it/s] 45%|████▍     | 323/720 [00:32<00:40,  9.83it/s] 45%|████▌     | 325/720 [00:32<00:39, 10.05it/s] 45%|████▌     | 327/720 [00:32<00:39, 10.07it/s] 46%|████▌     | 329/720 [00:33<00:39, 10.01it/s] 46%|████▌     | 330/720 [00:33<00:39,  9.91it/s] 46%|████▌     | 331/720 [00:33<00:40,  9.68it/s] 46%|████▋     | 333/720 [00:33<00:39,  9.73it/s] 47%|████▋     | 335/720 [00:33<00:40,  9.59it/s] 47%|████▋     | 337/720 [00:33<00:38, 10.02it/s] 47%|████▋     | 338/720 [00:34<00:38,  9.83it/s] 47%|████▋     | 339/720 [00:34<00:38,  9.84it/s] 47%|████▋     | 341/720 [00:34<00:37, 10.08it/s] 48%|████▊     | 342/720 [00:34<00:38,  9.75it/s] 48%|████▊     | 343/720 [00:34<00:39,  9.65it/s] 48%|████▊     | 345/720 [00:34<00:38,  9.84it/s] 48%|████▊     | 347/720 [00:35<00:37,  9.86it/s] 48%|████▊     | 348/720 [00:35<00:37,  9.84it/s] 49%|████▊     | 350/720 [00:35<00:36, 10.13it/s] 49%|████▉     | 352/720 [00:35<00:36, 10.04it/s] 49%|████▉     | 353/720 [00:35<00:36,  9.96it/s] 49%|████▉     | 354/720 [00:35<00:37,  9.82it/s] 49%|████▉     | 355/720 [00:35<00:37,  9.85it/s] 50%|████▉     | 357/720 [00:36<00:36,  9.91it/s] 50%|████▉     | 359/720 [00:36<00:36,  9.80it/s] 50%|█████     | 361/720 [00:36<00:35, 10.19it/s] 50%|█████     | 363/720 [00:36<00:35, 10.12it/s] 51%|█████     | 365/720 [00:36<00:36,  9.85it/s] 51%|█████     | 366/720 [00:36<00:36,  9.82it/s] 51%|█████     | 368/720 [00:37<00:35,  9.97it/s] 51%|█████▏    | 369/720 [00:37<00:35,  9.87it/s] 51%|█████▏    | 370/720 [00:37<00:35,  9.86it/s] 52%|█████▏    | 372/720 [00:37<00:34,  9.98it/s] 52%|█████▏    | 374/720 [00:37<00:34, 10.04it/s] 52%|█████▏    | 375/720 [00:37<00:34,  9.90it/s] 52%|█████▏    | 376/720 [00:37<00:35,  9.70it/s] 52%|█████▏    | 377/720 [00:38<00:35,  9.74it/s] 52%|█████▎    | 378/720 [00:38<00:35,  9.63it/s] 53%|█████▎    | 380/720 [00:38<00:34,  9.73it/s] 53%|█████▎    | 382/720 [00:38<00:34,  9.88it/s] 53%|█████▎    | 383/720 [00:38<00:34,  9.69it/s] 53%|█████▎    | 385/720 [00:38<00:33, 10.10it/s] 54%|█████▎    | 386/720 [00:38<00:33,  9.97it/s] 54%|█████▍    | 388/720 [00:39<00:33,  9.89it/s] 54%|█████▍    | 389/720 [00:39<00:33,  9.87it/s] 54%|█████▍    | 391/720 [00:39<00:33,  9.92it/s] 54%|█████▍    | 392/720 [00:39<00:33,  9.81it/s] 55%|█████▍    | 394/720 [00:39<00:32,  9.90it/s] 55%|█████▍    | 395/720 [00:39<00:33,  9.85it/s] 55%|█████▌    | 397/720 [00:40<00:31, 10.20it/s] 55%|█████▌    | 399/720 [00:40<00:32,  9.91it/s] 56%|█████▌    | 400/720 [00:40<00:32,  9.90it/s] 56%|█████▌    | 401/720 [00:40<00:32,  9.91it/s] 56%|█████▌    | 402/720 [00:40<00:32,  9.74it/s] 56%|█████▌    | 403/720 [00:40<00:32,  9.69it/s] 56%|█████▌    | 404/720 [00:40<00:33,  9.56it/s] 56%|█████▋    | 405/720 [00:40<00:32,  9.55it/s] 57%|█████▋    | 407/720 [00:41<00:31,  9.83it/s] 57%|█████▋    | 409/720 [00:41<00:30, 10.18it/s] 57%|█████▋    | 411/720 [00:41<00:30, 10.17it/s] 57%|█████▋    | 413/720 [00:41<00:30, 10.02it/s] 57%|█████▊    | 414/720 [00:41<00:30,  9.94it/s] 58%|█████▊    | 415/720 [00:41<00:30,  9.86it/s] 58%|█████▊    | 417/720 [00:42<00:30,  9.98it/s] 58%|█████▊    | 418/720 [00:42<00:30,  9.86it/s] 58%|█████▊    | 420/720 [00:42<00:30,  9.96it/s] 59%|█████▊    | 422/720 [00:42<00:29,  9.96it/s] 59%|█████▉    | 424/720 [00:42<00:29, 10.00it/s] 59%|█████▉    | 426/720 [00:42<00:29,  9.86it/s] 59%|█████▉    | 427/720 [00:43<00:30,  9.74it/s] 60%|█████▉    | 429/720 [00:43<00:29,  9.77it/s] 60%|█████▉    | 430/720 [00:43<00:29,  9.81it/s] 60%|█████▉    | 431/720 [00:43<00:29,  9.75it/s] 60%|██████    | 433/720 [00:43<00:28, 10.09it/s] 60%|██████    | 435/720 [00:43<00:28, 10.00it/s] 61%|██████    | 436/720 [00:44<00:29,  9.76it/s] 61%|██████    | 438/720 [00:44<00:28,  9.82it/s] 61%|██████    | 440/720 [00:44<00:28,  9.92it/s] 61%|██████▏   | 442/720 [00:44<00:28,  9.79it/s] 62%|██████▏   | 444/720 [00:44<00:27, 10.01it/s] 62%|██████▏   | 446/720 [00:44<00:27, 10.11it/s] 62%|██████▏   | 448/720 [00:45<00:27, 10.01it/s] 62%|██████▎   | 450/720 [00:45<00:26, 10.09it/s] 63%|██████▎   | 452/720 [00:45<00:26,  9.99it/s] 63%|██████▎   | 453/720 [00:45<00:26,  9.97it/s] 63%|██████▎   | 455/720 [00:45<00:26,  9.87it/s] 63%|██████▎   | 457/720 [00:46<00:26,  9.91it/s] 64%|██████▍   | 459/720 [00:46<00:26,  9.70it/s] 64%|██████▍   | 461/720 [00:46<00:26,  9.82it/s] 64%|██████▍   | 462/720 [00:46<00:26,  9.82it/s] 64%|██████▍   | 464/720 [00:46<00:26,  9.75it/s] 65%|██████▍   | 466/720 [00:47<00:25,  9.85it/s] 65%|██████▌   | 468/720 [00:47<00:25, 10.03it/s] 65%|██████▌   | 470/720 [00:47<00:24, 10.09it/s] 66%|██████▌   | 472/720 [00:47<00:25,  9.91it/s] 66%|██████▌   | 474/720 [00:47<00:24, 10.01it/s] 66%|██████▌   | 476/720 [00:48<00:24,  9.88it/s] 66%|██████▋   | 477/720 [00:48<00:24,  9.89it/s] 67%|██████▋   | 479/720 [00:48<00:24,  9.94it/s] 67%|██████▋   | 481/720 [00:48<00:23, 10.12it/s] 67%|██████▋   | 483/720 [00:48<00:23, 10.26it/s] 67%|██████▋   | 485/720 [00:48<00:23, 10.11it/s] 68%|██████▊   | 487/720 [00:49<00:23,  9.95it/s] 68%|██████▊   | 488/720 [00:49<00:23,  9.92it/s] 68%|██████▊   | 489/720 [00:49<00:23,  9.64it/s] 68%|██████▊   | 490/720 [00:49<00:23,  9.72it/s] 68%|██████▊   | 491/720 [00:49<00:23,  9.71it/s] 68%|██████▊   | 493/720 [00:49<00:22,  9.95it/s] 69%|██████▉   | 495/720 [00:49<00:22, 10.12it/s] 69%|██████▉   | 497/720 [00:50<00:21, 10.18it/s] 69%|██████▉   | 499/720 [00:50<00:22,  9.85it/s] 69%|██████▉   | 500/720 [00:50<00:22,  9.84it/s] 70%|██████▉   | 502/720 [00:50<00:22,  9.80it/s] 70%|███████   | 504/720 [00:50<00:21,  9.88it/s] 70%|███████   | 506/720 [00:51<00:21, 10.15it/s] 71%|███████   | 508/720 [00:51<00:21, 10.06it/s] 71%|███████   | 510/720 [00:51<00:21,  9.90it/s] 71%|███████   | 512/720 [00:51<00:20,  9.99it/s] 71%|███████▏  | 513/720 [00:51<00:20,  9.91it/s] 71%|███████▏  | 514/720 [00:51<00:21,  9.71it/s] 72%|███████▏  | 515/720 [00:51<00:21,  9.70it/s] 72%|███████▏  | 517/720 [00:52<00:20, 10.04it/s] 72%|███████▏  | 518/720 [00:52<00:20,  9.93it/s] 72%|███████▏  | 519/720 [00:52<00:20,  9.90it/s] 72%|███████▏  | 520/720 [00:52<00:20,  9.93it/s] 72%|███████▏  | 521/720 [00:52<00:20,  9.78it/s] 72%|███████▎  | 522/720 [00:52<00:20,  9.81it/s] 73%|███████▎  | 523/720 [00:52<00:20,  9.64it/s] 73%|███████▎  | 524/720 [00:52<00:20,  9.55it/s] 73%|███████▎  | 526/720 [00:53<00:19,  9.86it/s] 73%|███████▎  | 528/720 [00:53<00:19,  9.87it/s] 74%|███████▎  | 530/720 [00:53<00:18, 10.12it/s] 74%|███████▍  | 532/720 [00:53<00:18,  9.96it/s] 74%|███████▍  | 534/720 [00:53<00:18,  9.87it/s] 74%|███████▍  | 535/720 [00:53<00:18,  9.85it/s] 75%|███████▍  | 537/720 [00:54<00:18,  9.79it/s] 75%|███████▍  | 539/720 [00:54<00:18,  9.88it/s] 75%|███████▌  | 540/720 [00:54<00:18,  9.77it/s] 75%|███████▌  | 542/720 [00:54<00:17, 10.11it/s] 76%|███████▌  | 544/720 [00:54<00:17, 10.23it/s] 76%|███████▌  | 546/720 [00:55<00:17, 10.05it/s] 76%|███████▌  | 548/720 [00:55<00:17,  9.99it/s] 76%|███████▋  | 550/720 [00:55<00:16, 10.27it/s] 77%|███████▋  | 552/720 [00:55<00:16, 10.20it/s] 77%|███████▋  | 554/720 [00:55<00:16, 10.04it/s] 77%|███████▋  | 556/720 [00:56<00:16, 10.10it/s] 78%|███████▊  | 558/720 [00:56<00:16,  9.96it/s] 78%|███████▊  | 560/720 [00:56<00:16,  9.89it/s] 78%|███████▊  | 561/720 [00:56<00:16,  9.66it/s] 78%|███████▊  | 563/720 [00:56<00:15,  9.94it/s] 78%|███████▊  | 565/720 [00:56<00:14, 10.37it/s] 79%|███████▉  | 567/720 [00:57<00:14, 10.83it/s] 79%|███████▉  | 569/720 [00:57<00:13, 11.15it/s] 79%|███████▉  | 571/720 [00:57<00:12, 11.62it/s] 80%|███████▉  | 573/720 [00:57<00:12, 11.82it/s] 80%|███████▉  | 575/720 [00:57<00:12, 11.93it/s] 80%|████████  | 577/720 [00:57<00:11, 12.34it/s] 80%|████████  | 579/720 [00:58<00:11, 12.12it/s] 81%|████████  | 581/720 [00:58<00:11, 12.19it/s] 81%|████████  | 583/720 [00:58<00:11, 12.44it/s] 81%|████████▏ | 585/720 [00:58<00:10, 12.50it/s] 82%|████████▏ | 587/720 [00:58<00:10, 12.38it/s] 82%|████████▏ | 589/720 [00:58<00:10, 12.80it/s] 82%|████████▏ | 591/720 [00:59<00:10, 12.71it/s] 82%|████████▏ | 593/720 [00:59<00:09, 12.78it/s] 83%|████████▎ | 595/720 [00:59<00:09, 12.70it/s] 83%|████████▎ | 597/720 [00:59<00:09, 12.59it/s] 83%|████████▎ | 599/720 [00:59<00:09, 12.49it/s] 83%|████████▎ | 601/720 [00:59<00:09, 13.02it/s] 84%|████████▍ | 603/720 [00:59<00:09, 12.55it/s] 84%|████████▍ | 605/720 [01:00<00:09, 12.62it/s] 84%|████████▍ | 607/720 [01:00<00:08, 12.69it/s] 85%|████████▍ | 609/720 [01:00<00:08, 12.63it/s] 85%|████████▍ | 611/720 [01:00<00:08, 12.54it/s] 85%|████████▌ | 613/720 [01:00<00:08, 12.82it/s] 85%|████████▌ | 615/720 [01:00<00:08, 12.65it/s] 86%|████████▌ | 617/720 [01:01<00:08, 12.53it/s] 86%|████████▌ | 619/720 [01:01<00:08, 12.35it/s] 86%|████████▋ | 621/720 [01:01<00:07, 12.55it/s] 87%|████████▋ | 623/720 [01:01<00:07, 12.48it/s] 87%|████████▋ | 625/720 [01:01<00:07, 12.69it/s] 87%|████████▋ | 627/720 [01:01<00:07, 12.78it/s] 87%|████████▋ | 629/720 [01:02<00:07, 12.63it/s] 88%|████████▊ | 631/720 [01:02<00:07, 12.56it/s] 88%|████████▊ | 633/720 [01:02<00:06, 12.63it/s] 88%|████████▊ | 635/720 [01:02<00:06, 12.51it/s] 88%|████████▊ | 637/720 [01:02<00:06, 12.83it/s] 89%|████████▉ | 639/720 [01:02<00:06, 12.82it/s] 89%|████████▉ | 641/720 [01:02<00:06, 12.49it/s] 89%|████████▉ | 643/720 [01:03<00:06, 12.42it/s] 90%|████████▉ | 645/720 [01:03<00:05, 12.52it/s] 90%|████████▉ | 647/720 [01:03<00:05, 12.40it/s] 90%|█████████ | 649/720 [01:03<00:05, 12.87it/s] 90%|█████████ | 651/720 [01:03<00:05, 13.10it/s] 91%|█████████ | 653/720 [01:03<00:05, 12.69it/s] 91%|█████████ | 655/720 [01:04<00:05, 12.72it/s] 91%|█████████▏| 657/720 [01:04<00:04, 12.85it/s] 92%|█████████▏| 659/720 [01:04<00:04, 12.59it/s] 92%|█████████▏| 661/720 [01:04<00:04, 13.01it/s] 92%|█████████▏| 663/720 [01:04<00:04, 13.21it/s] 92%|█████████▏| 665/720 [01:04<00:04, 12.81it/s] 93%|█████████▎| 667/720 [01:05<00:04, 12.89it/s] 93%|█████████▎| 669/720 [01:05<00:03, 13.13it/s] 93%|█████████▎| 671/720 [01:05<00:03, 12.72it/s] 93%|█████████▎| 673/720 [01:05<00:03, 13.13it/s] 94%|█████████▍| 675/720 [01:05<00:03, 13.80it/s] 94%|█████████▍| 677/720 [01:05<00:03, 14.16it/s] 94%|█████████▍| 679/720 [01:05<00:02, 14.68it/s] 95%|█████████▍| 681/720 [01:05<00:02, 14.89it/s] 95%|█████████▍| 683/720 [01:06<00:02, 15.36it/s] 95%|█████████▌| 685/720 [01:06<00:02, 16.19it/s] 95%|█████████▌| 687/720 [01:06<00:02, 16.34it/s] 96%|█████████▌| 689/720 [01:06<00:01, 16.11it/s] 96%|█████████▌| 691/720 [01:06<00:01, 16.16it/s] 96%|█████████▋| 693/720 [01:06<00:01, 15.83it/s] 97%|█████████▋| 695/720 [01:06<00:01, 16.02it/s] 97%|█████████▋| 697/720 [01:06<00:01, 16.45it/s] 97%|█████████▋| 699/720 [01:07<00:01, 15.97it/s] 97%|█████████▋| 701/720 [01:07<00:01, 16.00it/s] 98%|█████████▊| 703/720 [01:07<00:01, 15.97it/s] 98%|█████████▊| 705/720 [01:07<00:00, 16.21it/s] 98%|█████████▊| 707/720 [01:07<00:00, 15.92it/s] 98%|█████████▊| 709/720 [01:07<00:00, 16.79it/s] 99%|█████████▉| 711/720 [01:07<00:00, 16.09it/s] 99%|█████████▉| 713/720 [01:07<00:00, 16.13it/s] 99%|█████████▉| 715/720 [01:08<00:00, 15.89it/s]100%|█████████▉| 717/720 [01:08<00:00, 15.96it/s]100%|█████████▉| 719/720 [01:08<00:00, 15.86it/s]100%|██████████| 720/720 [01:10<00:00, 10.24it/s]
+Decoding time: 1.9233057498931885s
+APL_precision: 0.4012738853503185, APL_recall: 0.37058823529411766, APL_f1: 0.3853211009174312, APL_number: 170
+CMT_precision: 0.29583333333333334, CMT_recall: 0.3641025641025641, CMT_f1: 0.3264367816091954, CMT_number: 195
+DSC_precision: 0.5314465408805031, DSC_recall: 0.38672768878718533, DSC_f1: 0.447682119205298, DSC_number: 437
+MAT_precision: 0.6262773722627737, MAT_recall: 0.6290322580645161, MAT_f1: 0.6276517922457936, MAT_number: 682
+PRO_precision: 0.47216035634743875, PRO_recall: 0.27496757457846954, PRO_f1: 0.34754098360655744, PRO_number: 771
+SMT_precision: 0.3684210526315789, SMT_recall: 0.4093567251461988, SMT_f1: 0.38781163434903043, SMT_number: 171
+SPL_precision: 0.47435897435897434, SPL_recall: 0.49333333333333335, SPL_f1: 0.48366013071895425, SPL_number: 75
+overall_precision: 0.4964572508266415, overall_recall: 0.4202319072371052, overall_f1: 0.4551754006063231, overall_accuracy: 0.8148809949253091
+Finish training, best metric: 
+{'APL_precision': 0.4012738853503185, 'APL_recall': 0.37058823529411766, 'APL_f1': 0.3853211009174312, 'APL_number': 170, 'CMT_precision': 0.29583333333333334, 'CMT_recall': 0.3641025641025641, 'CMT_f1': 0.3264367816091954, 'CMT_number': 195, 'DSC_precision': 0.5314465408805031, 'DSC_recall': 0.38672768878718533, 'DSC_f1': 0.447682119205298, 'DSC_number': 437, 'MAT_precision': 0.6262773722627737, 'MAT_recall': 0.6290322580645161, 'MAT_f1': 0.6276517922457936, 'MAT_number': 682, 'PRO_precision': 0.47216035634743875, 'PRO_recall': 0.27496757457846954, 'PRO_f1': 0.34754098360655744, 'PRO_number': 771, 'SMT_precision': 0.3684210526315789, 'SMT_recall': 0.4093567251461988, 'SMT_f1': 0.38781163434903043, 'SMT_number': 171, 'SPL_precision': 0.47435897435897434, 'SPL_recall': 0.49333333333333335, 'SPL_f1': 0.48366013071895425, 'SPL_number': 75, 'overall_precision': 0.4964572508266415, 'overall_recall': 0.4202319072371052, 'overall_f1': 0.4551754006063231, 'overall_accuracy': 0.8148809949253091}

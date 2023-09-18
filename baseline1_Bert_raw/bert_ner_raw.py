@@ -43,26 +43,27 @@ def ensure_dir(dir_path):
 
 parser = ArgumentParser()
 parser.add_argument('--label_schema', default="IO", type=str)
-parser.add_argument('--model_name', choices=['scibert', 'matscibert', 'bert'], default="bert", type=str)
+parser.add_argument('--model_name', choices=['scibert', 'matscibert', 'bert'], default="matscibert", type=str)
 parser.add_argument('--model_save_dir', default="model/", type=str)
 parser.add_argument('--preds_save_dir', default="preds/", type=str)
 parser.add_argument('--cache_dir', default="../.cache/", type=str)
-parser.add_argument('--seed', default=0, type=int)
+parser.add_argument('--seed', default=1, type=int)
 parser.add_argument('--weight_decay',default=1e-4,type=int)
-parser.add_argument('--shot', default=4, type=int)
+parser.add_argument('--shot', default=32, type=int)
 parser.add_argument('--lm_lrs', default=1e-4, type=float)
 parser.add_argument('--non_lm_lr', default=3e-4, type=float)
 parser.add_argument('--architecture', choices=['bert', 'bert-crf', 'bert-bilstm-crf'], default="bert", type=str)
 parser.add_argument('--dataset_name', choices=['sofc', 'sofc_slot', 'matscholar'], default="matscholar", type=str)
 parser.add_argument('--fold_num', default=None, type=int)
 parser.add_argument('--hidden_dim', default=300, type=int)
+parser.add_argument('--device', default=0, type=int)
 args = parser.parse_args()
 
 if args.model_name == 'scibert':
     model_name = 'allenai/scibert_scivocab_uncased'
     to_normalize = False
 elif args.model_name == 'matscibert':
-    model_name = 'm3rg-iitd/matscibert'
+    model_name = '/home/liwentao/learn/DecT_Mat_NER/model'
     to_normalize = True
 elif args.model_name == 'bert':
     model_name = 'bert-base-uncased'
@@ -254,7 +255,7 @@ model = AutoModelForTokenClassification.from_pretrained(
                 cache_dir=cache_dir, revision=model_revision, use_auth_token=None,
             )
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda:{}".format(args.device) if torch.cuda.is_available() else "cpu")
 model.to(device)
 
 train_batch_size = 32
@@ -273,6 +274,10 @@ test_dataloader = DataLoader(
         )
 
 no_decay = ["bias", "LayerNorm.weight"]
+last_layer = model.bert.encoder.layer[10:]
+classifier = model.classifier
+print(last_layer)
+
 optimizer_grouped_parameters = [
     {
         "params": [p for n, p in model.named_parameters() if not any(nd in n for nd in no_decay)],
@@ -281,8 +286,27 @@ optimizer_grouped_parameters = [
     {
         "params": [p for n, p in model.named_parameters() if any(nd in n for nd in no_decay)],
         "weight_decay": 0.0,
-    },
+    }
 ]
+
+# optimizer_grouped_parameters = [
+#     {
+#         "params": [p for n, p in classifier.named_parameters() if not any(nd in n for nd in no_decay)],
+#         "weight_decay": args.weight_decay,
+#     },
+#     {
+#         "params": [p for n, p in classifier.named_parameters() if any(nd in n for nd in no_decay)],
+#         "weight_decay": 0.0,
+#     },
+#     {
+#         "params": [p for n, p in last_layer.named_parameters() if not any(nd in n for nd in no_decay)],
+#         "weight_decay": args.weight_decay,
+#     },
+#     {
+#         "params": [p for n, p in last_layer.named_parameters() if any(nd in n for nd in no_decay)],
+#         "weight_decay": 0.0,
+#     },
+# ]
 
 optimizer = torch.optim.AdamW(optimizer_grouped_parameters, lr=args.lm_lrs)
 

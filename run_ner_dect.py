@@ -98,7 +98,7 @@ def parse_args():
         "--model_name_or_path",
         type=str,
         help="Path to pretrained model or model identifier from huggingface.co/models.",
-        default='pranav-s/MaterialsBERT'
+        default='/home/liwentao/learn/DecT_Mat_NER/model'
     )
     parser.add_argument(
         "--config_name",
@@ -143,9 +143,9 @@ def parse_args():
     parser.add_argument("--output_dir", type=str, default="models/matsciner-fewshot-test", help="Where to store the final model.")
     parser.add_argument("--seed", type=int, default=123, help="A seed for reproducible training.")
     parser.add_argument("--device", type=int, default=0, help="device")
-    parser.add_argument("--data_file_seed", type=int, default=0, help="A seed for reproducible training.")
+    parser.add_argument("--data_file_seed", type=int, default=3, help="A seed for reproducible training.")
     parser.add_argument(
-        "--shot", type=int, default=32, help="A csv or a json file containing the training data."
+        "--shot", type=int, default=1, help="A csv or a json file containing the training data."
     )
     parser.add_argument(
         "--max_train_steps",
@@ -410,7 +410,7 @@ def main():
     label_token_map = {item:item for item in ori_label_token_map}
     # label_token_map = ori_label_token_map
     print(ori_label_token_map)
-    label_token_to_id = {label: tokenizer.convert_tokens_to_ids(label_token) for label, label_token in label_token_map.items()}
+    label_token_to_id = {label: tokenizer.convert_tokens_to_ids(label_token[0]) for label, label_token in ori_label_token_map.items()}
     label_token_id_to_label = {idx:label for label,idx in label_token_to_id.items()}
 
     # Preprocessing the datasets.

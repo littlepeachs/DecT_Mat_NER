@@ -1,0 +1,103 @@
+Some weights of the model checkpoint at /home/liwentao/learn/DecT_Mat_NER/model were not used when initializing BertForTokenClassification: ['cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.decoder.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight']
+- This IS expected if you are initializing BertForTokenClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForTokenClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForTokenClassification were not initialized from the model checkpoint at /home/liwentao/learn/DecT_Mat_NER/model and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+using device: cuda
+24 511 546
+['I-APL', 'I-CMT', 'I-DSC', 'I-MAT', 'I-PRO', 'I-SMT', 'I-SPL', 'O']
+ModuleList(
+  (0): BertLayer(
+    (attention): BertAttention(
+      (self): BertSelfAttention(
+        (query): Linear(in_features=768, out_features=768, bias=True)
+        (key): Linear(in_features=768, out_features=768, bias=True)
+        (value): Linear(in_features=768, out_features=768, bias=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+      (output): BertSelfOutput(
+        (dense): Linear(in_features=768, out_features=768, bias=True)
+        (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+    )
+    (intermediate): BertIntermediate(
+      (dense): Linear(in_features=768, out_features=3072, bias=True)
+      (intermediate_act_fn): GELUActivation()
+    )
+    (output): BertOutput(
+      (dense): Linear(in_features=3072, out_features=768, bias=True)
+      (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+  )
+  (1): BertLayer(
+    (attention): BertAttention(
+      (self): BertSelfAttention(
+        (query): Linear(in_features=768, out_features=768, bias=True)
+        (key): Linear(in_features=768, out_features=768, bias=True)
+        (value): Linear(in_features=768, out_features=768, bias=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+      (output): BertSelfOutput(
+        (dense): Linear(in_features=768, out_features=768, bias=True)
+        (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+    )
+    (intermediate): BertIntermediate(
+      (dense): Linear(in_features=768, out_features=3072, bias=True)
+      (intermediate_act_fn): GELUActivation()
+    )
+    (output): BertOutput(
+      (dense): Linear(in_features=3072, out_features=768, bias=True)
+      (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+  )
+)
+training_time:0.14934515953063965
+loss:2.4356744289398193
+{'APL': 0.0, 'CMT': 0.0, 'DSC': 0.0, 'MAT': 0.0, 'PRO': 0.0, 'SMT': 0.0, 'SPL': 0.0, 'macro_f1': 0.0, 'micro_f1': 0}
+training_time:0.07915925979614258
+loss:0.8094561696052551
+{'APL': 0.0, 'CMT': 0.0, 'DSC': 0.0, 'MAT': 0.0, 'PRO': 0.0, 'SMT': 0.0, 'SPL': 0.0, 'macro_f1': 0.0, 'micro_f1': 0}
+training_time:0.05657792091369629
+loss:0.7237421870231628
+{'APL': 0.0, 'CMT': 0.0, 'DSC': 0.0, 'MAT': 0.0, 'PRO': 0.0, 'SMT': 0.0, 'SPL': 0.0, 'macro_f1': 0.0, 'micro_f1': 0}
+training_time:0.05435991287231445
+loss:0.6148644685745239
+{'APL': 0.0, 'CMT': 0.0, 'DSC': 0.0, 'MAT': 0.0, 'PRO': 0.0, 'SMT': 0.0, 'SPL': 0.0, 'macro_f1': 0.0, 'micro_f1': 0}
+training_time:0.05438089370727539
+loss:0.4827706515789032
+{'APL': 0.0, 'CMT': 0.0, 'DSC': 0.0, 'MAT': 0.0, 'PRO': 0.0, 'SMT': 0.0, 'SPL': 0.0, 'macro_f1': 0.0, 'micro_f1': 0}
+training_time:0.05465507507324219
+loss:0.38739556074142456
+{'APL': 2.2857142857142856, 'CMT': 5.687203791469194, 'DSC': 0.0, 'MAT': 1.749271137026239, 'PRO': 0.0, 'SMT': 0.0, 'SPL': 5.194805194805195, 'macro_f1': 0.021309992012878448, 'micro_f1': 0.012663237039968342}
+training_time:0.05440783500671387
+loss:0.30421799421310425
+{'APL': 8.968609865470851, 'CMT': 21.88679245283019, 'DSC': 1.7130620985010707, 'MAT': 12.048192771084338, 'PRO': 0.7692307692307693, 'SMT': 5.263157894736842, 'SPL': 32.6530612244898, 'macro_f1': 0.11900301010906263, 'micro_f1': 0.08086642599277978}
+training_time:0.05463385581970215
+loss:0.2548959255218506
+{'APL': 22.302158273381295, 'CMT': 35.6687898089172, 'DSC': 4.008016032064128, 'MAT': 18.92901618929016, 'PRO': 0.9987515605493132, 'SMT': 15.315315315315313, 'SPL': 36.89320388349515, 'macro_f1': 0.19159321580430366, 'micro_f1': 0.14105960264900663}
+training_time:0.05482769012451172
+loss:0.18830753862857819
+{'APL': 26.027397260273972, 'CMT': 40.60606060606061, 'DSC': 6.048387096774193, 'MAT': 22.33009708737864, 'PRO': 1.4723926380368098, 'SMT': 19.672131147540988, 'SPL': 39.21568627450981, 'macro_f1': 0.22196021730082147, 'micro_f1': 0.1688688366097325}
+training_time:0.0563509464263916
+loss:0.14371761679649353
+{'APL': 27.424749163879596, 'CMT': 39.02439024390244, 'DSC': 6.910569105691057, 'MAT': 24.70308788598575, 'PRO': 2.4330900243309004, 'SMT': 23.293172690763054, 'SPL': 40.77669902912622, 'macro_f1': 0.23509394020525576, 'micro_f1': 0.18245614035087718}
+training_time:0.05378079414367676
+loss:0.12782475352287292
+{'APL': 31.952662721893493, 'CMT': 43.58208955223881, 'DSC': 8.366533864541834, 'MAT': 26.820809248554916, 'PRO': 2.8402366863905324, 'SMT': 29.323308270676694, 'SPL': 40.38461538461539, 'macro_f1': 0.26181465104130236, 'micro_f1': 0.2064516129032258}
+training_time:0.053000688552856445
+loss:0.11190178990364075
+{'APL': 33.76623376623377, 'CMT': 49.2836676217765, 'DSC': 12.052730696798493, 'MAT': 29.14349276974416, 'PRO': 5.040091638029782, 'SMT': 35.61643835616438, 'SPL': 40.77669902912622, 'macro_f1': 0.2938276483969619, 'micro_f1': 0.23834498834498835}
+training_time:0.05490541458129883
+loss:0.0919261947274208
+{'APL': 34.35294117647059, 'CMT': 51.2396694214876, 'DSC': 14.285714285714285, 'MAT': 32.27176220806794, 'PRO': 8.879023307436183, 'SMT': 38.31168831168831, 'SPL': 41.9047619047619, 'macro_f1': 0.31606508659375254, 'micro_f1': 0.2662952646239554}
+training_time:0.054463863372802734
+loss:0.07531754672527313
+{'APL': 33.035714285714285, 'CMT': 51.733333333333334, 'DSC': 16.901408450704224, 'MAT': 34.060228452751815, 'PRO': 10.25081788440567, 'SMT': 37.267080745341616, 'SPL': 40.74074074074074, 'macro_f1': 0.3199847484185596, 'micro_f1': 0.276681977843826}
+training_time:0.05922389030456543
+loss:0.0734838992357254
+{'APL': 34.13566739606127, 'CMT': 52.49343832020996, 'DSC': 18.086956521739133, 'MAT': 34.809474768280126, 'PRO': 10.54897739504844, 'SMT': 36.474164133738604, 'SPL': 40.36697247706422, 'macro_f1': 0.3241652157316311, 'micro_f1': 0.2825913089842709}

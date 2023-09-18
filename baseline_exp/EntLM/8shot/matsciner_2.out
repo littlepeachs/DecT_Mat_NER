@@ -1,153 +1,0 @@
-05/11/2023 00:32:59 - INFO - __main__ - Distributed environment: NO
-Num processes: 1
-Process index: 0
-Local process index: 0
-Device: cuda
-
-Mixed precision type: no
-
-05/11/2023 00:33:00 - WARNING - datasets.builder - Found cached dataset json (/home/liwentao/.cache/huggingface/datasets/json/default-18e93fae9dc4599b/0.0.0/0f7e3662623656454fcd2b650f34e886a7db4b9104504885bd462096cc7a9f51)
-  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00, 423.65it/s]
-loading configuration file config.json from cache at /home/liwentao/.cache/huggingface/hub/models--m3rg-iitd--matscibert/snapshots/24a4e4318dda9bc18bff5e6a45debdcb3e1780e3/config.json
-Model config BertConfig {
-  "_name_or_path": "m3rg-iitd/matscibert",
-  "architectures": [
-    "BertForMaskedLM"
-  ],
-  "attention_probs_dropout_prob": 0.1,
-  "classifier_dropout": null,
-  "gradient_checkpointing": false,
-  "hidden_act": "gelu",
-  "hidden_dropout_prob": 0.1,
-  "hidden_size": 768,
-  "initializer_range": 0.02,
-  "intermediate_size": 3072,
-  "layer_norm_eps": 1e-12,
-  "max_position_embeddings": 512,
-  "model_type": "bert",
-  "num_attention_heads": 12,
-  "num_hidden_layers": 12,
-  "pad_token_id": 0,
-  "position_embedding_type": "absolute",
-  "transformers_version": "4.27.1",
-  "type_vocab_size": 2,
-  "use_cache": true,
-  "vocab_size": 31090
-}
-
-loading configuration file config.json from cache at /home/liwentao/.cache/huggingface/hub/models--m3rg-iitd--matscibert/snapshots/24a4e4318dda9bc18bff5e6a45debdcb3e1780e3/config.json
-Model config BertConfig {
-  "_name_or_path": "m3rg-iitd/matscibert",
-  "architectures": [
-    "BertForMaskedLM"
-  ],
-  "attention_probs_dropout_prob": 0.1,
-  "classifier_dropout": null,
-  "gradient_checkpointing": false,
-  "hidden_act": "gelu",
-  "hidden_dropout_prob": 0.1,
-  "hidden_size": 768,
-  "initializer_range": 0.02,
-  "intermediate_size": 3072,
-  "layer_norm_eps": 1e-12,
-  "max_position_embeddings": 512,
-  "model_type": "bert",
-  "num_attention_heads": 12,
-  "num_hidden_layers": 12,
-  "pad_token_id": 0,
-  "position_embedding_type": "absolute",
-  "transformers_version": "4.27.1",
-  "type_vocab_size": 2,
-  "use_cache": true,
-  "vocab_size": 31090
-}
-
-loading file vocab.txt from cache at /home/liwentao/.cache/huggingface/hub/models--m3rg-iitd--matscibert/snapshots/24a4e4318dda9bc18bff5e6a45debdcb3e1780e3/vocab.txt
-loading file tokenizer.json from cache at /home/liwentao/.cache/huggingface/hub/models--m3rg-iitd--matscibert/snapshots/24a4e4318dda9bc18bff5e6a45debdcb3e1780e3/tokenizer.json
-loading file added_tokens.json from cache at None
-loading file special_tokens_map.json from cache at /home/liwentao/.cache/huggingface/hub/models--m3rg-iitd--matscibert/snapshots/24a4e4318dda9bc18bff5e6a45debdcb3e1780e3/special_tokens_map.json
-loading file tokenizer_config.json from cache at /home/liwentao/.cache/huggingface/hub/models--m3rg-iitd--matscibert/snapshots/24a4e4318dda9bc18bff5e6a45debdcb3e1780e3/tokenizer_config.json
-loading configuration file config.json from cache at /home/liwentao/.cache/huggingface/hub/models--m3rg-iitd--matscibert/snapshots/24a4e4318dda9bc18bff5e6a45debdcb3e1780e3/config.json
-Model config BertConfig {
-  "_name_or_path": "m3rg-iitd/matscibert",
-  "architectures": [
-    "BertForMaskedLM"
-  ],
-  "attention_probs_dropout_prob": 0.1,
-  "classifier_dropout": null,
-  "gradient_checkpointing": false,
-  "hidden_act": "gelu",
-  "hidden_dropout_prob": 0.1,
-  "hidden_size": 768,
-  "initializer_range": 0.02,
-  "intermediate_size": 3072,
-  "layer_norm_eps": 1e-12,
-  "max_position_embeddings": 512,
-  "model_type": "bert",
-  "num_attention_heads": 12,
-  "num_hidden_layers": 12,
-  "pad_token_id": 0,
-  "position_embedding_type": "absolute",
-  "transformers_version": "4.27.1",
-  "type_vocab_size": 2,
-  "use_cache": true,
-  "vocab_size": 31090
-}
-
-loading weights file pytorch_model.bin from cache at /home/liwentao/.cache/huggingface/hub/models--m3rg-iitd--matscibert/snapshots/24a4e4318dda9bc18bff5e6a45debdcb3e1780e3/pytorch_model.bin
-Generate config GenerationConfig {
-  "_from_model_config": true,
-  "pad_token_id": 0,
-  "transformers_version": "4.27.1"
-}
-
-All model checkpoint weights were used when initializing BertForMaskedLM.
-
-All the weights of BertForMaskedLM were initialized from the model checkpoint at m3rg-iitd/matscibert.
-If your task is similar to the task the model of the checkpoint was trained on, you can already use BertForMaskedLM for predictions without further training.
-Generation config file not found, using a generation config created from the model config.
-Loading label map from scripts/matsciner/final_verbalizer.json...
-{'I-CMT': ['electron', 'diffraction', 'microscopy', 'spectroscopy', 'scanning', 'raman', 'transmission', 'test', 'neutron'], 'I-MAT': ['oxide', 'silicon', 'carbon', 'graphene', 'aluminum', 'titanium', 'steel', 'oxides'], 'I-DSC': ['films', 'doped', 'thin', 'film', 'alloy', 'substrate', 'layer', 'single', 'alloys'], 'I-PRO': ['properties', 'structure', 'magnetic', 'band', 'conductivity', 'resistance', 'density', 'behavior', 'electrical'], 'I-SMT': ['annealing', 'gel', 'plasma', 'hydrothermal', 'annealed', 'sol', 'treatment', 'irradiation', 'vapor'], 'I-APL': ['coatings', 'coating', 'solar', 'cells', 'electrode', 'applications', 'electrodes', 'catalysts', 'cathode'], 'I-SPL': ['cubic', 'hexagonal', 'rock', 'ch']}
-{'O': 0, 'I-CMT': 1, 'I-MAT': 2, 'I-DSC': 3, 'I-PRO': 4, 'I-SMT': 5, 'I-APL': 6, 'I-SPL': 7, 'B-CMT': 8, 'B-MAT': 9, 'B-DSC': 10, 'B-PRO': 11, 'B-SMT': 12, 'B-APL': 13, 'B-SPL': 14}
-I-CMT
-[3081, 10314, 5820, 7779, 7070, 12009, 2856, 856, 14049]
-I-MAT
-[6678, 8605, 3473, 11106, 15028, 19090, 10735, 20464]
-I-DSC
-[7423, 21155, 5197, 5796, 15937, 4061, 2474, 1232, 20683]
-I-PRO
-[1784, 1187, 3510, 2102, 9370, 2661, 2027, 1689, 4874]
-I-SMT
-[12040, 4051, 2780, 29973, 27202, 638, 922, 8896, 12766]
-I-APL
-[20189, 9754, 6911, 576, 6665, 2040, 8438, 15834, 19112]
-I-SPL
-[13879, 22235, 8863, 249]
-{'I-CMT': ['electron', 'diffraction', 'microscopy', 'spectroscopy', 'scanning', 'raman', 'transmission', 'test', 'neutron'], 'I-MAT': ['oxide', 'silicon', 'carbon', 'graphene', 'aluminum', 'titanium', 'steel', 'oxides'], 'I-DSC': ['films', 'doped', 'thin', 'film', 'alloy', 'substrate', 'layer', 'single', 'alloys'], 'I-PRO': ['properties', 'structure', 'magnetic', 'band', 'conductivity', 'resistance', 'density', 'behavior', 'electrical'], 'I-SMT': ['annealing', 'gel', 'plasma', 'hydrothermal', 'annealed', 'sol', 'treatment', 'irradiation', 'vapor'], 'I-APL': ['coatings', 'coating', 'solar', 'cells', 'electrode', 'applications', 'electrodes', 'catalysts', 'cathode'], 'I-SPL': ['cubic', 'hexagonal', 'rock', 'ch']}
-Running tokenizer on dataset:   0%|          | 0/21 [00:00<?, ? examples/s]                                                                           Running tokenizer on dataset:   0%|          | 0/546 [00:00<?, ? examples/s]Running tokenizer on dataset: 100%|██████████| 546/546 [00:00<00:00, 5237.68 examples/s]                                                                                        /home/liwentao/Dec-Tuning-in-Mat/train_transformer.py:548: FutureWarning: load_metric is deprecated and will be removed in the next major version of datasets. Use 'evaluate.load' instead, from the new library 🤗 Evaluate: https://huggingface.co/docs/evaluate
-  metric = load_metric("./seqeval_metric.py")
-05/11/2023 00:33:37 - INFO - __main__ - ***** Running training *****
-05/11/2023 00:33:37 - INFO - __main__ -   Num examples = 21
-05/11/2023 00:33:37 - INFO - __main__ -   Num Epochs = 60
-05/11/2023 00:33:37 - INFO - __main__ -   Instantaneous batch size per device = 4
-05/11/2023 00:33:37 - INFO - __main__ -   Total train batch size (w. parallel, distributed & accumulation) = 4
-05/11/2023 00:33:37 - INFO - __main__ -   Gradient Accumulation steps = 1
-05/11/2023 00:33:37 - INFO - __main__ -   Total optimization steps = 360
-tensor([31090, 31091, 31092, 31093, 31094, 31095, 31096], device='cuda:0')
-  0%|          | 0/360 [00:00<?, ?it/s]  0%|          | 1/360 [00:00<00:56,  6.30it/s]  1%|          | 2/360 [00:00<00:45,  7.81it/s]  1%|          | 4/360 [00:00<00:31, 11.47it/s]  2%|▏         | 6/360 [00:00<00:27, 12.68it/s]  2%|▏         | 8/360 [00:00<00:25, 14.04it/s]  3%|▎         | 10/360 [00:00<00:22, 15.31it/s]  3%|▎         | 12/360 [00:00<00:23, 14.86it/s]  4%|▍         | 14/360 [00:01<00:22, 15.07it/s]  4%|▍         | 16/360 [00:01<00:22, 15.32it/s]  5%|▌         | 18/360 [00:01<00:22, 15.43it/s]  6%|▌         | 20/360 [00:01<00:22, 15.03it/s]  6%|▌         | 22/360 [00:01<00:22, 15.18it/s]  7%|▋         | 24/360 [00:01<00:21, 15.48it/s]  7%|▋         | 26/360 [00:01<00:21, 15.40it/s]  8%|▊         | 28/360 [00:01<00:21, 15.44it/s]  8%|▊         | 30/360 [00:02<00:21, 15.64it/s]  9%|▉         | 32/360 [00:02<00:21, 15.11it/s]  9%|▉         | 34/360 [00:02<00:21, 15.34it/s] 10%|█         | 36/360 [00:02<00:21, 15.18it/s] 11%|█         | 38/360 [00:02<00:21, 15.18it/s] 11%|█         | 40/360 [00:02<00:19, 16.16it/s] 12%|█▏        | 42/360 [00:02<00:20, 15.60it/s] 12%|█▏        | 44/360 [00:02<00:21, 14.76it/s] 13%|█▎        | 46/360 [00:03<00:20, 15.04it/s] 13%|█▎        | 48/360 [00:03<00:19, 15.79it/s] 14%|█▍        | 50/360 [00:03<00:19, 16.16it/s] 14%|█▍        | 52/360 [00:03<00:18, 16.56it/s] 15%|█▌        | 54/360 [00:03<00:18, 16.91it/s] 16%|█▌        | 56/360 [00:03<00:18, 16.44it/s] 16%|█▌        | 58/360 [00:03<00:17, 17.04it/s] 17%|█▋        | 60/360 [00:03<00:17, 17.06it/s] 17%|█▋        | 62/360 [00:04<00:18, 16.31it/s] 18%|█▊        | 64/360 [00:04<00:18, 16.38it/s] 18%|█▊        | 66/360 [00:04<00:17, 16.80it/s] 19%|█▉        | 68/360 [00:04<00:17, 16.97it/s] 19%|█▉        | 70/360 [00:04<00:17, 16.90it/s] 20%|██        | 72/360 [00:04<00:16, 17.18it/s] 21%|██        | 74/360 [00:04<00:16, 17.23it/s] 21%|██        | 76/360 [00:04<00:16, 17.16it/s] 22%|██▏       | 78/360 [00:04<00:16, 17.21it/s] 22%|██▏       | 80/360 [00:05<00:16, 17.22it/s] 23%|██▎       | 82/360 [00:05<00:16, 17.21it/s] 23%|██▎       | 84/360 [00:05<00:15, 17.36it/s] 24%|██▍       | 86/360 [00:05<00:15, 17.27it/s] 24%|██▍       | 88/360 [00:05<00:16, 16.88it/s] 25%|██▌       | 90/360 [00:05<00:16, 16.72it/s] 26%|██▌       | 92/360 [00:05<00:16, 16.75it/s] 26%|██▌       | 94/360 [00:05<00:15, 16.85it/s] 27%|██▋       | 96/360 [00:06<00:15, 17.01it/s] 27%|██▋       | 98/360 [00:06<00:15, 17.05it/s] 28%|██▊       | 100/360 [00:06<00:15, 16.94it/s] 28%|██▊       | 102/360 [00:06<00:15, 16.44it/s] 29%|██▉       | 104/360 [00:06<00:15, 16.06it/s] 29%|██▉       | 106/360 [00:06<00:15, 16.05it/s] 30%|███       | 108/360 [00:06<00:15, 16.16it/s] 31%|███       | 110/360 [00:06<00:15, 15.95it/s] 31%|███       | 112/360 [00:07<00:15, 15.63it/s] 32%|███▏      | 114/360 [00:07<00:15, 15.87it/s] 32%|███▏      | 116/360 [00:07<00:15, 15.53it/s] 33%|███▎      | 118/360 [00:07<00:15, 15.68it/s] 33%|███▎      | 120/360 [00:07<00:15, 15.89it/s] 34%|███▍      | 122/360 [00:07<00:15, 15.76it/s] 34%|███▍      | 124/360 [00:07<00:14, 15.85it/s] 35%|███▌      | 126/360 [00:07<00:14, 16.03it/s] 36%|███▌      | 128/360 [00:08<00:14, 15.85it/s] 36%|███▌      | 130/360 [00:08<00:14, 15.88it/s] 37%|███▋      | 132/360 [00:08<00:14, 16.03it/s] 37%|███▋      | 134/360 [00:08<00:15, 14.97it/s] 38%|███▊      | 136/360 [00:08<00:15, 14.57it/s] 38%|███▊      | 138/360 [00:08<00:14, 15.02it/s] 39%|███▉      | 140/360 [00:08<00:15, 14.46it/s] 39%|███▉      | 142/360 [00:09<00:14, 15.10it/s] 40%|████      | 144/360 [00:09<00:13, 15.86it/s] 41%|████      | 146/360 [00:09<00:13, 16.13it/s] 41%|████      | 148/360 [00:09<00:12, 16.32it/s] 42%|████▏     | 150/360 [00:09<00:12, 16.36it/s] 42%|████▏     | 152/360 [00:09<00:13, 15.48it/s] 43%|████▎     | 154/360 [00:09<00:13, 14.89it/s] 43%|████▎     | 156/360 [00:09<00:13, 15.01it/s] 44%|████▍     | 158/360 [00:10<00:13, 15.00it/s] 44%|████▍     | 160/360 [00:10<00:13, 15.32it/s] 45%|████▌     | 162/360 [00:10<00:12, 16.08it/s] 46%|████▌     | 164/360 [00:10<00:12, 16.24it/s] 46%|████▌     | 166/360 [00:10<00:11, 16.53it/s] 47%|████▋     | 168/360 [00:10<00:11, 16.77it/s] 47%|████▋     | 170/360 [00:10<00:11, 16.58it/s] 48%|████▊     | 172/360 [00:10<00:11, 16.37it/s] 48%|████▊     | 174/360 [00:10<00:11, 16.24it/s] 49%|████▉     | 176/360 [00:11<00:12, 15.24it/s] 49%|████▉     | 178/360 [00:11<00:12, 14.79it/s] 50%|█████     | 180/360 [00:11<00:11, 15.10it/s] 51%|█████     | 182/360 [00:11<00:11, 15.22it/s] 51%|█████     | 184/360 [00:11<00:11, 15.52it/s] 52%|█████▏    | 186/360 [00:11<00:10, 15.88it/s] 52%|█████▏    | 188/360 [00:11<00:10, 15.66it/s] 53%|█████▎    | 190/360 [00:12<00:10, 15.85it/s] 53%|█████▎    | 192/360 [00:12<00:10, 16.10it/s] 54%|█████▍    | 194/360 [00:12<00:10, 15.88it/s] 54%|█████▍    | 196/360 [00:12<00:10, 16.04it/s] 55%|█████▌    | 198/360 [00:12<00:09, 16.33it/s] 56%|█████▌    | 200/360 [00:12<00:09, 16.05it/s] 56%|█████▌    | 202/360 [00:12<00:09, 16.03it/s] 57%|█████▋    | 204/360 [00:12<00:09, 15.90it/s] 57%|█████▋    | 206/360 [00:13<00:09, 15.71it/s] 58%|█████▊    | 208/360 [00:13<00:09, 15.67it/s] 58%|█████▊    | 210/360 [00:13<00:09, 15.83it/s] 59%|█████▉    | 212/360 [00:13<00:09, 15.67it/s] 59%|█████▉    | 214/360 [00:13<00:09, 15.56it/s] 60%|██████    | 216/360 [00:13<00:09, 15.81it/s] 61%|██████    | 218/360 [00:13<00:09, 15.75it/s] 61%|██████    | 220/360 [00:13<00:08, 15.88it/s] 62%|██████▏   | 222/360 [00:14<00:08, 15.68it/s] 62%|██████▏   | 224/360 [00:14<00:08, 15.60it/s] 63%|██████▎   | 226/360 [00:14<00:08, 15.74it/s] 63%|██████▎   | 228/360 [00:14<00:08, 16.00it/s] 64%|██████▍   | 230/360 [00:14<00:07, 16.43it/s] 64%|██████▍   | 232/360 [00:14<00:07, 16.93it/s] 65%|██████▌   | 234/360 [00:14<00:07, 17.14it/s] 66%|██████▌   | 236/360 [00:14<00:07, 17.08it/s] 66%|██████▌   | 238/360 [00:15<00:07, 16.77it/s] 67%|██████▋   | 240/360 [00:15<00:07, 16.73it/s] 67%|██████▋   | 242/360 [00:15<00:07, 16.64it/s] 68%|██████▊   | 244/360 [00:15<00:06, 17.06it/s] 68%|██████▊   | 246/360 [00:15<00:06, 17.19it/s] 69%|██████▉   | 248/360 [00:15<00:06, 16.64it/s] 69%|██████▉   | 250/360 [00:15<00:06, 16.43it/s] 70%|███████   | 252/360 [00:15<00:06, 16.45it/s] 71%|███████   | 254/360 [00:15<00:06, 16.16it/s] 71%|███████   | 256/360 [00:16<00:06, 16.71it/s] 72%|███████▏  | 258/360 [00:16<00:06, 16.92it/s] 72%|███████▏  | 260/360 [00:16<00:05, 17.19it/s] 73%|███████▎  | 262/360 [00:16<00:05, 17.66it/s] 73%|███████▎  | 264/360 [00:16<00:05, 17.88it/s] 74%|███████▍  | 266/360 [00:16<00:05, 17.67it/s] 74%|███████▍  | 268/360 [00:16<00:05, 17.86it/s] 75%|███████▌  | 270/360 [00:16<00:05, 17.89it/s] 76%|███████▌  | 272/360 [00:16<00:04, 17.76it/s] 76%|███████▌  | 274/360 [00:17<00:05, 16.97it/s] 77%|███████▋  | 276/360 [00:17<00:04, 17.18it/s] 77%|███████▋  | 278/360 [00:17<00:05, 16.26it/s] 78%|███████▊  | 280/360 [00:17<00:05, 15.92it/s] 78%|███████▊  | 282/360 [00:17<00:04, 15.92it/s] 79%|███████▉  | 284/360 [00:17<00:04, 15.77it/s] 79%|███████▉  | 286/360 [00:17<00:04, 15.83it/s] 80%|████████  | 288/360 [00:18<00:04, 15.98it/s] 81%|████████  | 290/360 [00:18<00:04, 15.67it/s] 81%|████████  | 292/360 [00:18<00:04, 15.74it/s] 82%|████████▏ | 294/360 [00:18<00:04, 15.92it/s] 82%|████████▏ | 296/360 [00:18<00:04, 15.75it/s] 83%|████████▎ | 298/360 [00:18<00:03, 15.61it/s] 83%|████████▎ | 300/360 [00:18<00:03, 15.83it/s] 84%|████████▍ | 302/360 [00:18<00:03, 15.69it/s] 84%|████████▍ | 304/360 [00:19<00:03, 15.90it/s] 85%|████████▌ | 306/360 [00:19<00:03, 16.39it/s] 86%|████████▌ | 308/360 [00:19<00:03, 16.65it/s] 86%|████████▌ | 310/360 [00:19<00:02, 16.92it/s] 87%|████████▋ | 312/360 [00:19<00:02, 17.20it/s] 87%|████████▋ | 314/360 [00:19<00:02, 17.23it/s] 88%|████████▊ | 316/360 [00:19<00:02, 17.22it/s] 88%|████████▊ | 318/360 [00:19<00:02, 17.40it/s] 89%|████████▉ | 320/360 [00:19<00:02, 17.33it/s] 89%|████████▉ | 322/360 [00:20<00:02, 17.37it/s] 90%|█████████ | 324/360 [00:20<00:02, 17.53it/s] 91%|█████████ | 326/360 [00:20<00:01, 17.15it/s] 91%|█████████ | 328/360 [00:20<00:01, 16.72it/s] 92%|█████████▏| 330/360 [00:20<00:01, 16.66it/s] 92%|█████████▏| 332/360 [00:20<00:01, 16.30it/s] 93%|█████████▎| 334/360 [00:20<00:01, 15.47it/s] 93%|█████████▎| 336/360 [00:20<00:01, 15.06it/s] 94%|█████████▍| 338/360 [00:21<00:01, 14.83it/s] 94%|█████████▍| 340/360 [00:21<00:01, 15.37it/s] 95%|█████████▌| 342/360 [00:21<00:01, 15.98it/s] 96%|█████████▌| 344/360 [00:21<00:00, 16.25it/s] 96%|█████████▌| 346/360 [00:21<00:00, 16.32it/s] 97%|█████████▋| 348/360 [00:21<00:00, 16.23it/s] 97%|█████████▋| 350/360 [00:21<00:00, 15.89it/s] 98%|█████████▊| 352/360 [00:21<00:00, 15.44it/s] 98%|█████████▊| 354/360 [00:22<00:00, 15.62it/s] 99%|█████████▉| 356/360 [00:22<00:00, 15.62it/s] 99%|█████████▉| 358/360 [00:22<00:00, 15.80it/s]100%|██████████| 360/360 [00:22<00:00, 15.75it/s]Configuration saved in models/matsciner-fewshot-test/config.json
-Configuration saved in models/matsciner-fewshot-test/generation_config.json
-Model weights saved in models/matsciner-fewshot-test/pytorch_model.bin
-tokenizer config file saved in models/matsciner-fewshot-test/tokenizer_config.json
-Special tokens file saved in models/matsciner-fewshot-test/special_tokens_map.json
-100%|██████████| 360/360 [00:25<00:00, 14.29it/s]
-Decoding time: 1.495163917541504s
-APL_precision: 0.4897959183673469, APL_recall: 0.4235294117647059, APL_f1: 0.45425867507886436, APL_number: 170
-CMT_precision: 0.6243654822335025, CMT_recall: 0.6307692307692307, CMT_f1: 0.6275510204081632, CMT_number: 195
-DSC_precision: 0.5357142857142857, DSC_recall: 0.20594965675057209, DSC_f1: 0.2975206611570248, DSC_number: 437
-MAT_precision: 0.5825958702064897, MAT_recall: 0.5791788856304986, MAT_f1: 0.5808823529411764, MAT_number: 682
-PRO_precision: 0.5412844036697247, PRO_recall: 0.22957198443579765, PRO_f1: 0.3224043715846995, PRO_number: 771
-SMT_precision: 0.38333333333333336, SMT_recall: 0.26900584795321636, SMT_f1: 0.3161512027491409, SMT_number: 171
-SPL_precision: 0.46835443037974683, SPL_recall: 0.49333333333333335, SPL_f1: 0.4805194805194805, SPL_number: 75
-overall_precision: 0.5477855477855478, overall_recall: 0.3758496601359456, overall_f1: 0.44581456011382503, overall_accuracy: 0.8137374026159674
-Finish training, best metric: 
-{'APL_precision': 0.4897959183673469, 'APL_recall': 0.4235294117647059, 'APL_f1': 0.45425867507886436, 'APL_number': 170, 'CMT_precision': 0.6243654822335025, 'CMT_recall': 0.6307692307692307, 'CMT_f1': 0.6275510204081632, 'CMT_number': 195, 'DSC_precision': 0.5357142857142857, 'DSC_recall': 0.20594965675057209, 'DSC_f1': 0.2975206611570248, 'DSC_number': 437, 'MAT_precision': 0.5825958702064897, 'MAT_recall': 0.5791788856304986, 'MAT_f1': 0.5808823529411764, 'MAT_number': 682, 'PRO_precision': 0.5412844036697247, 'PRO_recall': 0.22957198443579765, 'PRO_f1': 0.3224043715846995, 'PRO_number': 771, 'SMT_precision': 0.38333333333333336, 'SMT_recall': 0.26900584795321636, 'SMT_f1': 0.3161512027491409, 'SMT_number': 171, 'SPL_precision': 0.46835443037974683, 'SPL_recall': 0.49333333333333335, 'SPL_f1': 0.4805194805194805, 'SPL_number': 75, 'overall_precision': 0.5477855477855478, 'overall_recall': 0.3758496601359456, 'overall_f1': 0.44581456011382503, 'overall_accuracy': 0.8137374026159674}
